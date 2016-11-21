@@ -10,3 +10,7 @@ before_script:
   - bundle exec rake db:migrate
   - bundle exec rake db:test:prepare
 bundler_args: --binstubs=./bundler_stubs
+deploy:
+  provider: heroku
+  api_key: "a21f33d9-1641-426e-9b93-ed3ebbff0257"
+  app: squarebets
