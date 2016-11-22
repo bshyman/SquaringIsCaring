@@ -1,0 +1,3 @@
+class ContestsController < ApplicationController
+  
+end
