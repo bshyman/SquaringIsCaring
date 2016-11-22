@@ -24,7 +24,7 @@
         <ul class="right hide-on-med-and-down">
 
           <% if user_signed_in? %>
-            <li><a href="#">Logged In as <%= current_user.firstname %></a></li>
+            <li><a href="#">Logged In as <%= current_user.first_name %></a></li>
             <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
             <li><%= link_to 'Logout', destroy_user_session_path %></li>
           <% else %>
