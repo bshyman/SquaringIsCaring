@@ -31,3 +31,7 @@
 .corner {
   background: black;
 }
+
+.board_display {
+  zoom: 50%;
+}
