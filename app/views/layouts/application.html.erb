@@ -31,6 +31,10 @@
             <li><%= link_to 'Login', new_user_session_path %></li>
             <li><%= link_to 'Register', new_user_registration_path %></li>
           <% end %>
+          
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, id: "flash_#{name}" %>
+          <% end %>
 
           <!-- Dropdown Trigger -->
           <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
