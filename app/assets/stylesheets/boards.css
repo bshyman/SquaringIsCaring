@@ -1,0 +1,30 @@
+.col {
+  border: 1px solid black;
+  padding: 20px !important;
+  text-align: center;
+}
+
+.row {
+  margin-top: -20px !important;
+}
+
+.home_row {
+  margin-top: 20px !important;
+}
+
+.square:hover {
+  background: yellow;
+}
+
+.board_info {
+  text-align: center;
+}
+
+.away_num, .home_num {
+  background: blue;
+  color: white;
+}
+
+.corner {
+  background: black;
+}
