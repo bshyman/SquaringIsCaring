@@ -24,9 +24,9 @@
         <ul class="right hide-on-med-and-down">
 
           <% if user_signed_in? %>
-            <li><a href="#">Logged In (name)</a></li>
+            <li><a href="#">Logged In as <%= current_user.firstname %></a></li>
             <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-            <li><%= link_to 'Logout', delete_user_session_path %></li>
+            <li><%= link_to 'Logout', destroy_user_session_path %></li>
           <% else %>
             <li><%= link_to 'Login', new_user_session_path %></li>
             <li><%= link_to 'Register', new_user_registration_path %></li>
@@ -48,9 +48,11 @@
       <li><a href="#!">three</a></li>
     </ul>
 
-    <p class="notice"><%= notice %></p> 
-    <p class="alert"><%= alert %></p>
-    
+    <div>
+      <p class="notice"><%= notice %></p> 
+      <p class="alert"><%= alert %></p>
+    </div>
+
     <%= yield %>
   </body>
 </html>
