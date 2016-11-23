@@ -1,2 +1,2 @@
-class Contest < ApplicationRecord
+class Contest < ActiveRecord::Base
 end
