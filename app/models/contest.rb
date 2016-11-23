@@ -1,2 +1,4 @@
-class Contest < ApplicationRecord
+class Contest < ActiveRecord::Base
+  has_many :cells
+  has_many :users
 end
