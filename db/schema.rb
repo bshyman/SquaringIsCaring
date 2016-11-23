@@ -18,15 +18,23 @@ ActiveRecord::Schema.define(version: 20161123220650) do
   create_table "cells", force: :cascade do |t|
     t.integer  "contest_id",              null: false
     t.integer  "user_id",                 null: false
-    t.string   "position",   default: [],              array: true
-    t.string   "result",     default: [],              array: true
+    t.string   "position",   default: [], null: false, array: true
+    t.string   "result",     default: [], null: false, array: true
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
   create_table "contests", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "event_name",                                                              null: false
+    t.date     "event_date",                                                              null: false
+    t.integer  "cell_value",                                                              null: false
+    t.string   "home_axis",  default: ["4", "7", "1", "8", "3", "5", "2", "9", "6", "0"], null: false, array: true
+    t.string   "away_axis",  default: ["1", "8", "0", "6", "4", "3", "9", "7", "2", "5"], null: false, array: true
+    t.integer  "reserve",    default: 50
+    t.string   "sport",                                                                   null: false
+    t.string   "prizes",     default: [],                                                              array: true
+    t.datetime "created_at",                                                              null: false
+    t.datetime "updated_at",                                                              null: false
   end
 
   create_table "users", force: :cascade do |t|

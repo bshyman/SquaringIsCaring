@@ -3,8 +3,8 @@ class CreateCells < ActiveRecord::Migration[5.0]
     create_table :cells do |t|
       t.integer :contest_id, null:false
       t.integer :user_id, null:false
-      t.string :position, array: true, default: []
-      t.string :result, array: true, default: []
+      t.string :position, null:false, array: true, default: []
+      t.string :result, null:false, array: true, default: []
 
       t.timestamps(null: false)
     end
