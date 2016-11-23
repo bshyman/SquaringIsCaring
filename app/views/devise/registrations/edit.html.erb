@@ -3,14 +3,20 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
+
+      <div class="file-field input-field">
+        <div class="btn">
+        <span>Avatar Upload</span>
+        <input type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
 
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
@@ -20,7 +26,7 @@
 
   <div class="field">
     <%= f.label :birthday %><br />
-    <%= f.date_field :birthday, autofocus: true %>
+    <%= f.date_field :birthday, class:'datepicker', autofocus: true %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -45,14 +51,42 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
+  
+
+ <div class="field">
+    <%= f.label :street_address %><br/>
+    <%= f.text_field :street_address, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :apt_num %><br/>
+    <%= f.text_field :apt_num, autofocus: true %>
+  </div>
+ <div class="field">
+    <%= f.label :city %><br/>
+    <%= f.text_field :city, autofocus: true %>
+  </div>
+ <div class="field">
+    <%= f.label :state %><br/>
+    <%= f.text_field :state, autofocus: true %>
+  </div>
+ <div class="field">
+    <%= f.label :zip %><br/>
+    <%= f.text_field :zip, autofocus: true %>
+  </div>
+<div class="field">
+    <%= f.label :phone_num %><br/>
+    <%= f.text_field :phone_num, autofocus: true %>
+  </div>
+
+
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class:'btn green' %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'btn waves-effect red' %></p>
 
 <%= link_to "Back", :back %>
