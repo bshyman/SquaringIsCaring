@@ -3,28 +3,10 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   
-  <div class="input-field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, placeholder:"first name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
-
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, class:'validate' %>
   </div>
-
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <!-- <input type="date" class="datepicker"> -->
-
-    <%= f.date_field :birthday, class: 'datepicker', autofocus: true %>
-  </div>
-
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -37,6 +19,42 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+  <div class="input-field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, placeholder:"name" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :birthday %><br/>
+    <%= f.date_field :birthday, class: 'datepicker', autofocus: true %>
+  </div>
+
+ <div class="field">
+    <%= f.label :street_address %><br/>
+    <%= f.text_field :street_address, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :apt_num %><br/>
+    <%= f.text_field :apt_num, autofocus: true %>
+  </div>
+ <div class="field">
+    <%= f.label :city %><br/>
+    <%= f.text_field :city, autofocus: true %>
+  </div>
+ <div class="field">
+    <%= f.label :state %><br/>
+    <%= f.text_field :state, autofocus: true %>
+  </div>
+ <div class="field">
+    <%= f.label :zip %><br/>
+    <%= f.text_field :zip, autofocus: true %>
+  </div>
+<div class="field">
+    <%= f.label :phone_num %><br/>
+    <%= f.text_field :phone_num, autofocus: true %>
+  </div>
+
 
   <div class="actions">
     <%= f.submit "Sign up", class: 'btn'%><br>
