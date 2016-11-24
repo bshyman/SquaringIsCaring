@@ -1,10 +1,32 @@
 <div class='container'>
+
   <h3 class='board_info'><% if @contest %><%= @contest.event_name %> 
   </h3>
   <h4 class='board_info'><%= @contest.event_date %></h4>
   <% end %>
   <p class='board_info'><a href="#">payouts</a></p>
   <p class='board_info'><a href="#">rules and regs</a></p>
+  
+ <form action="#">
+    <p>
+      <%= checkerboard.html_safe %>
+
+    </p>
+    <input type="submit" value='Claim Squares'>
+  </form>
+
+
+
+
+</div>
+
+
+
+
+<!-- 
+
+
+
   <div class='board'>
     <div class="row home_row">
       <div class="col s1 corner">text</div>
@@ -151,3 +173,4 @@
     </div>
   </div>
 </div>
+ -->
