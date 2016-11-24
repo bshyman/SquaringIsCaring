@@ -26,6 +26,7 @@
           <% if user_signed_in? %>
             <li><a href="/">Logged In as <%= current_user.name %></a></li>
             <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+            <li><%= link_to 'Create a Board', new_contest_path %></li>
             <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
           <% else %>
             <li><%= link_to 'Login', new_user_session_path %></li>
@@ -42,11 +43,12 @@
       </div>
     </nav>
     <ul id="dropdown1" class="dropdown-content">
-      <li><a href="http://www.google.com">Account</a></li>
+      <li><%= link_to 'Account', edit_user_registration_path%></li>
       <li class="divider"></li>
-      <li><a href="/">History</a></li>
+      <li><%= link_to 'History', edit_user_registration_path%></li>
       <li class="divider"></li>
-      <li><a href="/">My Balance</a></li>
+      <li><%= link_to 'Balance', edit_user_registration_path%></li>
+    
     </ul>
 
     <div>

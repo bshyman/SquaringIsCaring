@@ -9,6 +9,10 @@ class ContestsController < ApplicationController
   	@contest = Contest.new
   end
 
+  def show
+    @contest = Contest.find(params[:id])
+  end
+
   def create
   	@contest = Contest.new(contest_params)
   	if @contest.save
@@ -44,8 +48,6 @@ class ContestsController < ApplicationController
   	flash[:notice] = "Your Board has been deleted"
   	render 'index'
   end
-
-
 
 
 private

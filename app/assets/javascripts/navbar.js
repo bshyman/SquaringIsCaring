@@ -1,7 +1,4 @@
-$( document ).ready(function(){
-	
-$( document ).ready(function(){
-  $('select').material_select();
+	$( document ).ready(function(){
   $(".dropdown-button").dropdown({
     inDuration: 500,
       outDuration: 500,
@@ -16,5 +13,6 @@ $( document ).ready(function(){
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
+  $('select').material_select();
 })
-  })
+  
