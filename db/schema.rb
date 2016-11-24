@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 20161123220650) do
     t.string   "event_name",                                                              null: false
     t.date     "event_date",                                                              null: false
     t.integer  "cell_value",                                                              null: false
-    t.string   "home_axis",  default: ["6", "4", "1", "3", "8", "2", "5", "7", "0", "9"], null: false, array: true
-    t.string   "away_axis",  default: ["6", "7", "3", "4", "5", "9", "1", "8", "0", "2"], null: false, array: true
-    t.integer  "reserve",    default: 50
+    t.string   "home_axis",  default: ["3", "6", "4", "5", "9", "7", "8", "2", "1", "0"], null: false, array: true
+    t.string   "away_axis",  default: ["7", "9", "8", "3", "6", "0", "1", "5", "4", "2"], null: false, array: true
+    t.string   "reserve",    default: "50"
     t.string   "sport",                                                                   null: false
     t.string   "prizes",     default: [],                                                              array: true
     t.datetime "created_at",                                                              null: false
