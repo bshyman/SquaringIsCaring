@@ -12,7 +12,7 @@ class ContestsController < ApplicationController
   def create
   	@contest = Contest.new(contest_params)
   	if @contest.save
-  		redirect_to contest_path(@contest)
+      render '_board'
   		flash[:notice] = "Your Board has been created"
   	else
   		render 'new'
