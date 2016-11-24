@@ -55,7 +55,7 @@ module ContestsHelper
 		10.times do 
 			string +=
 			"<div class='col s1 square'>
-			  <input type='checkbox' id='#{z}' name='cell' value='#{z}'/>
+			  <input type='checkbox' id='#{z}' name='cell[position][]' value='#{z}'>
 			  <label for='#{z}'></label>
 			</div>"
 			z += 1
