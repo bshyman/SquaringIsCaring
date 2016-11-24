@@ -7,14 +7,19 @@
   <p class='board_info'><a href="#">payouts</a></p>
   <p class='board_info'><a href="#">rules and regs</a></p>
   
- <form action="#">
+
+<div class="row home_row">
+  <div class="col s1 corner"></div>
+    <%= raw home_axis_populater(@contest) %>
+</div>
+
+<%= form_for :cell do |f| %>    
     <p>
-      <%= checkerboard.html_safe %>
-
+      <%= raw away_axis_populater(@contest) %>
+      <%= raw row_checkbox_populater %>
     </p>
-    <input type="submit" value='Claim Squares'>
-  </form>
-
+    <%= f.submit 'Claim Squares' %> 
+<% end %>
 
 
 
@@ -23,23 +28,16 @@
 
 
 
-<!-- 
+
 
 
 
   <div class='board'>
     <div class="row home_row">
-      <div class="col s1 corner">text</div>
-      <div class="col s1 home_num"><%= @contest.home_axis[0] %></div>
-      <div class="col s1 home_num"><%= @contest.home_axis[1] %></div>
-      <div class="col s1 home_num"><%= @contest.home_axis[2] %></div>
-      <div class="col s1 home_num"><%= @contest.home_axis[3] %></div>
-      <div class="col s1 home_num"><%= @contest.home_axis[4] %></div>
-      <div class="col s1 home_num"><%= @contest.home_axis[5] %></div>
-      <div class="col s1 home_num"><%= @contest.home_axis[6] %></div>
-      <div class="col s1 home_num"><%= @contest.home_axis[7] %></div>
-      <div class="col s1 home_num"><%= @contest.home_axis[8] %></div>
-      <div class="col s1 home_num"><%= @contest.home_axis[9] %></div>
+
+
+    <div class="col s1 corner"></div>
+      <%= raw home_axis_populater(@contest) %>
     </div>
     <div class="row one">
       <div class="col s1 away_num"><%= @contest.away_axis[0] %></div>
@@ -173,4 +171,3 @@
     </div>
   </div>
 </div>
- -->
