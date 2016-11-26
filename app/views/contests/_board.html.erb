@@ -13,15 +13,6 @@
     <%= raw home_axis_populater(@contest) %>
 </div>
 
-<!-- <%#= form_for :cell do |f| %>    
-    <p>
-      <%#= raw away_axis_populater(@contest) %>
-      <%#= raw row_checkbox_populater %>
-    </p>
-    <%#= f.submit 'Claim Squares' %>
-    <%# p params %>
-<%# end %> -->
-
 <form action="/contests/<%= @contest.id %>/cells" method='post'>
     <% i = 0 %>
   <% 10.times do%>
@@ -29,9 +20,11 @@
   <%= raw row_checkbox_populater(i) %>
     <%  i += 1 %>
   <% end %>
-
   <input type="submit" value="Claim Sqaures">
 </form>
+<br>
+<br>
+<br>
 
 
 
