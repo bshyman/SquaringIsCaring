@@ -1,10 +1,7 @@
-$( document ).ready(function(){
-	
-$( document ).ready(function(){
-  $('select').material_select();
+	$( document ).ready(function(){
   $(".dropdown-button").dropdown({
-    inDuration: 500,
-      outDuration: 500,
+    inDuration: 50,
+      outDuration: 50,
       constrain_width: false, // Does not change width of dropdown to that of the activator
       hover: true, // Activate on hover
       gutter: 20, // Spacing from edge
@@ -16,5 +13,6 @@ $( document ).ready(function(){
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
+  $('select').material_select();
 })
-  })
+  
