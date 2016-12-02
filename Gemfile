@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "omniauth-google-oauth2"
 gem 'ffaker'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
