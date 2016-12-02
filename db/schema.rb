@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123220650) do
+ActiveRecord::Schema.define(version: 20161202213825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20161123220650) do
     t.string   "event_name",                                                              null: false
     t.date     "event_date",                                                              null: false
     t.integer  "cell_value",                                                              null: false
-    t.string   "home_axis",  default: ["0", "4", "3", "8", "9", "6", "7", "5", "1", "2"], null: false, array: true
-    t.string   "away_axis",  default: ["1", "0", "5", "4", "2", "6", "9", "3", "8", "7"], null: false, array: true
+    t.string   "home_axis",  default: ["9", "7", "4", "8", "6", "1", "3", "0", "5", "2"], null: false, array: true
+    t.string   "away_axis",  default: ["1", "4", "7", "3", "5", "9", "0", "6", "8", "2"], null: false, array: true
     t.string   "reserve",    default: "50"
     t.string   "sport",                                                                   null: false
     t.string   "prizes",     default: [],                                                              array: true
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 20161123220650) do
     t.integer  "zip",                                    null: false
     t.string   "phone_num",                              null: false
     t.boolean  "admin?",                 default: false, null: false
+    t.string   "provider"
+    t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
