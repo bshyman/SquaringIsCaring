@@ -24,7 +24,7 @@
         <ul class="right hide-on-med-and-down">
 
           <% if user_signed_in? %>
-            <li><a href="/">Logged In as <%= current_user.name %></a></li>
+            <li><a href="/">Logged In as <%= current_user.full_name %></a></li>
             <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
             <% if current_user.admin? %>
               <li><%= link_to 'Create a Board', new_contest_path %></li>
