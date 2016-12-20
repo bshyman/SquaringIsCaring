@@ -67,7 +67,8 @@ ActiveRecord::Schema.define(version: 20161220165837) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.string   "name",                                   null: false
+    t.string   "first_name",                             null: false
+    t.string   "last_name",                              null: false
     t.string   "avatar"
     t.date     "birthday",                               null: false
     t.string   "street_address",                         null: false
@@ -76,7 +77,7 @@ ActiveRecord::Schema.define(version: 20161220165837) do
     t.string   "state",                                  null: false
     t.integer  "zip",                                    null: false
     t.string   "phone_num",                              null: false
-    t.boolean  "admin?",                 default: false, null: false
+    t.boolean  "admin?",                 default: false
     t.string   "provider"
     t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
