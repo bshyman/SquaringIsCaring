@@ -4,6 +4,7 @@ class Contest < ActiveRecord::Base
 
   before_save :shuffler, :populate_range
 
+
   def shuffler
     self.home_axis = self.home_axis.shuffle
     self.away_axis = self.away_axis.shuffle
@@ -17,7 +18,4 @@ class Contest < ActiveRecord::Base
     board.delete!(number)
     board
   end
-
-
-
 end

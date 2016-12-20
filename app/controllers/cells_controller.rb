@@ -6,14 +6,16 @@ class CellsController < ApplicationController
 
 		if request.xhr?
 			if @cell.save
-				remove_selected_num(@board, )			
+				remove_selected_num(@board, number)			
 			else
 				flash[:notice] = "Error. Cell not saved"
 				# redirect_to new_user_registration_path
 			end
+
 		else
 			flash[:notice] = "Error. No ajax"
 		end
+
 		render '_board'
 	end
 
