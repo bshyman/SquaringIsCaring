@@ -6,3 +6,5 @@
 results = [[], [1], [1,2], [2]]
 
 500.times{ Cell.create!( contest_id: rand(1..7), user_id: rand(1..5), position: [rand(0..9), rand(0..9)], result: results.sample )}
+
+User.create!(email: "bshyman@gmail.com", password: "password", name: "Benjamin Shyman", avatar: FFaker::Avatar.image, birthday: FFaker::Time.date, street_address: "861 W Lill Ave", apt_num: "2", city: "Chicago", state: "IL", zip: "60614", phone_num: "8473448329", admin?: true)
