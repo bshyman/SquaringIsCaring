@@ -14,6 +14,7 @@ $( document ).ready(function(){
 	url: cellRoute,
 	data: cellId.serialize()
   }).done(function(response){
+  	console.log(response)
   })
   })
 });

@@ -25,16 +25,18 @@ ActiveRecord::Schema.define(version: 20161202213825) do
   end
 
   create_table "contests", force: :cascade do |t|
-    t.string   "event_name",                                                              null: false
-    t.date     "event_date",                                                              null: false
-    t.integer  "cell_value",                                                              null: false
-    t.string   "home_axis",  default: ["2", "7", "5", "4", "8", "0", "1", "6", "3", "9"], null: false, array: true
-    t.string   "away_axis",  default: ["2", "3", "5", "4", "9", "6", "0", "7", "1", "8"], null: false, array: true
-    t.string   "reserve",    default: "50"
-    t.string   "sport",                                                                   null: false
-    t.string   "prizes",     default: [],                                                              array: true
-    t.datetime "created_at",                                                              null: false
-    t.datetime "updated_at",                                                              null: false
+
+    t.string   "event_name",                                                                  null: false
+    t.date     "event_date",                                                                  null: false
+    t.integer  "cell_value",                                                                  null: false
+    t.string   "home_axis",      default: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], null: false, array: true
+    t.string   "away_axis",      default: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], null: false, array: true
+    t.string   "reserve",        default: "50"
+    t.string   "sport",                                                                       null: false
+    t.string   "prizes",         default: [],                                                              array: true
+    t.string   "available_nums", default: [],                                                              array: true
+    t.datetime "created_at",                                                                  null: false
+    t.datetime "updated_at",                                                                  null: false
   end
 
   create_table "users", force: :cascade do |t|
