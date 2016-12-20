@@ -5,14 +5,16 @@ $( document ).ready(function(){
 
 	var cellId = $(this).children().attr("id");
 	var contestId = $(this).parent().parent().attr("action").charAt(10);
-	var cellRoute = "/contests/" + contestId + "/cells/" + cellId;
+	var cellRoute = "/contests/" + contestId + "/cells";
 	// console.log("conID- " + contestId)
 	// console.log("cellid - " + cellId)
 	// console.log("cellroute - " + cellRoute)
   $.ajax({
 	method:'POST',
-	url: cellRoute
+	url: cellRoute,
+	data: cellId.serialize()
   }).done(function(response){
+  	console.log(response)
   })
   })
 });

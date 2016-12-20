@@ -9,6 +9,7 @@ class CreateContests < ActiveRecord::Migration[5.0]
       t.string :reserve, default: "50"
       t.string :sport, null:false
       t.string :prizes, array: true, default: []
+      t.string :available_nums, array: true, default: []
 
       t.timestamps(null: false)
     end
