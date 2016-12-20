@@ -3,11 +3,12 @@ class CellsController < ApplicationController
 	def create
 		@cell = Cell.new(cell_params)
 		if @cell.save
-			render '_board'
+
 		else
-			flash[:notice] = "Error. Please Log in."
-			redirect_to new_user_registration_path
+			flash[:notice] = "Error. Cell not saved"
+			# redirect_to new_user_registration_path
 		end
+			render '_board'
 	end
 
 	
