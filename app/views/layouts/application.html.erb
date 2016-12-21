@@ -39,6 +39,9 @@
           <% flash.each do |name, msg| %>
             <%= content_tag :div, msg, id: "flash_#{name}" %>
           <% end %>
+          <% flash.each do |key, value| %>
+          <%= content_tag :div, value, class: "flash #{key}" %>
+          <% end %>
 
           <!-- Dropdown Trigger -->
           <li><a class="dropdown-button large"  data-activates="dropdown1"><i class="large material-icons">view_list</i></a></li>
@@ -54,11 +57,17 @@
     
     </ul>
 
+<div class='container'>
     <div>
+      <% if flash[:error] -%>
+  <p class='error'><%=h flash[:error] %></p>
+<% end -%>
+<% if flash[:notice] -%>
+  <p class='notice'><%=h flash[:notice] %></p>
+<% end -%>
       <p class="notice"><%= notice %></p> 
       <p class="alert"><%= alert %></p>
     </div>
-<div class='container'>
     <%= yield %>
     </div>
   </body>

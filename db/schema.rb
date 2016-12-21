@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20161220165837) do
   end
 
   create_table "contests", force: :cascade do |t|
-
     t.string   "event_name",                                                                  null: false
     t.date     "event_date",                                                                  null: false
     t.integer  "cell_value",                                                                  null: false
@@ -54,7 +53,6 @@ ActiveRecord::Schema.define(version: 20161220165837) do
     t.string   "available_nums", default: [],                                                              array: true
     t.datetime "created_at",                                                                  null: false
     t.datetime "updated_at",                                                                  null: false
-
   end
 
   create_table "users", force: :cascade do |t|
