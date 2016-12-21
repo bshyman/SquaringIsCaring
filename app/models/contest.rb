@@ -14,8 +14,5 @@ class Contest < ActiveRecord::Base
   	self.available_nums = (0..99).to_a
   end
 
-  def remove_selected_num(board, number)
-    board.delete!(number)
-    board
-  end
+  
 end

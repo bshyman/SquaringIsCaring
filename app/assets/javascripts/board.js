@@ -9,12 +9,12 @@ $( document ).ready(function(){
 	// console.log("conID- " + contestId)
 	// console.log("cellid - " + cellId)
 	// console.log("cellroute - " + cellRoute)
-  $.ajax({
-	method:'POST',
-	url: cellRoute,
-	data: cellId.serialize()
-  }).done(function(response){
-  	console.log(response)
-  })
+ //  $.ajax({
+	// method:'POST',
+	// url: cellRoute,
+	// data: cellId.serialize()
+ //  }).done(function(response){
+ //  	console.log(response)
+ //  })
   })
 });

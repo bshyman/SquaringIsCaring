@@ -31,7 +31,8 @@ module ContestsHelper
 		return string + "</div>"
 	end
 	
-	def ten_rows
-
-	end
+	def remove_selected_nums(board, array)
+    array.each {|number| board.available_nums.delete(number)}
+    board
+  end
 end

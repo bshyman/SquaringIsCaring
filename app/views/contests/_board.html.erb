@@ -20,7 +20,9 @@
   <%= raw row_checkbox_populater(i) %>
     <%  i += 1 %>
   <% end %>
-<!--   <input type="hidden" name='cell[position][]' value> user_id, :contest_id, :position => [], :result => [] -->
+  <input type="hidden" name='cell[position][]' value="24">
+  <input type="hidden" name='cell[user_id]' value="<%= current_user.id %>">
+  <input type="hidden" name='cell[contest_id]' value="<%= @contest.id %>">
   <input type="submit" value="Claim Sqaures">
 </form>
 <br>
