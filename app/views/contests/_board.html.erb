@@ -13,14 +13,14 @@
     <%= raw home_axis_populater(@contest) %>
 </div>
 
-<form action="/contests/<%= @contest.id %>/cells" method='post'>
+<form action="/contests/<%= @contest.id %>/cells" method='POST'>
     <% i = 0 %>
   <% 10.times do%>
       <%= raw away_axis_populater(@contest, i ) %>
   <%= raw row_checkbox_populater(i) %>
     <%  i += 1 %>
   <% end %>
-  <input type="hidden" name='cell[position][]' value="24">
+  <!-- <input type="hidden" name='cell[position][]' value=""> -->
   <input type="hidden" name='cell[user_id]' value="<%= current_user.id %>">
   <input type="hidden" name='cell[contest_id]' value="<%= @contest.id %>">
   <input type="submit" value="Claim Sqaures">

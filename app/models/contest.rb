@@ -2,7 +2,7 @@ class Contest < ActiveRecord::Base
   has_many :cells
   has_many :users
 
-  before_save :shuffler, :populate_range
+  before_create :shuffler, :populate_range
 
 
   def shuffler

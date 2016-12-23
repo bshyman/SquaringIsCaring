@@ -23,8 +23,8 @@ module ContestsHelper
 		10.times do 
 			string +=
 			"<div class='col s1 square'>
-			  <input type='checkbox' id='#{row}#{z}' name='cell[position]' value='#{z}'>
-			  <label for='#{z}'></label>
+			  <input type='checkbox' id='#{row}#{z}' name='cell[position][]' value='#{row}#{z}'>
+			  <label for='#{row}#{z}'></label>
 			</div>"
 			z += 1
 		end
@@ -32,7 +32,12 @@ module ContestsHelper
 	end
 	
 	def remove_selected_nums(board, array)
-    array.each {|number| board.available_nums.delete(number)}
-    board
-  end
+    	array.each do |number|
+    		if number[0] == "0"
+    			number = number[1] 
+    		end
+    		board.available_nums.delete(number)
+    	end
+    	board.available_nums
+  	end
 end

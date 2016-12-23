@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include UsersHelper
   include ContestsHelper
+  include CellsHelper
   protect_from_forgery with: :null_session
 
   before_action :configure_permitted_paramaters, if: :devise_controller?

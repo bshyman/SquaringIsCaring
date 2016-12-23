@@ -3,20 +3,16 @@ class CellsController < ApplicationController
 	def create
 		@board = Contest.find_by(id: params[:contest_id])
 		@cell = Cell.new(cell_params)
-		p "POSITIONSSSS"
-		p @cell.position.class
+		@cell.user_id = current_user.id
 
-		p "PARRRRRRAAAAMMMMMS"
-		p params
-		p @cell.inspect
+		# p "PARRRRRRAAAAMMMMMS"
+		# p params
+		# p @cell.inspect
 		# if request.xhr?
-		p @board.available_nums
 			if @cell.save
-				p "SAVVEEEEDDD"
-				remove_selected_nums(@board, @cell.position)	
-				p 'REMOVVVED?'
-				p @board.available_nums
-
+				new_board = remove_selected_nums(@board, @cell.position)
+				# @cell.save
+				@board.update_attributes(:available_nums => new_board)
 			else
 				flash[:error] = "Error. Cell not saved"
 				# redirect_to new_user_registration_path
