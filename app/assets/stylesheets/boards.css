@@ -35,3 +35,11 @@
 .board_display {
   zoom: 80%;
 }
+
+.square {
+  background-color: red;
+}
+
+.square label {
+  opacity: 0;
+}
