@@ -11,11 +11,13 @@ class ContestsController < ApplicationController
 
   def show
     @contest = Contest.find(params[:id])
+    p params
     if request.xhr?
       p "AJAX"
       @nums = []
-      @contest.available_nums.each{|num| @nums << num.to_i}
+      p @contest.available_nums.each{|num| @nums << num.to_i}
       # @contest.update_attributes!(:available_nums => @nums)
+      p @nums
       render :json => {:contest => @contest, :nums => @nums}
     else
       flash[:notice] = "NO AJAX"
