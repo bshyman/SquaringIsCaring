@@ -37,9 +37,9 @@
 }
 
 .square {
-  background-color: red;
+  background-color: white;
 }
 
 .square label {
-  opacity: 0;
+  /*opacity: 0;*/
 }

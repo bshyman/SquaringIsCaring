@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
   <head>
     <title>SquaringIsCaring</title>
     <%= csrf_meta_tags %>
@@ -8,12 +8,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
-     <!-- Compiled and minified JavaScript -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-            
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
   </head>
 
   <body>
@@ -24,24 +24,18 @@
         <ul class="right hide-on-med-and-down">
 
           <% if user_signed_in? %>
-            <li><a href="/">Logged In as <%= current_user.full_name %></a></li>
-            <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-            <% if current_user.admin? %>
-              <li><%= link_to 'Create a Board', new_contest_path %></li>
-            <% end %>
-            <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+          <!-- <li><a href="/">Logged In as <%= current_user.full_name %></a></li> -->
+          <li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+          <%# if current_user.admin? %>
+          <li><%= link_to 'Create a Board', new_contest_path %></li>
+          <%# end %>
+          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
           <% else %>
-            <li><%= link_to 'Login', new_user_session_path %></li>
-            <li><%= link_to 'Login with Google', user_google_oauth2_omniauth_authorize_path%></li>
-            <li><%= link_to 'Register', new_user_registration_path %></li>
+          <li><%= link_to 'Login', new_user_session_path %></li>
+          <li><%= link_to 'Login with Google', user_google_oauth2_omniauth_authorize_path%></li>
+          <li><%= link_to 'Register', new_user_registration_path %></li>
           <% end %>
           
-          <% flash.each do |name, msg| %>
-            <%= content_tag :div, msg, id: "flash_#{name}" %>
-          <% end %>
-          <% flash.each do |key, value| %>
-          <%= content_tag :div, value, class: "flash #{key}" %>
-          <% end %>
 
           <!-- Dropdown Trigger -->
           <li><a class="dropdown-button large"  data-activates="dropdown1"><i class="large material-icons">view_list</i></a></li>
@@ -54,21 +48,20 @@
       <li><%= link_to 'History', edit_user_registration_path%></li>
       <li class="divider"></li>
       <li><%= link_to 'Balance', edit_user_registration_path%></li>
-    
+      
     </ul>
 
-<div class='container'>
-    <div>
-      <% if flash[:error] -%>
-  <p class='error'><%=h flash[:error] %></p>
-<% end -%>
-<% if flash[:notice] -%>
-  <p class='notice'><%=h flash[:notice] %></p>
-<% end -%>
-      <p class="notice"><%= notice %></p> 
-      <p class="alert"><%= alert %></p>
-    </div>
-    <%= yield %>
+    <div class='container'>
+     
+      <div>
+        <% if flash[:error] -%>
+        <p class='error'><%=h flash[:error] %></p>
+        <% end -%>
+        <% if flash[:notice] -%>
+        <p class='notice'><%=h flash[:notice] %></p>
+        <% end -%>
+      </div>
+      <%= yield %>
     </div>
   </body>
-</html>
+  </html>
