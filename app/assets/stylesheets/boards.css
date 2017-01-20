@@ -43,3 +43,13 @@
 .square label {
   /*opacity: 0;*/
 }
+
+.enabled {
+  background-color: green;
+  border: 2px solid white;
+}
+
+.disabled {
+  border: 2px solid white;
+  background-color: black;
+}
