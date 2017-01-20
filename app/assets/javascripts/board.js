@@ -9,13 +9,17 @@
         console.log(numString)
 
         for (i=0; i < 100; i++) {
-          // console.log(nums[i])
-          var element = document.getElementById(numString[i]);
-          console.log(element)
+          var element = document.getElementById(addZeros(numString[i]));
           $(element).attr("enabled", "enabled")
           $(element).parent().parent().addClass( "yellow");
         };
       });
+
+    function addZeros(n) {
+    // return (n < 10)? Number('0' + n) : i;
+    return (n < 10 ? '0' : '') + n;
+  }
+
 
     $("div.container").on('click', "div.contest-card", function(e){
       var id = $("div.contest-card").attr("contest_id");
