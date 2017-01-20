@@ -1,5 +1,4 @@
-  <div class='container'>
-
+    <button id="display_board"> Show Taken </button>
     <h3 class='board_info'><% if @contest %><%= @contest.event_name %> 
     </h3>
     <h4 class='board_info'><%= @contest.event_date %></h4>
@@ -21,7 +20,7 @@
     <%= raw row_checkbox_populater(i) %>
       <%  i += 1 %>
     <% end %>
-    <input type="hidden" name='cell[position][]' value="2">
+    <!-- <input type="hidden" name='cell[position][]' value="2"> -->
     <input type="hidden" name='cell[user_id]' value="<%= current_user.id %>">
     <input type="hidden" name='cell[contest_id]' value="<%= @contest.id %>">
     <input type="submit" value="Claim Sqaures" class='btn-large btn-flat center btn waves-effect waves-red'>

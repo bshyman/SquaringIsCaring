@@ -1,6 +1,6 @@
 <h2>Contest List</h2>
 <% @contests.sort {|a,b| b.event_date <=> a.event_date}.each do |contest| %>
-  <div class ="contest-card" id="<%= contest.id %>">
+  <div class ="contest-card" contest_id="<%= contest.id %>">
     <h4><%= link_to contest.event_name, contest_path(contest) %></h4>
   </div>
 

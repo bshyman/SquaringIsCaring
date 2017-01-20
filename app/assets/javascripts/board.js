@@ -1,25 +1,57 @@
   $( document ).ready(function(){
   	var numPool = document.getElementById("num_pool");
+    var contestId = $("form#form").attr("action").charAt(10);
+    $("div.container").on('click', "button#display_board", function(e){
+        // alert("ConID - " + contestId)
+        var numString = $("div#num_pool").text();
+        var numString = numString.replace(/\n/g, "");
+        var numString = numString.match(/\d{1,2}/g)
+        console.log(numString)
 
-    var contestId = $("div.container").on('click', "div.contest-card", function(){
-      var id = $("div.contest-card").attr("id")
-      $.get("/contests/" + id, function(result){
-        var availNums = result.nums
-        for (i=0; i < availNums.length; i++) {
-          if (availNums[i]) {};
-          var element = document.getElementById(availNums[i]);
+        for (i=0; i < 100; i++) {
+          // console.log(nums[i])
+          var element = document.getElementById(numString[i]);
+          console.log(element)
+          $(element).attr("enabled", "enabled")
+          $(element).parent().parent().addClass( "yellow");
         };
       });
-      
+
+    $("div.container").on('click', "div.contest-card", function(e){
+      var id = $("div.contest-card").attr("contest_id");
     });
-    
-      $("div.container").on("click", "div.square", function(){
-        var contestId = $("form#form").attr("action").match(/\d+/);
-         alert($(this).html());
-        $(this).css("background-color", "red");
-        $("input[type=checkbox]", this).attr("checked", "checked");
-        // alert("Contest ID is " + contestId + " and this is " + $(this).html())
+  
+
+    $("div.container").on("click", "div.square", function(){
+      var contestId = $("form#form").attr("action").match(/\d+/);
+         // alert($(this).html());
+         console.log(this)
+         $(this).css("background-color", "red");
+         $("input[type=checkbox]", this).attr("checked", "checked");
       })
+  
+
+
+    //   $.ajax({
+    //     url: "/contests/" + id, 
+    //   }).done(function(result){
+    //     // readyBoard(result);
+    //   });
+    // });
+
+    // }
+
+
+    // function readyBoard(response) {
+    //   for (i=0; i < response.length; i++) {
+    //     var element = document.getElementById(response[i]);
+    //     console.log(element)
+    //     $(element).removeAttr("disabled");
+    //     $(element).addClass("enabled");
+    //   };
+    // };
+
+
 
 
 
