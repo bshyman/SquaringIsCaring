@@ -2,16 +2,24 @@
   	var numPool = document.getElementById("num_pool");
     var contestId = $("form#form").attr("action").charAt(10);
     $("div.container").on('click', "button#display_board", function(e){
-        // alert("ConID - " + contestId)
         var numString = $("div#num_pool").text();
         var numString = numString.replace(/\n/g, "");
         var numString = numString.match(/\d{1,2}/g)
         console.log(numString)
+        for (i = 0; i < 100; i++) {
+              // debugger
+          if (!numString.includes(i.toString())) {
+              // console.log(i + " - " + numString[i])
+            console.log(i)
+            var taken = document.getElementById(i.toString())
+            $(taken).parent().parent().addClass( "black");
+          }
+        };
 
         for (i=0; i < 100; i++) {
           var element = document.getElementById(addZeros(numString[i]));
           $(element).attr("enabled", "enabled")
-          $(element).parent().parent().addClass( "yellow");
+          $(element).parent().parent().addClass( "green");
         };
       });
 
@@ -30,9 +38,15 @@
       var contestId = $("form#form").attr("action").match(/\d+/);
          // alert($(this).html());
          console.log(this)
+         $(this).removeClass('green');
          $(this).css("background-color", "red");
          $("input[type=checkbox]", this).attr("checked", "checked");
       })
+
+    $('form#form').on('submit', "div.square", function(){
+        $(this).addClass('black');
+
+    } )
   
 
 
