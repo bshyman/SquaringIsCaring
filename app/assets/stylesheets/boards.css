@@ -1,6 +1,14 @@
 .board {
   padding-left: 40px;
 }
+
+@font-face {
+  font-family: 'squarey';
+  src:url('fonts/squarey.ttf');
+  src:url('fonts/squarey.eot?#iefix') format("embedded-opentype"),
+  ...
+}
+
 .col {
   border: 1px solid black;
   padding: 20px !important;
@@ -56,7 +64,7 @@ visibility: hidden;
 }
 
 #display_board {
-  display: block;
+  display: squarey;
   width: 50%;
   color: white;
   border-radius: 10px;
@@ -78,6 +86,12 @@ visibility: hidden;
   font-weight: bold;
   background-color: red;
   text-align: center;
+  /*font-family: sq;*/
 
 
+}
+
+#heading {
+  font-family: squarey;
+  color: white;
 }
