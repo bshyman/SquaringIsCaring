@@ -1,6 +1,8 @@
 class CellsController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	def create
+		
+		
 		@board = Contest.find_by(id: params[:contest_id])
 		@cell = Cell.new(cell_params)
 		@cell.user_id = current_user.id
