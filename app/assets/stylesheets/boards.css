@@ -1,6 +1,14 @@
 .board {
   padding-left: 40px;
 }
+
+@font-face {
+  font-family: 'squarey';
+  src:url('fonts/squarey.ttf');
+  src:url('fonts/squarey.eot?#iefix') format("embedded-opentype"),
+  ...
+}
+
 .col {
   border: 1px solid black;
   padding: 20px !important;
@@ -24,14 +32,66 @@
 }
 
 .away_num, .home_num {
-  background: blue;
+  background: red;
   color: white;
 }
 
 .corner {
-  background: black;
+  /*background: /*black*/
+visibility: hidden;
 }
 
 .board_display {
   zoom: 80%;
+}
+
+.square {
+  background-color: white;
+}
+
+.square label {
+  /*opacity: 0;*/
+}
+
+.enabled {
+  background-color: green;
+  border: 2px solid white;
+}
+
+.disabled {
+  border: 2px solid white;
+  background-color: black;
+}
+
+#display_board {
+  display: squarey;
+  width: 50%;
+  color: white;
+  border-radius: 10px;
+  margin: auto;
+  height: 80px;
+  font-size: 2em;
+  background-color: red;
+}
+
+.claim-btn {
+  display: block;
+  width: 50%;
+  color: black;
+  border-radius: 10px;
+  border: solid 4px;
+  margin: 0px 20%;
+  height: 100px;
+  font-size: 3em;
+  font-weight: bold;
+  background-color: red;
+  text-align: center;
+  /*font-family: sq;*/
+
+
+}
+
+#heading {
+  font-family: squarey;
+  color: white;
 }

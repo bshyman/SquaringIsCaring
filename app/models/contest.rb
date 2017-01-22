@@ -2,7 +2,7 @@ class Contest < ActiveRecord::Base
   has_many :cells
   has_many :users
 
-  before_save :shuffler, :populate_range
+  before_create :shuffler, :populate_range
 
 
   def shuffler
@@ -14,8 +14,5 @@ class Contest < ActiveRecord::Base
   	self.available_nums = (0..99).to_a
   end
 
-  def remove_selected_num(board, number)
-    board.delete!(number)
-    board
-  end
+  
 end

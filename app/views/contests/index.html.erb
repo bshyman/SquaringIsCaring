@@ -1,25 +1,7 @@
-<h2>Contest List</h2> 
-
+<h2>Contest List</h2>
 <% @contests.sort {|a,b| b.event_date <=> a.event_date}.each do |contest| %>
-	<div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/office.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">  
-        <%= contest.event_name %>
-<i class="material-icons right">more_vert</i></span>
-      <p><a href="#"> <%= contest.sport %>
-</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><%= contest.event_name %><i class="material-icons right">close</i></span>
-      <p>  
-        <%= link_to 'View Board', contest_path(contest) %>
-        <%= contest.event_date %>
-</p>
-    </div>
+  <div class ="contest-card" contest_id="<%= contest.id %>">
+    <h4><%= link_to contest.event_name, contest_path(contest) %></h4>
   </div>
 
-  
 <% end %>

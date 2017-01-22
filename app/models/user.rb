@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :cells
 
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,7 +13,10 @@ class User < ApplicationRecord
       user.uid = auth.uid
       user.email = auth.info.email 
       user.avatar = auth.info.picture
+      p "In Method"
+      p user
     end
+
   end
 
   def self.new_with_session(params, session)

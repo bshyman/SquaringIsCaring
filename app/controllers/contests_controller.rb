@@ -11,17 +11,32 @@ class ContestsController < ApplicationController
 
   def show
     @contest = Contest.find(params[:id])
+    p params
+    if request.xhr?
+      p "AJAX"
+      @nums = []
+      @contest.available_nums.each{|num| @nums << num.to_i}
+      # @contest.update_attributes!(:available_nums => @nums)
+      p @nums
+      # render :json => {:contest => @contest, :nums => @nums}
+      render :json => @nums
+      # render '_board'  locals: @contest
+    else
+      flash[:notice] = "NO AJAX"
+      p "NO AJAX"
+      # redirect_to login_path
+    end
   end
 
   def create
   	@contest = Contest.new(contest_params)
   	if @contest.save
+      flash[:notice] = "Your Board has been created"
       render '_board'
-  		flash[:notice] = "Your Board has been created"
-  	else
-  		render 'new'
-  		@errors = @contest.errors.full_messages	
-  	end
+    else
+      render 'new'
+      @errors = @contest.errors.full_messages	
+    end
   end
 
   def edit
@@ -41,7 +56,7 @@ class ContestsController < ApplicationController
   	end
   end
 
-  	
+
   def destroy
   	@contest = Contest.find(params[:id])
   	@contest.destroy
@@ -50,9 +65,9 @@ class ContestsController < ApplicationController
   end
 
 
-private
-	def contest_params
-		params.require(:contest).permit(:event_name, :event_date, :cell_value, :sport, :reserve, :prizes)
-	end
+  private
+  def contest_params
+    params.require(:contest).permit(:event_name, :event_date, :cell_value, :sport, :reserve, :prizes)
+  end
 
 end
