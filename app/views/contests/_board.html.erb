@@ -1,14 +1,11 @@
-    <h3 class='board_info'><% if @contest %><%= @contest.event_name %> 
-    </h3>
+    <h3 class='board_info'><%= @contest.event_name %> </h3>
     <h4 class='board_info'><%= @contest.event_date %></h4>
-    <h4 class='board_info'><%= DateTime.now.localtime %></h4>
-    <% end %>
-    <p class='board_info'><a href="#">payouts</a></p>
-    <p class='board_info'><a href="#">rules and regs</a></p>
-   <div id='num_pool'>
-      <%= @contest.available_nums %>
-    </div> 
-    <button class="btn-large z-depth-4" id="display_board"> Show Taken </button>
+    <h4 class='board_info'><a href="#">Winning</a></h4>
+    <h4 class='board_info'><a href="#">The Fine Print</a></h4>
+  <!--  <div id='num_pool'>
+      <%#= @contest.available_nums %>
+    </div>  -->
+    <!-- <button class="btn-large z-depth-4" id="display_board"> Show Taken </button> -->
   <div class="row home_row">
     <div class="col s1 corner"></div>
       <%= raw home_axis_populater(@contest) %>

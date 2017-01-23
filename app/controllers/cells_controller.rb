@@ -7,10 +7,6 @@ class CellsController < ApplicationController
 		if @board.event_date <= DateTime.now || @board.available_nums.length == 0
 			flash[:error] = "Error. Event started or no squares available"
 		else
-		
-			p @board.event_date
-			p DateTime.now.localtime
-			p "HHHEEEEEEERRRRRRRRREEEEEEEEEEEE"
 			@cell = Cell.new(cell_params)
 			@cell.user_id = current_user.id
 			@cell.save
