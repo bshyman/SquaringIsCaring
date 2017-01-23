@@ -2,10 +2,37 @@
   padding-left: 40px;
 }
 
+/*body {
+   background: image-url('stylesheets/checkerbacks.png');
+
+}*/
+body {
+  background-image: url('light_tones.png');
+  /*background-position: cover;*/
+  font-family: sometimelater;
+}
 @font-face {
   font-family: 'squarey';
   src:url('fonts/squarey.ttf');
   src:url('fonts/squarey.eot?#iefix') format("embedded-opentype"),
+}
+
+  @font-face {
+  font-family: 'sometimelater';
+  src:url('fonts/sometimelater.otf');
+  src:url('fonts/sometimelater.eot?#iefix') format("embedded-opentype"),
+  ...
+}
+@font-face {
+  font-family: 'curiousincident';
+  src:url('fonts/curiousincident.ttf');
+  src:url('fonts/curiousincident.eot?#iefix') format("embedded-opentype"),
+  ...
+}
+@font-face {
+  font-family: 'famrids';
+  src:url('fonts/famrids.ttf');
+  src:url('fonts/famrids.eot?#iefix') format("embedded-opentype"),
   ...
 }
 
@@ -95,3 +122,4 @@ visibility: hidden;
   font-family: squarey;
   color: white;
 }
+
