@@ -9,7 +9,9 @@
           altInput: true,
           altFormat: "F j, Y h:i K",
           minDate: new Date(), // "today" / "2016-12-20" / 1477673788975
-          maxDate: "2017-12-20"          
+          utc: true,
+          dateFormat: ("D, d M Y H:i:s")
+          
 
       });
       // $('select').material_select();

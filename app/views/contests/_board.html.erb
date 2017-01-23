@@ -1,6 +1,7 @@
     <h3 class='board_info'><% if @contest %><%= @contest.event_name %> 
     </h3>
     <h4 class='board_info'><%= @contest.event_date %></h4>
+    <h4 class='board_info'><%= DateTime.now.localtime %></h4>
     <% end %>
     <p class='board_info'><a href="#">payouts</a></p>
     <p class='board_info'><a href="#">rules and regs</a></p>
