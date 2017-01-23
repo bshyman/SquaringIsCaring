@@ -1,9 +1,11 @@
 class CellsController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	def create
-		
-		
+		# until condition
+			
+		# end
 		@board = Contest.find_by(id: params[:contest_id])
+		p @board.event_date
 		@cell = Cell.new(cell_params)
 		@cell.user_id = current_user.id
 		@cell.save

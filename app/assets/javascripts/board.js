@@ -1,8 +1,23 @@
   $( document ).ready(function(){
   	var numPool = document.getElementById("num_pool");
-    var contestId = $("form#form").attr("action").charAt(10);
+    // var contestId = $("form#form").attr("action").charAt(10);
+    // $("div.container").on("click", ".flatpickr", function(){
 
-    $("div.container").on('click', "button#display_board", function(e){
+      // alert("Here")
+      flatpickr(".flatpickr", {
+          enableTime: true,
+          altInput: true,
+          altFormat: "F j, Y h:i K",
+          minDate: new Date(), // "today" / "2016-12-20" / 1477673788975
+          maxDate: "2017-12-20"          
+
+      });
+      // $('select').material_select();
+    // })
+
+
+
+    // $("div.container").on('click', "button#display_board", function(e){
       var numString = $("div#num_pool").text();
       numString = numString.replace(/\n/g, "");
       numString = numString.match(/\d{1,2}/g)
@@ -21,7 +36,7 @@
         $(element).attr("enabled", "enabled")
         $(element).parent().parent().addClass( "green");
       };
-    });
+    // });
 
     function addZeros(n) {
       return (n < 10 ? '0' : '') + n;
@@ -38,7 +53,19 @@
     $(this).removeClass('green');
     $(this).css("background-color", "brown");
     $("input[type=checkbox]", this).attr("checked", "checked");
-  })
+  });
+  //     $('.datepicker').pickadate({
+  //       selectMonths: true, // Creates a dropdown to control month
+  //       selectYears: 15 // Creates a dropdown of 15 years to control year
+  // });
+
+      // $(".datepick").flatpickr({});
+
+
+      // flatpickr(".selector", {}); // [Flatpickr, Flatpickr, ...]
+      // document.getElementById("myID").flatpickr(config); // Flatpickr
+      // let calendar = new Flatpickr(element, config); // Flatpickr
+
 });
 
 
