@@ -23,10 +23,13 @@
     <!-- <input type="hidden" name='cell[position][]' value="2"> -->
     <input type="hidden" name='cell[user_id]' value="<%= current_user.id %>">
     <input type="hidden" name='cell[contest_id]' value="<%= @contest.id %>">
-    <input type="submit" value="Claim Selected Squares" class='claim-btn  waves-effect waves-red'>
-    <button value="random2" class='claim-btn  waves-effect waves-red'>Random 2</button>
-    <button value="random5" class='claim-btn  waves-effect waves-red'>Random 5</button>
+    <div class="claim_buttons">
+      
+    <input type="submit" value="Claim Selected" class='claim-btn  waves-effect waves-red'>
+    <button value="random2" class='claim-btn  waves-effect waves-red' id="random2">Random 2</button>
+    <button value="random5" class='claim-btn  waves-effect waves-red' id="random5">Random 5</button>
 
+    </div>
   </form>
   <br>
   <br>
