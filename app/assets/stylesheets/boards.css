@@ -10,6 +10,7 @@ body {
   background-image: url('light_tones.png');
   /*background-position: cover;*/
   font-family: sometimelater;
+  /*font-size: 1.5em;*/
 }
 @font-face {
   font-family: 'squarey';

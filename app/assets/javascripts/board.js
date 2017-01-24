@@ -56,17 +56,10 @@
     $(this).css("background-color", "brown");
     $("input[type=checkbox]", this).attr("checked", "checked");
   });
-  //     $('.datepicker').pickadate({
-  //       selectMonths: true, // Creates a dropdown to control month
-  //       selectYears: 15 // Creates a dropdown of 15 years to control year
-  // });
 
-      // $(".datepick").flatpickr({});
+  $('')
 
 
-      // flatpickr(".selector", {}); // [Flatpickr, Flatpickr, ...]
-      // document.getElementById("myID").flatpickr(config); // Flatpickr
-      // let calendar = new Flatpickr(element, config); // Flatpickr
 
 });
 

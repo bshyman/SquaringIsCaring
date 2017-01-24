@@ -45,4 +45,13 @@ module ContestsHelper
     end
     board.available_nums
   end
+
+  def ended?(board)
+    @board.event_date <= DateTime.now || @board.available_nums.length == 0  
+  end
+
+  def pick_winning_cells(board)
+    g
+  end
+
 end

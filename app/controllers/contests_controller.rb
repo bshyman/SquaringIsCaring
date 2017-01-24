@@ -14,13 +14,8 @@ class ContestsController < ApplicationController
     p params
     if request.xhr?
       p "AJAX"
-      @nums = []
       @contest.available_nums.each{|num| @nums << num.to_i}
-      # @contest.update_attributes!(:available_nums => @nums)
-      p @nums
-      # render :json => {:contest => @contest, :nums => @nums}
       render :json => @nums
-      # render '_board'  locals: @contest
     else
       flash[:notice] = "NO AJAX"
       p "NO AJAX"

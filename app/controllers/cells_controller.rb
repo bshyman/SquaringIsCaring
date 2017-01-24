@@ -1,11 +1,14 @@
 class CellsController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	def create
-		p params
 			@board = Contest.find_by(id: params[:contest_id])
-			p @board.available_nums
-		if @board.event_date <= DateTime.now || @board.available_nums.length == 0
-			flash[:error] = "Error. Event started or no squares available"
+		if ended?(@board)
+			flash[:error] = "Error. Event has started or no squares available"
+			@msg = "Error. Event has started or no squares available"
+			
+
+
+
 		else
 			@cell = Cell.new(cell_params)
 			@cell.user_id = current_user.id
