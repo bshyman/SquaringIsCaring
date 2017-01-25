@@ -64,15 +64,15 @@ $(document).ready(function(){
 
   function selectRandom(array, count){
       for (var i = 0; i < count; i++) {
+
       var randomNumInPool = addZeros(array[Math.floor ( Math.random() * array.length )])
       var randomElement = document.getElementById(randomNumInPool)
+      if (randomElement.hasAttribute("checked")) {i = i-1};
       $(randomElement).parent().parent().removeClass('green');
       $(randomElement).parent().parent().css("background-color", "brown");
       $(randomElement).attr("checked", "checked");
     }
   };
-// console.log(numString)
-
 });
 
 
