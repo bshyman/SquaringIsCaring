@@ -1,5 +1,6 @@
 .board {
-  padding-left: 40px;
+  /*padding-left: 40px;*/
+  line-height: 1;
 }
 
 /*body {
@@ -52,7 +53,7 @@ body {
 }
 
 .square:hover {
-  background: yellow;
+  background: red !important;
 }
 
 .board_info {
@@ -61,7 +62,9 @@ body {
 
 .away_num, .home_num {
   background: red;
-  color: white;
+  color: black;
+  font-size: 2em;
+  /*height: 20px;*/
 }
 
 .corner {
@@ -70,7 +73,7 @@ visibility: hidden;
 }
 
 .board_display {
-  zoom: 80%;
+  zoom: 60%;
 }
 
 .square {
@@ -104,12 +107,12 @@ visibility: hidden;
 
 .claim-btn {
   display: block;
-  width: 50%;
+  width: 32%;
   color: black;
   border-radius: 10px;
   border: solid 4px;
-  margin: 0px 20%;
-  height: 100px;
+  /*margin: 0px 20%;*/
+  /*height: 100px;*/
   font-size: 3em;
   font-weight: bold;
   background-color: red;
@@ -123,4 +126,25 @@ visibility: hidden;
   font-family: squarey;
   color: white;
 }
+
+.claim_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.square {
+  margin: 2px;
+  width: 80px;
+  border-radius: 8px;
+  top: 10px;
+  position: relative;
+  height: 60px;
+
+
+
+}
+
+
+
+
 

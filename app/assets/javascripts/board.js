@@ -1,67 +1,91 @@
-  $( document ).ready(function(){
-  	var numPool = document.getElementById("num_pool");
-    // var contestId = $("form#form").attr("action").charAt(10);
-    // $("div.container").on("click", ".flatpickr", function(){
+$(document).ready(function(){
+  var numPool = document.getElementById("num_pool");
 
-      // alert("Here")
-      flatpickr(".flatpickr", {
-          enableTime: true,
-          altInput: true,
-          altFormat: "F j, Y h:i K",
-          minDate: new Date(), // "today" / "2016-12-20" / 1477673788975
-          utc: true,
-          dateFormat: ("D, d M Y H:i:s")
-          
+  flatpickr(".flatpickr", {
+    enableTime: true,
+    altInput: true,
+    altFormat: "F j, Y h:i K",
+    minDate: new Date(), // "today" / "2016-12-20" / 1477673788975
+    utc: true,
+    dateFormat: ("D, d M Y H:i:s")
+  });
 
-      });
-      // $('select').material_select();
-    // })
+  // $("div.container").on('click', "button#display_board", function(e){
+    var numString = $("div#num_pool").text();
+    numString = numString.replace(/\n/g, "");
+    numString = numString.match(/\d{1,2}/g)
+  // console.log(numString)
+  for (i = 0; i < 100; i++) {
+    if (numString == null) {numString = []}
+    
+    if (!numString.includes(i.toString() )) {
+      var taken = document.getElementById(addZeros(i).toString())
+      $(taken).parent().parent().addClass( "black");
+      $(taken).attr("disabled", "disabled")
+    }
+  };
 
 
+  for (i=0; i < 100; i++) {
+    var element = document.getElementById(addZeros(numString[i]));
+    $(element).attr("enabled", "enabled")
+    $(element).parent().parent().addClass( "green");
+  };
 
-    // $("div.container").on('click', "button#display_board", function(e){
-      var numString = $("div#num_pool").text();
-      numString = numString.replace(/\n/g, "");
-      numString = numString.match(/\d{1,2}/g)
-      console.log(numString)
-      for (i = 0; i < 100; i++) {
-        if (!numString.includes(i.toString() )) {
-          console.log(i.toString())
-          var taken = document.getElementById(addZeros(i).toString())
-          $(taken).parent().parent().addClass( "black");
-          $(taken).attr("disabled", "disabled")
-        }
-      };
-
-      for (i=0; i < 100; i++) {
-        var element = document.getElementById(addZeros(numString[i]));
-        $(element).attr("enabled", "enabled")
-        $(element).parent().parent().addClass( "green");
-      };
-    // });
-
-    function addZeros(n) {
-      return (n < 10 ? '0' : '') + n;
-  }
+  function addZeros(n) {
+    return (n < 10 ? '0' : '') + n;
+  };
 
 
   $("div.container").on('click', "div.contest-card", function(e){
     var id = $("div.contest-card").attr("contest_id");
   });
-  
+
+
 
   $("div.container").on("click", "div.square", function(){
-    var contestId = $("form#form").attr("action").match(/\d+/);
-    $(this).removeClass('green');
-    $(this).css("background-color", "brown");
-    $("input[type=checkbox]", this).attr("checked", "checked");
+      // var contestId = $("form#form").attr("action").match(/\d+/);
+      $(this).removeClass('green');
+      $(this).css("background-color", "brown");
+      $("input[type=checkbox]", this).attr("checked", "checked");
+    });
+
+  $('button#random2').on('click', function(event){
+    event.preventDefault();
+    selectRandom(numString, 2)
+  })
+  $('button#random5').on('click', function(event){
+    event.preventDefault();
+    $(this).addClass("waves-effect waves-red") 
+    var takenCount = $("input[checked='checked']").length + 5
+    console.log( "Taken - " + takenCount + " - " + numString.length)
+    if (takenCount <= numString.length) {
+      selectRandom(numString, 5)
+    }
+    else { $(this).addClass("disabled")};
+     $(this).addClass("red");
   });
 
-  $('')
+  // function countCheckedAndClaimed()
 
+  function selectRandom(array, count){
+    
+      for (var i = 0; i < count; i++) {
+        console.log(i)
 
-
+      var randomNumInPool = addZeros(array[Math.floor ( Math.random() * array.length )])
+      var randomElement = document.getElementById(randomNumInPool)
+      if (randomElement.hasAttribute("checked")) {i = i-1};
+      $(randomElement).parent().parent().removeClass('green');
+      $(randomElement).parent().parent().css("background-color", "brown");
+      $(randomElement).attr("checked", "checked");
+    }
+    }
+      console.log("this" + this)
+    
+  
 });
+
 
 
 
