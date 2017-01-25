@@ -19,7 +19,6 @@ $(document).ready(function(){
     if (numString == null) {numString = []}
     
     if (!numString.includes(i.toString() )) {
-      console.log(i.toString())
       var taken = document.getElementById(addZeros(i).toString())
       $(taken).parent().parent().addClass( "black");
       $(taken).attr("disabled", "disabled")
@@ -53,17 +52,26 @@ $(document).ready(function(){
 
   $('button#random2').on('click', function(event){
     event.preventDefault();
-    console.log(numString)
     selectRandom(numString, 2)
   })
   $('button#random5').on('click', function(event){
     event.preventDefault();
-    console.log(numString)
-    selectRandom(numString, 5)
+    $(this).addClass("waves-effect waves-red") 
+    var takenCount = $("input[checked='checked']").length + 5
+    console.log( "Taken - " + takenCount + " - " + numString.length)
+    if (takenCount <= numString.length) {
+      selectRandom(numString, 5)
+    }
+    else { $(this).addClass("disabled")};
+     $(this).addClass("red");
   });
 
+  // function countCheckedAndClaimed()
+
   function selectRandom(array, count){
+    
       for (var i = 0; i < count; i++) {
+        console.log(i)
 
       var randomNumInPool = addZeros(array[Math.floor ( Math.random() * array.length )])
       var randomElement = document.getElementById(randomNumInPool)
@@ -72,7 +80,10 @@ $(document).ready(function(){
       $(randomElement).parent().parent().css("background-color", "brown");
       $(randomElement).attr("checked", "checked");
     }
-  };
+    }
+      console.log("this" + this)
+    
+  
 });
 
 
