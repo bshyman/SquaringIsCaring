@@ -1,37 +1,30 @@
 <%= form_for @contest do |f|%>
-  <div class='input-field'>
-	 <%= f.label :event_name%>
-   <%= f.text_field :event_name %>
-  </div>
-<div class="input-field col s12 m6">
-    <select name='contest[sport]' class="icons">
-      <option value="" disabled selected>Choose a sport</option>
-      <option value="Basketball" data-icon="images/sample-1.jpg" class="circle">Basketball</option>
-      <option value="Football" data-icon="images/office.jpg" class="circle">Football</option>
-    </select>
-  </div>
 <div class='input-field'>
-	<%= f.label :event_date %>
-	<%= f.date_field :event_date, class:'datepicker' %>
+  <%= f.label :event_name%>
+  <%= f.text_field :event_name %>
 </div>
 
-<div class="input-field inline">
-	<%= f.label :reserve %>
-	<%= f.text_field :reserve %>
+<div>
+<input class="flatpickr" type="text" placeholder="Select Date.." name="contest[event_date]">
+</div>
+<div class="input-field inline  ">
+  <%= f.label :reserve %>
+  <%= f.text_field :reserve %>
 </div>
 
+<div class=" input-field inline ">
+  
+  <input name="contest[sport]" type="radio" id="Football" class="with-gap"/>
+  <label for="Football" >Football</label>
 
-<div class='range-field'>
-	<%= f.label :cell_value%>
-	<%= f.range_field :cell_value, min:'0', max:'50', step: '5'%>
+  <input name="contest[sport]" type="radio" id="Basketball" class="with-gap"/>
+  <label for="Basketball">Basketball</label>
 </div>
- <!--  <form action="#">
-    <p class="range-field">
-      <input type="range" id="test5" min="0" max="100" />
-    </p>
-  </form> -->
 
+<div class='range-field '>
+  <%= f.label :cell_value%>
+  <%= f.range_field :cell_value, min:'0', max:'50', step: '1'%>
+</div>
 
 <%= f.submit 'Create Board', class:'btn waves-effect' %>
-
 <% end %>

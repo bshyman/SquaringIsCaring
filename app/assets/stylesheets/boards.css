@@ -1,11 +1,40 @@
 .board {
-  padding-left: 40px;
+  /*padding-left: 40px;*/
+  line-height: 1;
 }
 
+/*body {
+   background: image-url('stylesheets/checkerbacks.png');
+
+}*/
+body {
+  background-image: url('light_tones.png');
+  /*background-position: cover;*/
+  font-family: sometimelater;
+  /*font-size: 1.5em;*/
+}
 @font-face {
   font-family: 'squarey';
   src:url('fonts/squarey.ttf');
   src:url('fonts/squarey.eot?#iefix') format("embedded-opentype"),
+}
+
+  @font-face {
+  font-family: 'sometimelater';
+  src:url('fonts/sometimelater.otf');
+  src:url('fonts/sometimelater.eot?#iefix') format("embedded-opentype"),
+  ...
+}
+@font-face {
+  font-family: 'curiousincident';
+  src:url('fonts/curiousincident.ttf');
+  src:url('fonts/curiousincident.eot?#iefix') format("embedded-opentype"),
+  ...
+}
+@font-face {
+  font-family: 'famrids';
+  src:url('fonts/famrids.ttf');
+  src:url('fonts/famrids.eot?#iefix') format("embedded-opentype"),
   ...
 }
 
@@ -24,7 +53,7 @@
 }
 
 .square:hover {
-  background: yellow;
+  background: red !important;
 }
 
 .board_info {
@@ -33,7 +62,9 @@
 
 .away_num, .home_num {
   background: red;
-  color: white;
+  color: black;
+  font-size: 2em;
+  /*height: 20px;*/
 }
 
 .corner {
@@ -42,7 +73,7 @@ visibility: hidden;
 }
 
 .board_display {
-  zoom: 80%;
+  zoom: 60%;
 }
 
 .square {
@@ -76,12 +107,12 @@ visibility: hidden;
 
 .claim-btn {
   display: block;
-  width: 50%;
+  width: 32%;
   color: black;
   border-radius: 10px;
   border: solid 4px;
-  margin: 0px 20%;
-  height: 100px;
+  /*margin: 0px 20%;*/
+  /*height: 100px;*/
   font-size: 3em;
   font-weight: bold;
   background-color: red;
@@ -95,3 +126,25 @@ visibility: hidden;
   font-family: squarey;
   color: white;
 }
+
+.claim_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.square {
+  margin: 2px;
+  width: 80px;
+  border-radius: 8px;
+  top: 10px;
+  position: relative;
+  height: 60px;
+
+
+
+}
+
+
+
+
+
