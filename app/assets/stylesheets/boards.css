@@ -1,5 +1,6 @@
 .board {
-  padding-left: 40px;
+  /*padding-left: 40px;*/
+  line-height: 1;
 }
 
 /*body {
@@ -52,7 +53,7 @@ body {
 }
 
 .square:hover {
-  background: yellow;
+  background: red !important;
 }
 
 .board_info {
@@ -61,7 +62,9 @@ body {
 
 .away_num, .home_num {
   background: red;
-  color: white;
+  color: black;
+  font-size: 2em;
+  /*height: 20px;*/
 }
 
 .corner {
@@ -70,7 +73,7 @@ visibility: hidden;
 }
 
 .board_display {
-  zoom: 80%;
+  zoom: 60%;
 }
 
 .square {
@@ -128,6 +131,20 @@ visibility: hidden;
   display: flex;
   justify-content: space-between;
 }
+
+div.square {
+  margin: 2px;
+  width: 80px;
+  border-radius: 8px;
+  top: 10px;
+  position: relative;
+  height: 60px;
+
+
+
+}
+
+
 
 
 

@@ -8,12 +8,12 @@
       <%= @contest.available_nums %>
     </div> 
     <!-- <button class="btn-large z-depth-4" id="display_board"> Show Taken </button> -->
-  <div class="row home_row">
+  <div class="row home_row board">
     <div class="col s1 corner"></div>
       <%= raw home_axis_populater(@contest) %>
   </div>
 
-  <form action="/contests/<%= @contest.id %>/cells" method='POST' id="form">
+  <form action="/contests/<%= @contest.id %>/cells" method='POST' id="form" >
       <% i = 0 %>
     <% 10.times do%>
         <%= raw away_axis_populater(@contest, i ) %>
@@ -33,5 +33,6 @@
   </form>
   <br>
   <br>
-  <br>
+  <br> 
+
 
