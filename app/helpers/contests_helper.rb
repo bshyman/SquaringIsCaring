@@ -40,9 +40,7 @@ module ContestsHelper
   end
 
   def remove_selected_nums(board, array)
-    array.each do |number|
-      board.available_nums.delete(format_num(number))
-    end
+    array.each{|number| board.available_nums.delete(format_num(number))}
     board.available_nums
   end
 
