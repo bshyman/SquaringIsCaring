@@ -4,7 +4,7 @@ class CellsController < ApplicationController
 			@board = Contest.find_by(id: params[:contest_id])
 		if ended?(@board)    
 			flash[:error] = "Error. Event has started or no squares available"
-			@msg = "Error. Event has started or no squares available"
+			
 			
 		else
 			@cell = Cell.new(cell_params)

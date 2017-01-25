@@ -40,8 +40,8 @@ module ContestsHelper
   end
 
   def remove_selected_nums(board, array)
-    array.each do |number|
-      board.available_nums.delete(format_num(number))
+    array.each do |cell_position|
+      board.available_nums.delete(format_num(cell_position))
     end
     board.available_nums
   end

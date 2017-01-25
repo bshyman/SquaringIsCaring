@@ -1,0 +1,15 @@
+<h1>Users#dashboard</h1>
+<p>Find me in app/views/users/dashboard.html.erb</p>
+
+
+<%  my_contests.each do |event| %>
+		<h3><%= link_to event.event_name, contest_path(event.id)%></h3>
+		<ul>
+			<li> <h5> Date: <%=  event.event_date%></h5></li>
+			Evwnt id - <%= event.id %>
+			current user - <%= current_user.id %>
+			<li><h5>I had <%= Cell.where(contest_id: event.id, user_id: current_user.id).length %> cells owned in this event </h5></li>
+
+	</ul>
+
+<% end %> 
