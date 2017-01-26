@@ -22,9 +22,10 @@ module ContestsHelper
     string = ""
     10.times do
       string +=
-      "<div class='col s1 square'>
+      "<div class='col s1 square '>
       <label for='#{row}#{z}' value='#{row}#{z}'>
-      <input type='checkbox' id='#{row}#{z}' name='cell[position][]' value='#{row}#{z}' >
+      <input type='checkbox' id='#{row}#{z}' name='cell[position][]' value='#{row}#{z}'>
+      <end>
       </label>
       </div>"
       z += 1

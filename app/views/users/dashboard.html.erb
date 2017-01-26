@@ -1,24 +1,22 @@
-<h1>Users#dashboard</h1>
-<p>Find me in app/views/users/dashboard.html.erb</p>
+<h1>User Dashboard</h1>
 
-<!-- 
-<%  my_contests.each do |event| %>
-		<h3><%= link_to event.event_name, contest_path(event.id)%></h3>
-		<ul>
-			<li> <h5> Date: <%=  event.event_date%></h5></li>
-			Evwnt id - <%= event.id %>
-			current user - <%= current_user.id %>
-			<li><h5>I had <%= Cell.where(contest_id: event.id, user_id: current_user.id).length %> cells owned in this event </h5></li>
+<h4><%= link_to "Edit Profile", edit_user_registration_path, class: "waves-effect waves-light btn-large"%></h4>
 
-	</ul> -->
 
+
+	<h3>Last 5 Squares</h3>
 	<% recent.each do |cell| %>
+
 	<ul>
-		
-		<li><%= cell.inspect %></li>
+		<h4>
+			
+
+		<li><%= link_to Contest.find(cell.contest_id).event_name, contest_path(cell.contest_id) %>
+			<ul class="browser-default" ><li recent_item>Cell Position - <%= cell.position[0] %></li></ul>
+		</li>
+		</h4>
 	</ul>
 
 		
 	<% end %>
 
-<% end %> 
