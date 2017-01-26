@@ -11,4 +11,9 @@ module UsersHelper
 # 	def logged_in?
 #     	current_user != nil
 #   	end
+
+	def recent
+		Cell.where(user_id: current_user.id).order(created_at: :desc).limit(5)
+		
+	end
 end
