@@ -35,6 +35,7 @@
           <li><%= link_to 'Create a Board', new_contest_path %></li>
           <%# end %>
           <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+          <li><%= link_to 'History', dashboard_path(current_user) %></li>
           <% else %>
           <li><%= link_to 'Login', new_user_session_path %></li>
           <li><%= link_to 'Login with Google', user_google_oauth2_omniauth_authorize_path%></li>
