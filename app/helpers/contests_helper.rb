@@ -61,7 +61,10 @@ module ContestsHelper
         return "Sorry. All Cells Are Taken"
       end
     end
-    board.event_date.utc.strftime("%B %e ,%l:%m %p" )
+    p "HeEEERRRRREEEEE"
+    p board.event_date
+    # p board.event_date.strftime("%l:%m %p" )
+    # %B %e ,
   end
 
 end

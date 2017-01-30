@@ -24,7 +24,7 @@ class ContestsController < ApplicationController
   end
 
   def create
-  	@contest = Contest.new(contest_params)
+    @contest = Contest.new(contest_params)
   	if @contest.save
       flash[:notice] = "Your Board has been created"
       render '_board'
@@ -62,7 +62,7 @@ class ContestsController < ApplicationController
 
   private
   def contest_params
-    params.require(:contest).permit(:event_name, :event_date, :cell_value, :sport, :reserve, :prizes)
+    params.require(:contest).permit(:event_name, :event_date, :cell_value, :sport, :reserve, :prizes, :home_team, :away_team)
   end
 
 end

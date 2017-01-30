@@ -144,6 +144,18 @@ div.square {
 
 }
 
+.home-away {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.home-team, .away-team {
+  padding: 5px !important;
+  width: 30% !important;
+  margin: 40px !important;
+}
+
 
 
 
