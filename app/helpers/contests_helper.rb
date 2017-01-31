@@ -45,8 +45,9 @@ module ContestsHelper
     board.available_nums
   end
 
-  def ended?(board)
-    board.event_date <= DateTime.now || board.available_nums.length == 0
+  def closed?(board)
+
+    (board.event_date.to_time - 15.minutes).to_datetime <= DateTime.now || board.available_nums.length == 0
   end
 
   def pick_winning_cells(board)
@@ -63,14 +64,15 @@ module ContestsHelper
     end
     p "HeEEERRRRREEEEE"
     p board.event_date
-    # p board.event_date.strftime("%l:%m %p" )
-    # %B %e ,
+    p board.event_date.strftime("%b %e, %l:%M %p" )
   end
 
   def hide_rows_until_event
 
   end
 
-  
+ 
+
+
 
 end

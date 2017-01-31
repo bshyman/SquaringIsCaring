@@ -17,5 +17,9 @@ class Contest < ActiveRecord::Base
 def event_name
     self.home_team + " Vs. " + self.away_team
   end
+
+  def close_time
+    (self.event_date.to_time - 15.minutes).to_datetime.strftime("%l:%M %p")
+  end
   
 end
