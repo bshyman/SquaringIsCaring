@@ -67,4 +67,10 @@ module ContestsHelper
     # %B %e ,
   end
 
+  def hide_rows_until_event
+
+  end
+
+  
+
 end

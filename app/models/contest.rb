@@ -14,5 +14,8 @@ class Contest < ActiveRecord::Base
   	self.available_nums = (0..99).to_a
   end
 
+def event_name
+    self.home_team + " Vs. " + self.away_team
+  end
   
 end

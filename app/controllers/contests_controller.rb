@@ -11,6 +11,7 @@ class ContestsController < ApplicationController
 
   def show
     @contest = Contest.find(params[:id])
+    @nums = []
     p params
     if request.xhr?
       p "AJAX"
@@ -57,6 +58,10 @@ class ContestsController < ApplicationController
   	@contest.destroy
   	flash[:notice] = "Your Board has been deleted"
   	render 'index'
+  end
+
+  def find
+
   end
 
 

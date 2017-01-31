@@ -1,4 +1,5 @@
-    <h3 class='board_info'><%= @contest.event_name %> </h3>
+    <h3 class='board_info event_name' id="contest_id" c-id=<%= @contest.id %>><%= @contest.home_team %> Vs> <%= @contest.away_team %> </h3>
+
     <h4 class='board_info'><%= display_event_date_or_message(@contest) %></h4>
     <h4 class='board_info'>Now - <%= DateTime.now.utc %></h4> 
     <h4 class='board_info'>Event - <%= @contest.event_date.utc  %></h4> 
@@ -8,10 +9,12 @@
       <%= @contest.available_nums %>
     </div> 
     <!-- <button class="btn-large z-depth-4" id="display_board"> Show Taken </button> -->
+    <h3 class="home-team-row"><%= @contest.home_team %></h3>
   <div class="row home_row board">
     <div class="col s1 corner"></div>
       <%= raw home_axis_populater(@contest) %>
   </div>
+  <h1 class="vertical-text"><%= @contest.away_team %></h1>
 
   <form action="/contests/<%= @contest.id %>/cells" method='POST' id="form" >
       <% i = 0 %>

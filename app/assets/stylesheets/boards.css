@@ -156,6 +156,25 @@ div.square {
   margin: 40px !important;
 }
 
+.vertical-text {
+  transform: rotate(270deg);
+  transform-origin: left top 30;
+  float: left;
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  font-size: 8em ;
+  height: 250px;
+  width: 600px;
+  text-align: center;
+}
+
+.home-team-row {
+  text-align: center;
+  font-size: 8em;
+
+}
+
 
 
 
