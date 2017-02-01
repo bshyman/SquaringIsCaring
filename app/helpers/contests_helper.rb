@@ -63,7 +63,7 @@ module ContestsHelper
   end
 
   def pick_first_winner(board)
-      if board.box.score
+      # if board.box_score["home"]["first"] != nil
 
   end
 
@@ -79,9 +79,26 @@ module ContestsHelper
     board.event_date.utc.strftime("%b %e, %l:%M %p")
   end
 
- 
+  def assign_closed_positions(board)
+    if closed?(board)
+      
+    board.cells.each do |cell|
+      row = cell.position[0][0]
+      row = row.to_i
+      column = cell.position[0][1]
+      column = column.to_i
+      cell.position[0] = board.home_axis[column]
+      cell.position[1] = board.away_axis[row]
+      p cell.position
+      cell.save
+    end
+    board.save
+    end
+    p board
 
- 
+  end
+
+
 
 
 

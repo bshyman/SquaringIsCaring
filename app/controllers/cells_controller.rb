@@ -9,7 +9,7 @@ class CellsController < ApplicationController
 
 				@cell = Cell.new(cell_params)
 				@cell.position = [cell]
-				p @cell
+				# p @cell
 				@cell.user_id = current_user.id
 				@cell.save
 				new_board = remove_selected_nums(@board, @cell.position)

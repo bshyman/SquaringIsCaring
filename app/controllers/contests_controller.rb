@@ -11,6 +11,9 @@ class ContestsController < ApplicationController
 
   def show
     @contest = Contest.find(params[:id])
+    if closed?(@contest)
+      assign_closed_positions(@contest)
+    end
     @nums = []
     p params
     if request.xhr?
