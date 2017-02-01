@@ -12,6 +12,8 @@ class Contest < ActiveRecord::Base
     self.away_axis = self.away_axis.shuffle
   end
 
+  
+
   def populate_range
   	self.available_nums = (0..99).to_a
   end

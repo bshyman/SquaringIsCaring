@@ -44,9 +44,7 @@ class ContestsController < ApplicationController
 
   def update
   	@contest = Contest.find(params[:id])
-    p "UPPPPDATTTTEE"
-    p params
-    @contest.update_attributes(box_score: params[:box_score])
+   
     @contest.save
     if @contest.persisted?
     @contest.update_attributes(contest_params)

@@ -15,4 +15,5 @@
  //= require jquery 
  //= require jquery.turbolinks 
  //= require jquery_ujs 
-//= require_tree .
+ //= require contest.js
+//= require_tree  .

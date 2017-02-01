@@ -81,7 +81,8 @@ $(document).ready(function(){
       $(randomElement).attr("checked", "checked");
     }
     }
-      console.log("this" + this)
+
+        
     
   
 });

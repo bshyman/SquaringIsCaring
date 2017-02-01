@@ -3,8 +3,12 @@ module ContestsHelper
     i = 0
     home_axis_string = ""
     10.times do
-      home_axis_string += "<div class='col s1 home_num'>" +
-        board.home_axis[i]+ "</div>"
+      home_axis_string += "<div class='col s1 home_num'>" 
+      if closed?(board)
+       home_axis_string += board.home_axis[i] + "</div>"
+      else
+        home_axis_string += "🏈" + "</div>"
+      end
       i += 1
       home_axis_string
     end
@@ -13,8 +17,15 @@ module ContestsHelper
 
   def away_axis_populater(board, x)
     axis_val = board.away_axis[x]
-    return "<div class='row #{x}'>
-    <div class='col s1 away_num'>" +  axis_val + "</div>"
+    html_string = "<div class='row #{x}'>
+    <div class='col s1 away_num'>"
+    if closed?(board)
+      html_string += axis_val 
+    else
+      html_string +=  "🏈"
+    end
+       
+     return html_string+ "</div>"
   end
 
   def row_checkbox_populater(row)
@@ -52,6 +63,7 @@ module ContestsHelper
   end
 
   def pick_winning_cells(board)
+    
 
   end
 
@@ -67,10 +79,7 @@ module ContestsHelper
     board.event_date.utc.strftime("%b %e, %l:%M %p")
   end
 
-  def hide_rows_until_event
-    
-
-  end
+ 
 
  
 
