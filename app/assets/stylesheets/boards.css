@@ -175,6 +175,20 @@ div.square {
 
 }
 
+#num_pool {
+  visibility: hidden;
+}
+
+td, tr, th {
+  border: solid 3px !important;
+  text-align: center !important;
+  font-size: 1.5em;
+}
+
+body {
+  color: black !important;
+}
+
 
 
 

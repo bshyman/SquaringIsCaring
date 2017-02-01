@@ -8,7 +8,8 @@
 </div>
 
 <div>
-<input class="flatpickr" type="text" placeholder="Select Date.." name="contest[event_date]">
+  <%= f.datetime_local_field :contest[event_date], class="flatpickr"%>
+<!-- <input class="flatpickr" type="text" placeholder="Select Date.." name="contest[event_date]"> -->
 </div>
 <div class="input-field inline  ">
   <%= f.label :reserve %>
@@ -16,12 +17,11 @@
 </div>
 
 <div class=" input-field inline ">
-  
-  <input name="contest[sport]" type="radio" id="Football" class="with-gap"/>
-  <label for="Football" >Football</label>
+  <input name="contest[sport]" type="radio" id="football" class="with-gap" value="football"/>
+  <label for="football" >Football</label>
 
-  <input name="contest[sport]" type="radio" id="Basketball" class="with-gap"/>
-  <label for="Basketball">Basketball</label>
+  <input name="contest[sport]" type="radio" id="basketball" class="with-gap" value="basketball"/>
+  <label for="basketball">Basketball</label>
 </div>
 
 <div class='range-field '>
@@ -33,6 +33,41 @@
   <%= f.label :prizes %>
   <%= f.text_field :prizes, placeholder: "Separate by comma" %>
 </div>
+
+<div>
+  <table class"striped bordered">
+
+    <!-- <thead><th>Winners:</th></thead> -->
+     <thead>
+          <tr>
+              <th data-field="team">Team</th>
+              <th data-field="1st">1st</th>
+              <th data-field="half">Half</th>
+              <th data-field="3rd">3rd</th>
+              <th data-field="final">Final</th>
+          </tr>
+      </thead>
+        <tbody>
+            <tr>
+               <td> Home<%= @contest.home_team %></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+            </tr>
+            <tr>
+               <td> Away<%= @contest.away_team %></td>
+              <td><input type="text"></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+
+            </tr>
+        </tbody>
+  
+    </table>
+</div>
+
 
 <%= f.submit 'Create Board', class:'btn waves-effect' %>
 <% end %>

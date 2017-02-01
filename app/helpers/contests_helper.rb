@@ -46,6 +46,7 @@ module ContestsHelper
   end
 
   def closed?(board)
+    p board
 
     (board.event_date.to_time - 15.minutes).to_datetime <= DateTime.now || board.available_nums.length == 0
   end
@@ -55,19 +56,19 @@ module ContestsHelper
   end
 
   def display_event_date_or_message(board)
-    if board.event_date <= DateTime.now.utc
-      return "Sorry. This Event Has Begun"
+    if closed?(board)
+      return "Sorry. Squares Are Closed."
     else
       if board.available_nums.length == 0
         return "Sorry. All Cells Are Taken"
       end
     end
-    p "HeEEERRRRREEEEE"
-    p board.event_date
-    p board.event_date.strftime("%b %e, %l:%M %p" )
+    # board.event_date.strftime("%b %e, %l:%M %p" )
+    board.event_date.utc.strftime("%b %e, %l:%M %p")
   end
 
   def hide_rows_until_event
+    
 
   end
 

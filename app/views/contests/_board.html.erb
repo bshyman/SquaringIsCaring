@@ -1,10 +1,13 @@
     <h3 class='board_info event_name' id="contest_id" c-id=<%= @contest.id %>><%= @contest.home_team %> Vs <%= @contest.away_team %> </h3>
+    <%= p @contest %>
 
     <h4 class='board_info'><%= display_event_date_or_message(@contest) %></h4>
     <h4 class='board_info'>Squares will close 15 minutes prior to start of event at <%=@contest.close_time  %></h4> 
     <!-- <h4 class='board_info'>Event - <%#= @contest.event_date.utc  %></h4>  -->
     <h4 class='board_info'><a href="#">Winning</a></h4>
     <h4 class='board_info'><a href="#">The Fine Print</a></h4>
+    <h2><%= @contest.box_score %></h2>
+    <button class:"btn-large"><%= link_to "Edit Event Details",  edit_contest_path(@contest), class: " btn btn-large waves-red waves-effect" %></button>
     <div id='num_pool'>
       <%= @contest.available_nums %>
     </div> 

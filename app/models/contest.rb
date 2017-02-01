@@ -3,6 +3,8 @@ class Contest < ActiveRecord::Base
   has_many :users
 
   before_create :shuffler, :populate_range
+  # accepts_nested_attributes_for :box_score
+  serialize :box_score
 
 
   def shuffler
@@ -19,7 +21,11 @@ def event_name
   end
 
   def close_time
-    (self.event_date.to_time - 15.minutes).to_datetime.strftime("%l:%M %p")
+    (self.event_date.to_time - 15.minutes).to_datetime.utc.strftime("%l:%M %p")
+  end
+
+  def build_score_hash
+
   end
   
 end
