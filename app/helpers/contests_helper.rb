@@ -62,8 +62,8 @@ module ContestsHelper
     (board.event_date.to_time - 15.minutes).to_datetime <= DateTime.now || board.available_nums.length == 0
   end
 
-  def pick_winning_cells(board)
-    
+  def pick_first_winner(board)
+      if board.box.score
 
   end
 
