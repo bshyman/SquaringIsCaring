@@ -11,6 +11,7 @@ class ContestsController < ApplicationController
 
   def show
     @contest = Contest.find(params[:id])
+    @nums = []
     p params
     if request.xhr?
       p "AJAX"
@@ -24,7 +25,8 @@ class ContestsController < ApplicationController
   end
 
   def create
-  	@contest = Contest.new(contest_params)
+    @contest = Contest.new(contest_params)
+    p contest_params
   	if @contest.save
       flash[:notice] = "Your Board has been created"
       render '_board'
@@ -36,13 +38,16 @@ class ContestsController < ApplicationController
 
   def edit
   	@contest = Contest.find(params[:id])
+
   end
 
 
   def update
   	@contest = Contest.find(params[:id])
-  	@contest.update_attributes(contest_params)
-  	if @contest.save
+   
+    @contest.save
+    if @contest.persisted?
+    @contest.update_attributes(contest_params)
   		flash[:notice] = "Your changes have been saved"
   		render 'show'
   	else
@@ -59,10 +64,20 @@ class ContestsController < ApplicationController
   	render 'index'
   end
 
+  def box_score
+    @contest = Contest.find(params[:id])
+    render '_box_score'
+
+  end
+
+  def find
+
+  end
+
 
   private
   def contest_params
-    params.require(:contest).permit(:event_name, :event_date, :cell_value, :sport, :reserve, :prizes)
+    params.require(:contest).permit(:event_name, :event_date, :cell_value, :sport, :reserve, :prizes, :home_team, :away_team, :box_score => [:home => [:first, :half, :third, :final], :away => [:first, :half, :third, :final]])
   end
 
 end

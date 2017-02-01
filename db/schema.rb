@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170122042653) do
+ActiveRecord::Schema.define(version: 20170131233241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +42,6 @@ ActiveRecord::Schema.define(version: 20170122042653) do
   end
 
   create_table "contests", force: :cascade do |t|
-    t.string   "event_name",                                                                  null: false
-    t.datetime "event_date",                                                                  null: false
     t.integer  "cell_value",                                                                  null: false
     t.string   "home_axis",      default: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], null: false, array: true
     t.string   "away_axis",      default: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], null: false, array: true
@@ -53,6 +51,10 @@ ActiveRecord::Schema.define(version: 20170122042653) do
     t.string   "available_nums", default: [],                                                              array: true
     t.datetime "created_at",                                                                  null: false
     t.datetime "updated_at",                                                                  null: false
+    t.string   "home_team"
+    t.string   "away_team"
+    t.datetime "event_date"
+    t.string   "box_score"
   end
 
   create_table "users", force: :cascade do |t|

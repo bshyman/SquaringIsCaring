@@ -144,6 +144,51 @@ div.square {
 
 }
 
+.home-away {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.home-team, .away-team {
+  padding: 5px !important;
+  width: 30% !important;
+  margin: 40px !important;
+}
+
+.vertical-text {
+  transform: rotate(270deg);
+  transform-origin: left top 30;
+  float: left;
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  font-size: 8em ;
+  height: 250px;
+  width: 600px;
+  text-align: center;
+}
+
+.home-team-row {
+  text-align: center;
+  font-size: 8em;
+
+}
+
+#num_pool {
+  visibility: hidden;
+}
+
+td, tr, th {
+  border: solid 3px !important;
+  text-align: center !important;
+  font-size: 1.5em;
+}
+
+body {
+  color: black !important;
+}
+
 
 
 
