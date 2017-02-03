@@ -24,6 +24,13 @@ class CellsController < ApplicationController
 		end
 			redirect_to contest_path(@board)
 	end
+
+	def show
+		@cells = Cell.where(contest_id: params[:contest_id] )
+		# p cell_params
+		# @cell = Cell.find(params[:id])
+		render json: @cells
+	end
 	
 	private
 

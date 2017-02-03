@@ -1,6 +1,8 @@
 class ContestsController < ApplicationController
   # before_filter :authenticate_user!, :except => [:show...]
 
+  respond_to :html, :xml, :json
+
   def index
   	@contests = Contest.all
   end
@@ -73,9 +75,21 @@ class ContestsController < ApplicationController
 
   end
 
-  def find
+  def display_owners
+    @contest = Contest.find(params[:id])
+    # @cells = [] 
+    # @contest.cells.each do |cell|
+    #   @cells << cell
+    # end
+
+    if closed?(@contest)
+      render json: @contest.cells
+
+    end
 
   end
+
+
 
 
   private

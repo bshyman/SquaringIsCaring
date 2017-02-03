@@ -1,7 +1,7 @@
 <h2>Contest List</h2>
 <% @contests.sort {|a,b| b.event_date <=> a.event_date}.each do |contest| %>
   <div class ="contest-card" contest_id="<%= contest.id %>">
-    <h4><%= link_to contest.event_name, contest_path(contest) %> </h4>
+    <h4 ><%= link_to contest.event_name, contest_path(contest), class:"event_index"%> </h4>
     	<ul>
     		<li><h5>Starts: <%= contest.event_date.utc.strftime("%b %e, %l:%M %p")%></h5>
     		</li>

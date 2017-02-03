@@ -14,14 +14,14 @@
     </thead>
     <tbody>
       <tr>
-       <td> Home<%= @contest.home_team %></td>
+       <td> <%= @contest.home_team %></td>
        <td><input name="contest[box_score[home[first]]]" type="text" class="input-field"/></td>
        <td><input name="contest[box_score[home[half]]]" type="text"/></td>
        <td><input name="contest[box_score[home[third]]]" type="text"/></td>
        <td><input name="contest[box_score[home[final]]]" type="text"/></td>
      </tr>
      <tr>
-       <td> Away<%= @contest.away_team %></td>
+       <td> <%= @contest.away_team %></td>
        <td><input name="contest[box_score[away[first]]]" type="text" /></td>
        <td><input name="contest[box_score[away[half]]]" type="text"/></td>
        <td><input name="contest[box_score[away[third]]]" type="text"/></td>

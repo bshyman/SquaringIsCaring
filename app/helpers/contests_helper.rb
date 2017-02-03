@@ -57,7 +57,6 @@ module ContestsHelper
   end
 
   def closed?(board)
-    p board
 
     (board.event_date.to_time - 15.minutes).to_datetime <= DateTime.now || board.available_nums.length == 0
   end
