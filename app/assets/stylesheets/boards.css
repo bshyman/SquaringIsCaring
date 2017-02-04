@@ -13,7 +13,7 @@ body {
     font-family: GillSans, Calibri, Trebuchet, sans-serif;
     /*font-size: 1.5em;*/
 }
-@font-face {
+/*@font-face {
   font-family: 'squarey';
   src:url('fonts/squarey.ttf');
   src:url('fonts/squarey.eot?#iefix') format("embedded-opentype"),
@@ -21,7 +21,7 @@ body {
 
   @font-face {
   font-family: 'sometimelater';
-  src:url('fonts/sometimelater.otf');
+  src: url('fonts/sometimelater.otf');
   src:url('fonts/sometimelater.eot?#iefix') format("embedded-opentype")
 }
 @font-face {
@@ -33,7 +33,7 @@ body {
   font-family: 'famrids';
   src:url('fonts/famrids.ttf');
   src:url('fonts/famrids.eot?#iefix') format("embedded-opentype")
-}
+}*/
 
 .col {
   border: 1px solid black;
