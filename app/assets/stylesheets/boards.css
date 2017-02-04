@@ -22,20 +22,17 @@ body {
   @font-face {
   font-family: 'sometimelater';
   src:url('fonts/sometimelater.otf');
-  src:url('fonts/sometimelater.eot?#iefix') format("embedded-opentype"),
-  ...
+  src:url('fonts/sometimelater.eot?#iefix') format("embedded-opentype")
 }
 @font-face {
   font-family: 'curiousincident';
   src:url('fonts/curiousincident.ttf');
-  src:url('fonts/curiousincident.eot?#iefix') format("embedded-opentype"),
-  ...
+  src:url('fonts/curiousincident.eot?#iefix') format("embedded-opentype")
 }
 @font-face {
   font-family: 'famrids';
   src:url('fonts/famrids.ttf');
-  src:url('fonts/famrids.eot?#iefix') format("embedded-opentype"),
-  ...
+  src:url('fonts/famrids.eot?#iefix') format("embedded-opentype")
 }
 
 .col {
