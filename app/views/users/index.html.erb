@@ -1,0 +1,12 @@
+<% @users.each do |user| %>
+	<ul>
+		<li><h3><%= link_to user.email, user_path(user) %></h3>
+				<% user.cells.each do |cell| %>
+			<ul>
+					<li><%= link_to cell, contest_path(cell.contest_id) %></li>
+			</ul>
+				<% end %>
+		</li>
+	</ul>
+	
+<% end %> 

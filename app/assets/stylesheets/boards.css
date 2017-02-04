@@ -10,8 +10,8 @@
 body {
   background-image: url('light_tones.png');
   /*background-position: cover;*/
-  font-family: sometimelater;
-  /*font-size: 1.5em;*/
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+    /*font-size: 1.5em;*/
 }
 @font-face {
   font-family: 'squarey';
@@ -161,12 +161,12 @@ div.square {
   transform-origin: left top 30;
   float: left;
   position: absolute;
-  left: 0px;
+  left: -90px;
   top: 100%;
   font-size: 8em ;
   height: 250px;
-  width: 600px;
-  text-align: center;
+  width: 800px;
+  text-align: left;
 }
 
 .home-team-row {
@@ -187,6 +187,16 @@ td, tr, th {
 
 body {
   color: black !important;
+}
+
+.edit-contest {
+  float: right;
+}
+
+.box_score_item {
+  font-size: 1.5em !important;
+  text-decoration: none !important;
+  text-align: center;
 }
 
 

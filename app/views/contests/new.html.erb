@@ -8,7 +8,7 @@
 </div>
 
 <div>
-  <%= f.datetime_local_field :contest[event_date], class="flatpickr"%>
+  <%= f.datetime_local_field :event_date, class: "flatpickr"%>
 <!-- <input class="flatpickr" type="text" placeholder="Select Date.." name="contest[event_date]"> -->
 </div>
 <div class="input-field inline  ">
@@ -49,14 +49,14 @@
       </thead>
         <tbody>
             <tr>
-               <td> Home<%= @contest.home_team %></td>
+               <td><%= @contest.home_team %></td>
                <td><input type="text"></td>
                <td><input type="text"></td>
                <td><input type="text"></td>
                <td><input type="text"></td>
             </tr>
             <tr>
-               <td> Away<%= @contest.away_team %></td>
+               <td><%= @contest.away_team %></td>
               <td><input type="text"></td>
                <td><input type="text"></td>
                <td><input type="text"></td>

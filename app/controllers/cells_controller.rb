@@ -9,7 +9,7 @@ class CellsController < ApplicationController
 
 				@cell = Cell.new(cell_params)
 				@cell.position = [cell]
-				p @cell
+				# p @cell
 				@cell.user_id = current_user.id
 				@cell.save
 				new_board = remove_selected_nums(@board, @cell.position)
@@ -23,6 +23,13 @@ class CellsController < ApplicationController
 			end
 		end
 			redirect_to contest_path(@board)
+	end
+
+	def show
+		@cells = Cell.where(contest_id: params[:contest_id] )
+		# p cell_params
+		# @cell = Cell.find(params[:id])
+		render json: @cells
 	end
 	
 	private

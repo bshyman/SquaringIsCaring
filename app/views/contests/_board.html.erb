@@ -1,23 +1,32 @@
     <h3 class='board_info event_name' id="contest_id" c-id=<%= @contest.id %>><%= @contest.home_team %> Vs <%= @contest.away_team %> </h3>
-    <%= p @contest %>
-
     <h4 class='board_info'><%= display_event_date_or_message(@contest) %></h4>
     <h4 class='board_info'>Squares will close 15 minutes prior to start of event at <%=@contest.close_time  %></h4> 
     <!-- <h4 class='board_info'>Event - <%#= @contest.event_date.utc  %></h4>  -->
     <h4 class='board_info'><a href="#">Winning</a></h4>
-    <h4 class='board_info'><a href="#">The Fine Print</a></h4>
-    <h2><%= @contest.box_score %></h2>
-    <button class:"btn-large"><%= link_to "Edit Event Details",  edit_contest_path(@contest), class: " btn btn-large waves-red waves-effect" %></button>
+    <% if current_user.admin? %>
+    <%= link_to "Edit Event Details",  edit_contest_path(@contest), class: " claim-btn waves-red waves-effect edit-contest" %>
+    <% end %>
+    <h2>Box Score:</h2>
+    <ul>
+      <li><%= render 'box_score' %></li>
+        
+    </ul>
+    <% $quarters.each do |quarter| %>
+      <% if quarter_over?(@contest, quarter) %>
+        <h2><%=  find_winner(@contest, quarter).full_name  %> has the winning square for the  <%= quarter.capitalize %></h2>
+      <% end %>
+    <% end %>
+      
     <div id='num_pool'>
       <%= @contest.available_nums %>
     </div> 
     <!-- <button class="btn-large z-depth-4" id="display_board"> Show Taken </button> -->
-    <h3 class="home-team-row"><%= @contest.home_team %></h3>
+    <h3 class="home-team-row"><%= @contest.home_team.split(" ").pop %></h3>
   <div class="row home_row board">
     <div class="col s1 corner"></div>
       <%= raw home_axis_populater(@contest) %>
   </div>
-  <h1 class="vertical-text"><%= @contest.away_team %></h1>
+  <h1 class="vertical-text"><%= @contest.away_team.split(" ").pop %></h1>
 
   <form action="/contests/<%= @contest.id %>/cells" method='POST' id="form" >
       <% i = 0 %>
