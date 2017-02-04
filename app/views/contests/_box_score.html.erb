@@ -15,17 +15,17 @@
     <tbody>
       <tr>
        <td> <%= @contest.home_team %></td>
-       <td><input name="contest[box_score[home[first]]]" type="text" class="input-field"/></td>
-       <td><input name="contest[box_score[home[half]]]" type="text"/></td>
-       <td><input name="contest[box_score[home[third]]]" type="text"/></td>
-       <td><input name="contest[box_score[home[final]]]" type="text"/></td>
+       <td><input name="contest[box_score[home[first]]]" type="text" class="box_score_item" value="<%= insert_value_for_form(@contest, "first", "home") %>"/></td>
+       <td><input name="contest[box_score[home[half]]]" type="text" class="box_score_item" value="<%= insert_value_for_form(@contest, "half", "home") %>"/></td>
+       <td><input name="contest[box_score[home[third]]]" type="text" class="box_score_item" value="<%= insert_value_for_form(@contest, "third", "home") %>"/></td>
+       <td><input name="contest[box_score[home[final]]]" type="text" class="box_score_item" value="<%= insert_value_for_form(@contest, "final", "home") %>"/></td>
      </tr>
      <tr>
        <td> <%= @contest.away_team %></td>
-       <td><input name="contest[box_score[away[first]]]" type="text" /></td>
-       <td><input name="contest[box_score[away[half]]]" type="text"/></td>
-       <td><input name="contest[box_score[away[third]]]" type="text"/></td>
-       <td><input name="contest[box_score[away[final]]]" type="text"/></td>
+       <td><input name="contest[box_score[away[first]]]" type="text"  class="box_score_item" value="<%= insert_value_for_form(@contest, "first", "away") %>"/></td>
+       <td><input name="contest[box_score[away[half]]]" type="text" class="box_score_item" value="<%= insert_value_for_form(@contest, "half", "away") %>"/></td>
+       <td><input name="contest[box_score[away[third]]]" type="text" class="box_score_item" value="<%= insert_value_for_form(@contest, "third", "away") %>"/></td>
+       <td><input name="contest[box_score[away[final]]]" type="text" class="box_score_item" value="<%= insert_value_for_form(@contest, "final", "away") %>"/></td>
 
      </tr>
    </tbody>
