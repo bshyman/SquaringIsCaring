@@ -24,9 +24,11 @@
   <body>
 
     <nav>
+      <meta name="viewport" content="width=device-width" />
+
       <div class="nav-wrapper">
         <a href="/" class="brand-logo">Square Bets</a>
-        <ul class="right hide-on-med-and-down">
+        <ul class="right ">
 
           <% if user_signed_in? %>
           <!-- <li><a href="/">Logged In as <%= current_user.full_name %></a></li> -->
@@ -44,7 +46,7 @@
           
 
           <!-- Dropdown Trigger -->
-          <li><a class="dropdown-button large"  data-activates="dropdown1"><i class="large material-icons">view_list</i></a></li>
+          <li><a class="dropdown-button"  data-activates="dropdown1" class=" nav-button" ><i class="large material-icons ">view_list</i></a></li>
         </ul>
       </div>
     </nav>
