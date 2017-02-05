@@ -9,6 +9,7 @@ $(document).ready(function(){
     minDate: new Date(), // "today" / "2016-12-20" / 1477673788975
     utc: true,
     dateFormat: ("D, d M Y H:i:s")
+    // defaultDate: 
   });
 
   // $("div.container").on('click', "button#display_board", function(e){

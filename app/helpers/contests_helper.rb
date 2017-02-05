@@ -10,7 +10,7 @@ module ContestsHelper
       if closed?(board)
         home_axis_string += board.home_axis[i] + "</div>"
       else
-        home_axis_string += "" + "</div>"
+        home_axis_string += "🏈" + "</div>"
       end
       i += 1
       home_axis_string
@@ -25,7 +25,7 @@ module ContestsHelper
     if closed?(board)
       html_string += axis_val
     else
-      html_string +=  ""
+      html_string +=  "🏈"
     end
 
     return html_string+ "</div>"
@@ -117,7 +117,7 @@ module ContestsHelper
   def insert_value_for_form(board, quarter, team)
     return "" if board.box_score == nil
     if board.box_score[team][quarter] == ""
-      return "N/A"
+      return ""
     else
       return board.box_score[team][quarter]
     end

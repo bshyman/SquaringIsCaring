@@ -12,20 +12,27 @@ class ContestsController < ApplicationController
   end
 
   def show
+    redirect_to new_user_session_path unless logged_in? 
+    
+    
     @contest = Contest.find(params[:id])
+    begin
     if closed?(@contest)
+      @nums = []
       assign_closed_positions(@contest)
+        if request.xhr?
+          p "AJAX"
+          @contest.available_nums.each{|num| @nums << num.to_i}
+          render :json => @nums
+        else
+          flash[:notice] = "NO AJAX"
+          p "NO AJAX"
+          # redirect_to login_path
+        end
     end
-    @nums = []
-    p params
-    if request.xhr?
-      p "AJAX"
-      @contest.available_nums.each{|num| @nums << num.to_i}
-      render :json => @nums
-    else
-      flash[:notice] = "NO AJAX"
-      p "NO AJAX"
-      # redirect_to login_path
+    rescue 
+      flash[:notice] = "ERROR SUCKAA"
+      redirect_to root_path
     end
   end
 

@@ -133,12 +133,12 @@ visibility: hidden;
 }
 
 div.square {
-  margin: 2px;
+  /*margin: 2px;*/
   width: 80px;
-  border-radius: 8px;
+  /*border-radius: 8px;*/
   top: 10px;
   position: relative;
-  height: 60px;
+  height: 90px;
 
 
 
