@@ -19,7 +19,7 @@ class Contest < ActiveRecord::Base
   end
 
 def event_name
-    self.home_team + " Vs. " + self.away_team
+    self.home_team + " at " + self.away_team
   end
 
   def close_time
