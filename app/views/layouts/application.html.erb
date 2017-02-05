@@ -30,19 +30,6 @@
         <a href="/" class="brand-logo">Square Bets</a>
         <ul class="right ">
 
-          <% if user_signed_in? %>
-          <!-- <li><a href="/">Logged In as <%= current_user.full_name %></a></li> -->
-          <li><%= link_to current_user.full_name, edit_user_registration_path %></li>
-          <%# if current_user.admin? %>
-          <li><%= link_to 'Create a Board', new_contest_path %></li>
-          <%# end %>
-          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
-          <li><%= link_to 'History', dashboard_path(current_user) %></li>
-          <% else %>
-          <li><%= link_to 'Login', new_user_session_path %></li>
-          <li><%#= link_to 'Login with Google', user_google_oauth2_omniauth_authorize_path%></li>
-          <li><%= link_to 'Register', new_user_registration_path %></li>
-          <% end %>
           
 
           <!-- Dropdown Trigger -->
@@ -51,11 +38,24 @@
       </div>
     </nav>
     <ul id="dropdown1" class="dropdown-content">
+          <% if user_signed_in? %>
+          <!-- <li><a href="/">Logged In as <%= current_user.full_name %></a></li> -->
+          <li><%= link_to 'Profile', edit_user_registration_path %></li>
+          <% if current_user.admin? %>
+          <li><%= link_to 'Create a Board', new_contest_path %></li>
+          <% end %>
+          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+          <li><%= link_to 'History', dashboard_path(current_user) %></li>
+          <% else %>
+          <li><%= link_to 'Login', new_user_session_path %></li>
+          <!-- <li><%#= link_to 'Login with Google', user_google_oauth2_omniauth_authorize_path%></li> -->
+          <li><%= link_to 'Register', new_user_registration_path %></li>
+          <% end %>
       <li><%= link_to 'Account', edit_user_registration_path%></li>
       <li class="divider"></li>
       <li><%= link_to 'History', edit_user_registration_path%></li>
       <li class="divider"></li>
-      <li><%= link_to 'Balance', edit_user_registration_path%></li>
+      <!-- <li><%#= link_to 'Balance', edit_user_registration_path%></li> -->
       
     </ul>
 
