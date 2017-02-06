@@ -101,7 +101,7 @@ module ContestsHelper
     winning_cell = []
     column = board.box_score["home"][quarter][-1]
     row = board.box_score["away"][quarter][-1]
-    @cell = Cell.where(contest_id: board.id).where('position =  ?', '{"2","4"}')
+    @cell = Cell.where(contest_id: board.id).where('position =  ?', '{column, row}')
     @user = User.find(@cell[0].user_id)
   end
 
