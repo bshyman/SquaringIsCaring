@@ -47,9 +47,21 @@ $(document).ready(function(){
 
     $("div.container").on("click", "div.square", function(){
       // var contestId = $("form#form").attr("action").match(/\d+/);
+      if ($(this).hasClass('brown')) {
+        $(this).removeClass('brown');
+        $(this).addClass("green");
+        $("input[type=checkbox]", this).attr("checked", "");
+
+      }
+      else {
+
       $(this).removeClass('green');
-      $(this).css("background-color", "brown");
+      $(this).addClass("brown");
       $("input[type=checkbox]", this).attr("checked", "checked");
+        
+      }
+
+
     });
 
     $('button#random2').on('click', function(event){
@@ -79,7 +91,7 @@ $(document).ready(function(){
       var randomElement = document.getElementById(randomNumInPool)
       if (randomElement.hasAttribute("checked")) {i = i-1};
       $(randomElement).parent().parent().removeClass('green');
-      $(randomElement).parent().parent().css("background-color", "brown");
+      $(randomElement).parent().parent().addClass("brown");
       $(randomElement).attr("checked", "checked");
     }
 
