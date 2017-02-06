@@ -16,10 +16,9 @@ class ContestsController < ApplicationController
     
     
     @contest = Contest.find(params[:id])
-    begin
+    # begin
     if closed?(@contest)
       @nums = []
-      assign_closed_positions(@contest)
         if request.xhr?
           p "AJAX"
           @contest.available_nums.each{|num| @nums << num.to_i}
@@ -30,10 +29,10 @@ class ContestsController < ApplicationController
           # redirect_to login_path
         end
     end
-    rescue 
+    # rescue 
       flash[:notice] = "ERROR SUCKAA"
-      redirect_to root_path
-    end
+    render '_board'
+    # end
   end
 
   def create
