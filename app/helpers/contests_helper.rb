@@ -78,40 +78,40 @@ module ContestsHelper
     board.event_date.utc.strftime("%b %e, %l:%M %p")
   end
 
-  def assign_closed_positions(board)
-    if closed?(board)
-      board.cells.each do |cell|
-        row = cell.position[0][0]
-        row = row.to_i
+  def assign_closed_positions(board, cell)
         column = cell.position[0][1]
+        row = cell.position[0][0]
+
+        row = row.to_i
         column = column.to_i
-        cell.position[0] = board.home_axis[column]
-        cell.position[1] = board.away_axis[row]
-        p cell.position
+
+        @cell = cell.update_attributes(positionx: board.home_axis[column], positiony: board.away_axis[row] )
+        p @cell
         cell.save
-      end
       board.save
-    end
-    board
   end
 
 
 
   def find_winner(board, quarter)
-    winning_cell = []
+    @winner_data = []
     column = board.box_score["home"][quarter][-1]
     row = board.box_score["away"][quarter][-1]
-    @cell = Cell.where(contest_id: board.id).where('position =  ?', '{column, row}')
+    p "LOGIC ROW"
+    p row
+    p "LOGIC COLUMN"
+    p column
+    @cell = Cell.where(contest_id: board.id, positionx: column.to_i, positiony: row.to_i)
+    p @cell
     @user = User.find(@cell[0].user_id)
+    @winner_data = [@user, @cell]
+
   end
 
 
   def quarter_over?(board, quarter)
-    if board.box_score === nil
-      return false
-    else
-      board.box_score["home"][quarter].length > 0 && board.box_score["away"][quarter].length > 0
-    end
+    return false if board.box_score == nil 
+    board.box_score["home"][quarter] != "" && board.box_score["away"][quarter] != ""
   end
 
   def insert_value_for_form(board, quarter, team)
