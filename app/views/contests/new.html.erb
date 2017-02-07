@@ -34,7 +34,8 @@
   <%= f.text_field :prizes, placeholder: "Separate by comma" %>
 </div>
 
-<div>
+  <% if @contest.event_date && closed?(@contest) %>
+ <div>
   <table class"striped bordered">
 
     <!-- <thead><th>Winners:</th></thead> -->
@@ -66,8 +67,9 @@
         </tbody>
   
     </table>
-</div>
 
+</div>
+<% end %>
 
 <%= f.submit 'Create Board', class:'btn waves-effect' %>
 <% end %>

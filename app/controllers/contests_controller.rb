@@ -30,8 +30,8 @@ class ContestsController < ApplicationController
         end
     end
     # rescue 
-      flash[:notice] = "ERROR SUCKAA"
-    render '_board'
+      # flash[:notice] = "ERROR SUCKAA"
+    # render '_board'
     # end
   end
 

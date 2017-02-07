@@ -6,11 +6,13 @@
     <% if current_user.admin? %>
     <%= link_to "Edit Event Details",  edit_contest_path(@contest), class: " claim-btn waves-red waves-effect edit-contest" %>
     <% end %>
+    <% if closed?(@contest) %>
     <h2>Box Score:</h2>
     <ul>
       <li><%= render 'box_score' %></li>
         
     </ul>
+    <% end %>
     <% $quarters.each do |quarter| %>
       <% if quarter_over?(@contest, quarter) %>
         <h2><%=  find_winner(@contest, quarter)[0].full_name  %> has the winning square for the  <%= quarter.capitalize %> - Cell <%= @winner_data[1][0].position[0].to_i + 1 %></h2>

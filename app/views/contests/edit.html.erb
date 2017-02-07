@@ -35,8 +35,9 @@
 </div>
 
 
-
+<% if closed?(@contest) %>
 <%= render 'box_score'%>
+<% end %>
 
 <%= f.submit 'Update Board', class:'claim-btn waves-effect ' %>
 <% end %>

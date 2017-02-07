@@ -16,7 +16,7 @@ class CellsController < ApplicationController
 				new_board = remove_selected_nums(@board, @cell.position)
 				
 				if @cell.persisted?
-				assign_closed_positions(@board, @cell)
+					assign_closed_positions(@board, @cell)
 					@board.update_attributes(:available_nums => new_board)
 				else
 					flash[:error] = "Error. Cell not saved"
