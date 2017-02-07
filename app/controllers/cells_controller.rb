@@ -5,6 +5,7 @@ class CellsController < ApplicationController
 		if closed?(@board)    
 			flash[:error] = "Error. No Longer Available"
 		else
+			cell_count = cell_params[:position].length
 			cell_params[:position].each do |cell|
 
 				@cell = Cell.new(cell_params)
@@ -23,6 +24,7 @@ class CellsController < ApplicationController
 					redirect_to login_path
 				end
 			end
+			flash[:notice] = "Your #{cell_count} Squares Have Been Saved"
 		end
 			redirect_to contest_path(@board)
 	end
