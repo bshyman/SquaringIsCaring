@@ -103,12 +103,12 @@ visibility: hidden;
 }
 
 .claim-btn {
-  display: block;
-  width: 32%;
+  /*display: block;*/
+  width: 48%;
   color: black;
   border-radius: 10px;
   border: solid 4px;
-  /*margin: 0px 20%;*/
+  margin: 0%x 20%;
   /*height: 100px;*/
   font-size: 3em;
   font-weight: bold;
@@ -124,18 +124,43 @@ visibility: hidden;
   color: white;
 }
 
-.claim_buttons {
+.random_buttons {
   display: flex;
+  flex-grow: 1;
   justify-content: space-between;
+  /*margin: 0px 20px;*/
+  right:4%;
+  position: relative;
 }
 
+#claim-selected {
+  background-color: red;
+  color: black;
+  width: 71% ;
+  border-radius: 10px;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px auto;
+  border: solid 4px;
+  height: 100px;
+  /*left: 30%;*/
+  position: absolute;
+  right: 17%;
+
+
+}
+
+
+
 div.square {
-  /*margin: 2px;*/
+  margin: 0px;
   width: 80px;
   /*border-radius: 8px;*/
   top: 10px;
   position: relative;
   height: 90px;
+
 
 
 
