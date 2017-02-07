@@ -102,7 +102,7 @@ if (numString.length == 0) {
   var conId = $("h3.event_name").attr("c-id")
   $.get("/contests/" + conId +"/cells/" + i, function(response){
         // console.log(response)
-        for (var i = 0; i < 101; i++) {
+        for (var i = 0; i <= 100; i++) {
       // console.log(iddd)
       var post_elem = document.getElementById(addZeros(i).toString())
       // debugger
