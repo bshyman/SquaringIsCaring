@@ -28,6 +28,5 @@ module UsersHelper
 	def id_in_initial_out(user_id)
 		@user = User.find(user_id)
 		@user.first_name[0] + @user.last_name[0]
-
 	end
 end

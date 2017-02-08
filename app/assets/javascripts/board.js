@@ -97,35 +97,23 @@ $(document).ready(function(){
 
   }
 
-if (numString.length == 0) {
+  if (numString.length == 0) {
   // var users = getUserIds();
   var conId = $("h3.event_name").attr("c-id")
-  $.get("/contests/" + conId +"/cells/" + i, function(response){
-        // console.log(response)
-        for (var i = 0; i < 101; i++) {
-      // console.log(iddd)
-      var post_elem = document.getElementById(addZeros(i).toString())
-      // debugger
-      // var users = getUsers
-      
-      $(post_elem).parent().prepend(response[i].user_id)
-      setTimeout(function(){
-        console.log(users)
+    $.get("/contests/" + conId +"/cells/" + i, function(response){
+        for (var i = 0; i < 100; i++) {
+          var post_elem = document.getElementById(addZeros(i).toString())
+          $(post_elem).parent().prepend(response[i].user_id)
+        };
+    });
+  };
+  var getUsers = function(){
+    $.get("/users/ ", function(user_data){
+      console.log(user_data)
+      return user_data;
+    });
 
-      }, 3000) 
-      console.log(response[i])
-    };
-
-
-  });
-};
-// var getUsers = function getUserIds(){
-//   $.get("/users", function(user_data){
-//     console.log(user_data)
-//     return user_data;
-//   })
-
-// console.log(numString)
+  };
 });
 
 
