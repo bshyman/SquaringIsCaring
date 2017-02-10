@@ -102,7 +102,7 @@ $(document).ready(function(){
   var conId = $("h3.event_name").attr("c-id")
   $.get("/contests/" + conId +"/cells/" + i, function(response){
         // console.log(response)
-        for (var i = 0; i <= 100; i++) {
+        for (var i = 0; i < 100; i++) {
       // console.log(iddd)
       var post_elem = document.getElementById(addZeros(i).toString())
       // debugger
@@ -110,26 +110,29 @@ $(document).ready(function(){
       
       $(post_elem).parent().prepend(response[i].user_id)
       setTimeout(function(){
-        console.log(users)
+        // console.log(users)
 
       }, 3000) 
       console.log(response[i])
     };
+  })
+};
 
 
-    $.get("/contests/" + conId +"/cells/" + i, function(response){
-        for (var i = 0; i < 100; i++) {
-          var post_elem = document.getElementById(addZeros(i).toString())
-          $(post_elem).parent().prepend(response[i].user_id)
-        };
-    });
-  };
-  var getUsers = function(){
-    $.get("/users/ ", function(user_data){
-      console.log(user_data)
-      return user_data;
-    });
-  };
+
+  //   $.get("/contests/" + conId +"/cells/" + i, function(response){
+  //       for (var i = 0; i < 100; i++) {
+  //         var post_elem = document.getElementById(addZeros(i).toString())
+  //         $(post_elem).parent().prepend(response[i].user_id)
+  //       };
+  //   });
+  // };
+  // var getUsers = function(){
+  //   $.get("/users/ ", function(user_data){
+  //     console.log(user_data)
+  //     return user_data;
+  //   });
+  // };
 });
 
 
