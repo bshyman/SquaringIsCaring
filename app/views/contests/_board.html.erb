@@ -32,7 +32,10 @@
       <%= raw home_axis_populater(@contest) %>
   </div>
   <h1 class="vertical-text team-header hide-on-med-and-down"><%= @contest.away_team.split(" ").pop %></h1>
-
+<ul class="legend">
+  <li><div class="color-box green"></div><span>Available</span></li>
+  <li><div class="color-box black"></div><span>Taken</span></li>
+</ul>
   <form action="/contests/<%= @contest.id %>/cells" method='POST' id="form" >
       <% i = 0 %>
     <% 10.times do%>
