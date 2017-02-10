@@ -13,8 +13,6 @@ class ContestsController < ApplicationController
 
   def show
     redirect_to new_user_session_path unless logged_in? 
-    
-    
     @contest = Contest.find(params[:id])
     # begin
     if closed?(@contest)
@@ -72,7 +70,7 @@ class ContestsController < ApplicationController
   	@contest = Contest.find(params[:id])
   	@contest.destroy
   	flash[:notice] = "Your Board has been deleted"
-  	render 'index'
+  	redirect_to root_path
   end
 
   def box_score

@@ -4,7 +4,10 @@
     <!-- <h4 class='board_info'>Event - <%#= @contest.event_date.utc  %></h4>  -->
     <h4 class='board_info'><a href="#">Winning</a></h4>
     <% if current_user.admin? %>
-    <%= link_to "Edit Event Details",  edit_contest_path(@contest), class: " claim-btn waves-red waves-effect edit-contest" %>
+      <ul>
+      <li><%= link_to "Edit Event Details",  edit_contest_path(@contest), class: " claim-btn waves-red waves-effect edit-contest" %></li>
+       <li> </li>
+    </ul>
     <% end %>
     <% if closed?(@contest) %>
     <h2>Box Score:</h2>
