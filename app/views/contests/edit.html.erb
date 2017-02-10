@@ -40,4 +40,5 @@
 <% end %>
 
 <%= f.submit 'Update Board', class:'claim-btn waves-effect ' %>
+<%= link_to "Delete Board", contest_path(@contest), method: "delete", class: "claim-btn waves-red waves-effect " %>
 <% end %>

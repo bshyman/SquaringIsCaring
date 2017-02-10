@@ -112,7 +112,6 @@ $(document).ready(function(){
       console.log(user_data)
       return user_data;
     });
-
   };
 });
 
