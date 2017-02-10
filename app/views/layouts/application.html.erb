@@ -66,13 +66,11 @@
        <h2><p class='error red'><%=h flash[:error] %></p></h2>
         <% end -%>
         <% if flash[:notice] -%>
-<<<<<<< HEAD
-        <h2 ><p class='notice '><%=h flash[:notice] %></p></h2>
+
+          <h2 ><p class='notice '><%=h flash[:notice] %></p></h2>
         <% end -%>
-=======
-        <p class='notice'><%=h flash[:notice] %></p>
-        <%  end -%>
->>>>>>> view_changes
+       
+
       </div>
       <%= yield %>
     </div>

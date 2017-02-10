@@ -100,7 +100,6 @@ $(document).ready(function(){
   if (numString.length == 0) {
   // var users = getUserIds();
   var conId = $("h3.event_name").attr("c-id")
-<<<<<<< HEAD
   $.get("/contests/" + conId +"/cells/" + i, function(response){
         // console.log(response)
         for (var i = 0; i <= 100; i++) {
@@ -117,7 +116,7 @@ $(document).ready(function(){
       console.log(response[i])
     };
 
-=======
+
     $.get("/contests/" + conId +"/cells/" + i, function(response){
         for (var i = 0; i < 100; i++) {
           var post_elem = document.getElementById(addZeros(i).toString())
@@ -130,8 +129,6 @@ $(document).ready(function(){
       console.log(user_data)
       return user_data;
     });
->>>>>>> view_changes
-
   };
 });
 
