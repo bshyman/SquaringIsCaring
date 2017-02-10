@@ -35,8 +35,8 @@ module ContestsHelper
     z = 0
     string = ""
     10.times do
-      string +=
-      "<div class='col s1 square '>
+      string += "<div class='col s1 square '>
+
     <label for='#{row}#{z}' value='#{row}#{z}'>
     <input type='checkbox' id='#{row}#{z}' name='cell[position][]' value='#{row}#{z}'>
     <end>
