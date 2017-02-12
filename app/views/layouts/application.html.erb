@@ -66,8 +66,10 @@
        <h2><p class='error red'><%=h flash[:error] %></p></h2>
         <% end -%>
         <% if flash[:notice] -%>
-        <p class='notice'><%=h flash[:notice] %></p>
-        <%  end -%>
+
+          <h2 ><p class='notice '><%=h flash[:notice] %></p></h2>
+        <% end -%>
+       
 
       </div>
       <%= yield %>
