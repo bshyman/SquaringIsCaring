@@ -40,7 +40,7 @@
       <% i = 0 %>
     <% 10.times do%>
         <%= raw away_axis_populater(@contest, i ) %>
-    <%= raw row_checkbox_populater(i) %>
+    <%= raw row_checkbox_populater(i, @contest) %>
       <%  i += 1 %>
     <% end %>
     <!-- <input type="hidden" name='cell[position][]' value="2"> -->

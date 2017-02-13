@@ -160,10 +160,15 @@ div.square {
   top: 10px;
   position: relative;
   height: 90px;
+}
 
-
-
-
+div.closed_cells {
+  margin: 02px;
+  width: 70px;
+  border-radius: 14px;
+  top: 10px;
+  position: relative;
+  height: 80px;
 }
 
 .home-away {
