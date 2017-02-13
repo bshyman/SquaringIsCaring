@@ -31,12 +31,17 @@ module ContestsHelper
     return html_string+ "</div>"
   end
 
-  def row_checkbox_populater(row)
+  def row_checkbox_populater(row, board)
     z = 0
     string = ""
     10.times do
-      string += "<div class='col s1 square '>
-
+      string += "<div class='col s1 "
+        if closed?(board)
+          string += "closed_cells"
+        else
+          string+= "square"
+        end
+      string +="'> 
     <label for='#{row}#{z}' value='#{row}#{z}'>
     <input type='checkbox' id='#{row}#{z}' name='cell[position][]' value='#{row}#{z}'>
     <end>
@@ -123,5 +128,12 @@ module ContestsHelper
     else
       return board.box_score[team][quarter]
     end
+  end
+
+  def  sep_cells_on_close(board)
+
+     
+  
+
   end
 end
