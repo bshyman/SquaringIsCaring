@@ -38,9 +38,9 @@ class ContestsController < ApplicationController
     p contest_params
   	if @contest.save
       flash[:notice] = "Your Board has been created"
-      redirect_to root_path
+      redirect_to contest_path(@contest)
     else
-      render 'new'
+      flash[:error] = "Errrror"
       @errors = @contest.errors.full_messages	
     end
   end

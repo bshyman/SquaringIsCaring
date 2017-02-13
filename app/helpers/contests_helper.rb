@@ -75,8 +75,10 @@ module ContestsHelper
       end
     end
     # board.event_date.strftime("%b %e, %l:%M %p" )
-    board.event_date.utc.strftime("%b %e, %l:%M %p")
+    board.event_date.strftime("%b %e, %l:%M %p")
   end
+
+
 
   def assign_closed_positions(board, cell)
         column = cell.position[0][1]
