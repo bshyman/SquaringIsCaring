@@ -4,7 +4,12 @@ class ContestsController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
-  	@contests = Contest.all
+
+    if params[:search]
+      @contests = Contest.search(params[:search]).order("created_at DESC")
+    else
+  	 @contests = Contest.all
+    end
   end
 
   def new

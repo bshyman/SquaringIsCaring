@@ -1,10 +1,11 @@
 
-      <form>
+<!--       <form action=>
         <div class="input-field ">
           <input id="search" type="search" class="" placeholder="Not working yet" required>
           <label class="label-icon" for="search"><i class="material-icons">search</i>
     	</label>
         </div>
+        <input type="submit">
 		
 		<div>	
         <select class='browser-default right-align right  search-select'>
@@ -16,7 +17,14 @@
 		</div>
           <div class="input-field">
   			</div>
-      </form>
+      </form> -->
+
+
+   <%= form_tag(contests_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Team Name"%>
+    <%= submit_tag "Search", :name => nil , class:"btn" %>
+    <%#= button_to "Reset", type="reset" %>
+  <% end %>
 
 <h2 class='contest-list'>Contest List</h2>
 <% @contests.sort {|a,b| b.event_date <=> a.event_date}.each do |contest| %>
