@@ -1,9 +1,5 @@
 <div><p><iframe src="http://odds.zetamicro.com/xTicker.asp?bgColor=FFFFFF" width="800" height="180" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="" ></iframe></p></div>
 
-<h2>Contest List</h2>
-
-
-
    <%= form_tag(contests_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Team Name"%>
     <%= submit_tag "Search", :name => nil , class:"btn" %>
