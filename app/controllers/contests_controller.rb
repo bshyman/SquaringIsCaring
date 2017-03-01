@@ -75,7 +75,7 @@ class ContestsController < ApplicationController
   	@contest = Contest.find(params[:id])
   	@contest.destroy
   	flash[:notice] = "Your Board has been deleted"
-  	redirect_to root_path
+  	redirect_to contests_path
   end
 
   def box_score
