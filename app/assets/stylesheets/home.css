@@ -1,0 +1,100 @@
+.homebody, html {
+  height: 80%;
+  width: 100%;
+  /*color: #fff;*/
+}
+
+.homebody {
+  font: Arial;
+  perspective: 500px;
+  padding-top: 500px;
+  /*background: #000;*/
+  text-align: center;
+}
+
+/* cube */
+
+.cube {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  text-align:center;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: transform 1s;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  background-position: 0 100%;
+  background-size: 100% 400%;
+  backface-visibility: hidden;
+  transition: background-position 1s;
+  font-size: 1em;
+  color: #000;
+}
+
+.gift, .cal, .sq, .search {
+  font-size: 100px
+}
+
+/* transform the faces and use a big grad for shading */
+
+.face:first-child {
+  transform: rotateX(90deg) translateY(50%) rotateX(-90deg);
+  background-image: linear-gradient(rgba(0,0,0,1) 10%, rgba(0,0,0,0) 66%);
+}
+.face:last-child {
+  transform: translateY(50%) rotateX(-90deg) ;
+  background-image: linear-gradient(rgba(0,0,0,0) 33%, rgba(0,0,0,1) 90%);
+}
+
+
+/* some test candidates */
+
+#red {
+  left: 20%;
+}
+#red .face {
+  background-color: #c33;
+}
+#green {
+  left: 40%;
+  z-index: 1;
+}
+#green .face {
+  background-color: #ad3;
+}
+#blue {
+  left: 60%;
+}
+#blue .face {
+  background-color: #3ac;
+}
+
+#yellow {
+  left: 80%
+}
+
+#yellow .face {
+  background-color: yellow
+}
+
+/* hover to animate */
+.cube:hover {
+  transform: translateZ(-100px) rotateX(90deg);
+}
+.cube:hover > .face:first-child,
+  .cube:hover > .face:last-child {
+    background-position: 0 0
+}
+
+

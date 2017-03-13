@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   get '/contests/:id/box_score', to: 'contests#box_score', as: 'box_score'
   get '/contests/:id/display_owners', to: 'contests#display_owners'
 
+  get '/home', to: 'layouts#home'
   root to: 'contests#index'
 end
