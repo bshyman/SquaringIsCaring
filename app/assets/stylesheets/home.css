@@ -1,7 +1,6 @@
 .homebody, html {
   height: 80%;
   width: 100%;
-  /*color: #fff;*/
 }
 
 .homebody {
@@ -67,7 +66,7 @@
   background-color: #c33;
 }
 #green {
-  left: 40%;
+  left: 80%;
   z-index: 1;
 }
 #green .face {
@@ -81,7 +80,7 @@
 }
 
 #yellow {
-  left: 80%
+  left: 40%
 }
 
 #yellow .face {
