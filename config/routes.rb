@@ -19,5 +19,9 @@ Rails.application.routes.draw do
   get '/contests/:id/display_owners', to: 'contests#display_owners'
 
   get '/home', to: 'layouts#home'
-  root to: 'contests#index'
+  get '/prizes', to: 'layouts#prizes'
+  get '/how-to', to: 'layouts#howto'
+  get '/contact', to: 'layouts#contact'
+
+  root to: 'layouts#home'
 end
