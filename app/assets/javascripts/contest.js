@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	
 
 	// console.log(numPool)
 	// console.log(contestID)

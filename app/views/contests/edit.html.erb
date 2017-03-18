@@ -2,7 +2,7 @@
 <div class='input-field home-away'>
   <%= f.label :home_team%>
   <%= f.text_field :home_team, placeholder: "Home Team", class: "home-team"%>
-  <h4>Vs.</h4>
+  <h4>at </h4>
   <%= f.label :away_team%>
   <%= f.text_field :away_team, placeholder: "Away Team", class:"away-team"%>
 </div>
@@ -35,8 +35,10 @@
 </div>
 
 
-
+<% if closed?(@contest) %>
 <%= render 'box_score'%>
+<% end %>
 
 <%= f.submit 'Update Board', class:'claim-btn waves-effect ' %>
+<%= link_to "Delete Board", contest_path(@contest), method: "delete", class: "claim-btn waves-red waves-effect " %>
 <% end %>

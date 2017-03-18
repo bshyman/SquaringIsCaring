@@ -13,7 +13,7 @@ body {
     font-family: GillSans, Calibri, Trebuchet, sans-serif;
     /*font-size: 1.5em;*/
 }
-@font-face {
+/*@font-face {
   font-family: 'squarey';
   src:url('fonts/squarey.ttf');
   src:url('fonts/squarey.eot?#iefix') format("embedded-opentype"),
@@ -21,7 +21,7 @@ body {
 
   @font-face {
   font-family: 'sometimelater';
-  src:url('fonts/sometimelater.otf');
+  src: url('fonts/sometimelater.otf');
   src:url('fonts/sometimelater.eot?#iefix') format("embedded-opentype")
 }
 @font-face {
@@ -33,7 +33,7 @@ body {
   font-family: 'famrids';
   src:url('fonts/famrids.ttf');
   src:url('fonts/famrids.eot?#iefix') format("embedded-opentype")
-}
+}*/
 
 .col {
   border: 1px solid black;
@@ -103,12 +103,12 @@ visibility: hidden;
 }
 
 .claim-btn {
-  display: block;
-  width: 32%;
+  /*display: block;*/
+  width: 48%;
   color: black;
   border-radius: 10px;
   border: solid 4px;
-  /*margin: 0px 20%;*/
+  margin: 0%x 20%;
   /*height: 100px;*/
   font-size: 3em;
   font-weight: bold;
@@ -124,21 +124,51 @@ visibility: hidden;
   color: white;
 }
 
-.claim_buttons {
+.random_buttons {
   display: flex;
+  flex-grow: 1;
   justify-content: space-between;
+  /*margin: 0px 20px;*/
+  right:4%;
+  position: relative;
 }
 
+#claim-selected {
+  background-color: red;
+  color: black;
+  width: 71% ;
+  border-radius: 10px;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px auto;
+  border: solid 4px;
+  height: 100px;
+  /*left: 30%;*/
+  position: absolute;
+  right: 17%;
+
+
+}
+
+
+
 div.square {
-  margin: 2px;
+  margin: 0px;
   width: 80px;
-  border-radius: 8px;
+  /*border-radius: 8px;*/
   top: 10px;
   position: relative;
-  height: 60px;
+  height: 90px;
+}
 
-
-
+div.closed_cells {
+  margin: 02px;
+  width: 70px;
+  border-radius: 14px;
+  top: 10px;
+  position: relative;
+  height: 80px;
 }
 
 .home-away {
@@ -196,7 +226,52 @@ body {
   text-align: center;
 }
 
+.legend {
+  float: right;
+  height: 200px;
+  width: 400px;
+  right: 3%;
+  position: absolute;
+  /*border: solid 6px;*/
+  border-radius: 4px;
+  padding: 8px;
+  text-align: right;
+  font-size: 3em;
+  font-weight: bold;
+  padding: 5px 0px;
+}
 
+.color-box {
+  border: solid 1px;
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin-bottom: 5px;
+  clear: both;
+}
 
+ul.legend li span {
+margin-right: 50px;
+text-align: left;
+width: 200px;
+display: inline-block;
+margin-top: 10px;
+}
 
+#search {
+  width: 65%;
+  float: left;
+}
+.search-select {
+  width: 25%;
+  float: right;
+}
+
+.contest-list {
+  clear: both;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
 

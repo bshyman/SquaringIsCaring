@@ -8,12 +8,12 @@
     
     <!-- Compiled and minified JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
     <!-- flatpicker -->
     <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
@@ -25,31 +25,34 @@
   <body>
 
     <nav>
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo">Square Bets</a>
-        <ul class="right hide-on-med-and-down">
+      <meta name="viewport" content="width=device-width" />
 
-          <% if user_signed_in? %>
-          <!-- <li><a href="/">Logged In as <%= current_user.full_name %></a></li> -->
-          <li><%= link_to current_user.full_name, edit_user_registration_path %></li>
-          <%# if current_user.admin? %>
-          <li><%= link_to 'Create a Board', new_contest_path %></li>
-          <li><%= link_to 'How To', how_to_path %></li>
-          <%# end %>
-          <li><%= link_to 'History', dashboard_path(current_user) %></li>
-          <% else %>
-          <li><%= link_to 'Login', new_user_session_path %></li>
-          <li><%= link_to 'Login with Google', user_google_oauth2_omniauth_authorize_path%></li>
-          <li><%= link_to 'Register', new_user_registration_path %></li>
-          <% end %>
+      <div class="nav-wrapper">
+        <a href="/contests" class="brand-logo">Square Bets</a>
+        <ul class="right ">
+
           
 
           <!-- Dropdown Trigger -->
-          <li><a class="dropdown-button large"  data-activates="dropdown1"><i class="large material-icons">view_list</i></a></li>
+          <li><a class="dropdown-button"  data-activates="dropdown1" class=" nav-button" ><i class="large material-icons ">view_list</i></a></li>
         </ul>
       </div>
     </nav>
     <ul id="dropdown1" class="dropdown-content">
+          <% if user_signed_in? %>
+          <!-- <li><a href="/">Logged In as <%= current_user.full_name %></a></li> -->
+          <li><%= link_to 'Profile', edit_user_registration_path %></li>
+          <% if current_user.admin? %>
+          <li><%= link_to 'Create a Board', new_contest_path %></li>
+          <li><%= link_to 'How To', how_to_path %></li>
+          <% end %>
+          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+          <li><%= link_to 'History', dashboard_path(current_user) %></li>
+          <% else %>
+          <li><%= link_to 'Login', new_user_session_path %></li>
+          <!-- <li><%#= link_to 'Login with Google', user_google_oauth2_omniauth_authorize_path%></li> -->
+          <li><%= link_to 'Register', new_user_registration_path %></li>
+          <% end %>
       <li><%= link_to 'Account', edit_user_registration_path%></li>
       <li class="divider"></li>
       <li><%= link_to 'Balance', edit_user_registration_path%></li>
@@ -58,6 +61,9 @@
         <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
       <% end %>
       <li class="divider"></li>
+      <li><%= link_to 'History', edit_user_registration_path%></li>
+      <li class="divider"></li>
+      <!-- <li><%#= link_to 'Balance', edit_user_registration_path%></li> -->
       
     </ul>
 
@@ -65,11 +71,14 @@
 
       <div>
         <% if flash[:error] -%>
-        <p class='error'><%=h flash[:error] %></p>
+       <h2><p class='error red'><%=h flash[:error] %></p></h2>
         <% end -%>
         <% if flash[:notice] -%>
-        <p class='notice'><%=h flash[:notice] %></p>
+
+          <h2 ><p class='notice '><%=h flash[:notice] %></p></h2>
         <% end -%>
+       
+
       </div>
       <%= yield %>
     </div>

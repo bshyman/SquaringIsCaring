@@ -10,7 +10,7 @@ module ContestsHelper
       if closed?(board)
         home_axis_string += board.home_axis[i] + "</div>"
       else
-        home_axis_string += "" + "</div>"
+        home_axis_string += "🏈" + "</div>"
       end
       i += 1
       home_axis_string
@@ -25,18 +25,23 @@ module ContestsHelper
     if closed?(board)
       html_string += axis_val
     else
-      html_string +=  ""
+      html_string +=  "🏈"
     end
 
     return html_string+ "</div>"
   end
 
-  def row_checkbox_populater(row)
+  def row_checkbox_populater(row, board)
     z = 0
     string = ""
     10.times do
-      string +=
-      "<div class='col s1 square '>
+      string += "<div class='col s1 "
+        if closed?(board)
+          string += "closed_cells"
+        else
+          string+= "square"
+        end
+      string +="'> 
     <label for='#{row}#{z}' value='#{row}#{z}'>
     <input type='checkbox' id='#{row}#{z}' name='cell[position][]' value='#{row}#{z}'>
     <end>
@@ -75,51 +80,60 @@ module ContestsHelper
       end
     end
     # board.event_date.strftime("%b %e, %l:%M %p" )
-    board.event_date.utc.strftime("%b %e, %l:%M %p")
+    board.event_date.strftime("%b %e, %l:%M %p")
   end
 
-  def assign_closed_positions(board)
-    if closed?(board)
-      board.cells.each do |cell|
-        row = cell.position[0][0]
-        row = row.to_i
+
+
+  def assign_closed_positions(board, cell)
         column = cell.position[0][1]
+        row = cell.position[0][0]
+
+        row = row.to_i
         column = column.to_i
-        cell.position[0] = board.home_axis[column]
-        cell.position[1] = board.away_axis[row]
-        p cell.position
+
+        @cell = cell.update_attributes(positionx: board.home_axis[column], positiony: board.away_axis[row] )
+        p @cell
         cell.save
-      end
       board.save
-    end
-    board
   end
 
 
 
   def find_winner(board, quarter)
-    winning_cell = []
+    @winner_data = []
     column = board.box_score["home"][quarter][-1]
     row = board.box_score["away"][quarter][-1]
-    @cell = Cell.where(contest_id: board.id).where('position =  ?', '{"2","4"}')
+    p "LOGIC ROW"
+    p row
+    p "LOGIC COLUMN"
+    p column
+    @cell = Cell.where(contest_id: board.id, positionx: column.to_i, positiony: row.to_i)
+    p @cell
     @user = User.find(@cell[0].user_id)
+    @winner_data = [@user, @cell]
+
   end
 
 
   def quarter_over?(board, quarter)
-    if board.box_score === nil
-      return false
-    else
-      board.box_score["home"][quarter].length > 0 && board.box_score["away"][quarter].length > 0
-    end
+    return false if board.box_score == nil 
+    board.box_score["home"][quarter] != "" && board.box_score["away"][quarter] != ""
   end
 
   def insert_value_for_form(board, quarter, team)
     return "" if board.box_score == nil
     if board.box_score[team][quarter] == ""
-      return "N/A"
+      return ""
     else
       return board.box_score[team][quarter]
     end
+  end
+
+  def  sep_cells_on_close(board)
+
+     
+  
+
   end
 end

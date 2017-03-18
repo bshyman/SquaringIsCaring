@@ -4,16 +4,21 @@
     <!-- <h4 class='board_info'>Event - <%#= @contest.event_date.utc  %></h4>  -->
     <h4 class='board_info'><a href="#">Winning</a></h4>
     <% if current_user.admin? %>
-    <%= link_to "Edit Event Details",  edit_contest_path(@contest), class: " claim-btn waves-red waves-effect edit-contest" %>
+      <ul>
+      <li><%= link_to "Edit Event Details",  edit_contest_path(@contest), class: " claim-btn waves-red waves-effect edit-contest" %></li>
+       <li> </li>
+    </ul>
     <% end %>
+    <% if closed?(@contest) %>
     <h2>Box Score:</h2>
     <ul>
       <li><%= render 'box_score' %></li>
         
     </ul>
+    <% end %>
     <% $quarters.each do |quarter| %>
       <% if quarter_over?(@contest, quarter) %>
-        <h2><%=  find_winner(@contest, quarter).full_name  %> has the winning square for the  <%= quarter.capitalize %></h2>
+        <h2><%=  find_winner(@contest, quarter)[0].full_name  %> has the winning square for the  <%= quarter.capitalize %> - Cell <%= @winner_data[1][0].position[0].to_i + 1 %></h2>
       <% end %>
     <% end %>
       
@@ -21,30 +26,35 @@
       <%= @contest.available_nums %>
     </div> 
     <!-- <button class="btn-large z-depth-4" id="display_board"> Show Taken </button> -->
-    <h3 class="home-team-row"><%= @contest.home_team.split(" ").pop %></h3>
+    <h3 class="home-team-row team-header"><%= @contest.home_team.split(" ").pop %></h3>
   <div class="row home_row board">
     <div class="col s1 corner"></div>
       <%= raw home_axis_populater(@contest) %>
   </div>
-  <h1 class="vertical-text"><%= @contest.away_team.split(" ").pop %></h1>
-
+  <h1 class="vertical-text team-header hide-on-med-and-down"><%= @contest.away_team.split(" ").pop %></h1>
+<ul class="legend">
+  <li><div class="color-box green"></div><span>Available</span></li>
+  <li><div class="color-box black"></div><span>Taken</span></li>
+</ul>
   <form action="/contests/<%= @contest.id %>/cells" method='POST' id="form" >
       <% i = 0 %>
     <% 10.times do%>
         <%= raw away_axis_populater(@contest, i ) %>
-    <%= raw row_checkbox_populater(i) %>
+    <%= raw row_checkbox_populater(i, @contest) %>
       <%  i += 1 %>
     <% end %>
     <!-- <input type="hidden" name='cell[position][]' value="2"> -->
     <input type="hidden" name='cell[user_id]' value="<%= current_user.id %>">
     <input type="hidden" name='cell[contest_id]' value="<%= @contest.id %>">
-    <div class="claim_buttons">
+    <div class="random_buttons">
       
-    <input type="submit" value="Claim Selected" class='claim-btn  waves-effect waves-red'>
     <button value="random2" class='claim-btn  waves-effect waves-red' id="random2">Random 2</button>
     <button value="random5" class='claim-btn waves-effect waves-red' id="random5">Random 5</button>
-
     </div>
+    <div>
+      <input type="submit" value="Claim Selected Squares" id='claim-selected' class='  swaves-effect waves-red'>
+    </div>
+
   </form>
   <br>
   <br>

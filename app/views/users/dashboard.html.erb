@@ -5,18 +5,22 @@
 
 
 	<h3>Last 5 Squares</h3>
-	<% recent.each do |cell| %>
+	<% if recent != []  %>
 
 	<ul>
+	<% recent.each do |cell| %>
 		<h4>
 			
-
 		<li><%= link_to Contest.find(cell.contest_id).event_name, contest_path(cell.contest_id) %>
 			<ul class="browser-default" ><li recent_item>Cell Position - <%= cell.position[0] %></li></ul>
 		</li>
 		</h4>
+	<% end %>
+	<% else %>
+		<h4><li>You have no recent squares.</li></h4>
+		<h4><li><%= link_to 'Pick Some Squares Now', contests_path %></li></h4>
+		<% end %>
 	</ul>
 
 		
-	<% end %>
 

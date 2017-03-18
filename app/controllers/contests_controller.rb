@@ -4,7 +4,12 @@ class ContestsController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
-  	@contests = Contest.all
+
+    if params[:search]
+      @contests = Contest.search(params[:search]).order("created_at DESC")
+    else
+  	 @contests = Contest.all
+    end
   end
 
   def new
@@ -12,21 +17,25 @@ class ContestsController < ApplicationController
   end
 
   def show
+    redirect_to new_user_session_path unless logged_in? 
     @contest = Contest.find(params[:id])
+    # begin
     if closed?(@contest)
-      assign_closed_positions(@contest)
+      @nums = []
+        if request.xhr?
+          p "AJAX"
+          @contest.available_nums.each{|num| @nums << num.to_i}
+          render :json => @nums
+        else
+          flash[:notice] = "NO AJAX"
+          p "NO AJAX"
+          # redirect_to login_path
+        end
     end
-    @nums = []
-    p params
-    if request.xhr?
-      p "AJAX"
-      @contest.available_nums.each{|num| @nums << num.to_i}
-      render :json => @nums
-    else
-      flash[:notice] = "NO AJAX"
-      p "NO AJAX"
-      # redirect_to login_path
-    end
+    # rescue 
+      # flash[:notice] = "ERROR SUCKAA"
+    # render '_board'
+    # end
   end
 
   def create
@@ -34,9 +43,9 @@ class ContestsController < ApplicationController
     p contest_params
   	if @contest.save
       flash[:notice] = "Your Board has been created"
-      render '_board'
+      redirect_to contest_path(@contest)
     else
-      render 'new'
+      flash[:error] = "Errrror"
       @errors = @contest.errors.full_messages	
     end
   end
@@ -66,7 +75,7 @@ class ContestsController < ApplicationController
   	@contest = Contest.find(params[:id])
   	@contest.destroy
   	flash[:notice] = "Your Board has been deleted"
-  	render 'index'
+  	redirect_to contests_path
   end
 
   def box_score

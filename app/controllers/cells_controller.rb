@@ -5,22 +5,26 @@ class CellsController < ApplicationController
 		if closed?(@board)    
 			flash[:error] = "Error. No Longer Available"
 		else
+			cell_count = cell_params[:position].length
 			cell_params[:position].each do |cell|
 
 				@cell = Cell.new(cell_params)
 				@cell.position = [cell]
+
 				# p @cell
 				@cell.user_id = current_user.id
 				@cell.save
 				new_board = remove_selected_nums(@board, @cell.position)
 				
 				if @cell.persisted?
+					assign_closed_positions(@board, @cell)
 					@board.update_attributes(:available_nums => new_board)
 				else
 					flash[:error] = "Error. Cell not saved"
 					redirect_to login_path
 				end
 			end
+			flash[:notice] = "Your #{cell_count} Squares Have Been Saved"
 		end
 			redirect_to contest_path(@board)
 	end
@@ -35,6 +39,6 @@ class CellsController < ApplicationController
 	private
 
 	def cell_params
-		params.require(:cell).permit(:user_id, :contest_id, :cell, :position => [])
+		params.require(:cell).permit(:user_id, :contest_id, :cell, :positionx, :positiony, :position => [])
 	end
 end

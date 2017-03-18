@@ -1,14 +1,14 @@
 <%= form_for @contest do |f|%>
 <div class='input-field home-away'>
   <%= f.label :home_team%>
-  <%= f.text_field :home_team, placeholder: "Home Team", class: "home-team"%>
-  <h4>Vs.</h4>
+  <%= f.text_field :away_team, placeholder: "Away Team", class:"away-team capitalize"%>
+  <h4>At</h4>
   <%= f.label :away_team%>
-  <%= f.text_field :away_team, placeholder: "Away Team", class:"away-team"%>
+  <%= f.text_field :home_team, placeholder: "Home Team", class: "home-team capitalize"%>
 </div>
 
 <div>
-  <%= f.datetime_local_field :event_date, class: "flatpickr"%>
+  <%= f.datetime_local_field :event_date, class: "flatpickr" %>
 <!-- <input class="flatpickr" type="text" placeholder="Select Date.." name="contest[event_date]"> -->
 </div>
 <div class="input-field inline  ">
@@ -34,7 +34,8 @@
   <%= f.text_field :prizes, placeholder: "Separate by comma" %>
 </div>
 
-<div>
+  <% if @contest.event_date && closed?(@contest) %>
+ <div>
   <table class"striped bordered">
 
     <!-- <thead><th>Winners:</th></thead> -->
@@ -66,8 +67,9 @@
         </tbody>
   
     </table>
-</div>
 
+</div>
+<% end %>
 
 <%= f.submit 'Create Board', class:'btn waves-effect' %>
 <% end %>

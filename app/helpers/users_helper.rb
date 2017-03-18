@@ -8,9 +8,9 @@ module UsersHelper
 # 	# 	@cached_user = @cached_user || User.find_by(id: session[:user_id])
 # 	# end
 
-# 	def logged_in?
-#     	current_user != nil
-#   	end
+	def logged_in?
+    	current_user != nil
+  	end
 
 	def recent
 		Cell.where(user_id: current_user.id).order(created_at: :desc).limit(5)
@@ -28,6 +28,5 @@ module UsersHelper
 	def id_in_initial_out(user_id)
 		@user = User.find(user_id)
 		@user.first_name[0] + @user.last_name[0]
-
 	end
 end

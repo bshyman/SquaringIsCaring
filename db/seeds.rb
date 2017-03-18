@@ -10,3 +10,6 @@ results = [[], [1], [1,2], [2]]
 User.create!(email: "bshyman@gmail.com", password: "password", first_name: "Benjamin", last_name: "Shyman", avatar: FFaker::Avatar.image, birthday: FFaker::Time.date, street_address: "8611 W Lillian Ave", apt_num: "2", city: "Chicago", state: "IL", zip: "60614", phone_num: "8473448329", admin?: true)
 
 Contest.create!(home_team: "New England Patriots", away_team: "Atlanta Falcons", event_date: DateTime.new(2017, 2, 5, 17, 30).utc, cell_value: 10, sport: "football", prizes: ["70%", "20%", "10%"])
+
+User.create!(email: "bfishbain@gmail.com", password: "password", first_name: "Brad", last_name: "Fishbain", avatar: FFaker::Avatar.image, birthday: FFaker::Time.date, street_address: "1012 Ya Motha", apt_num: "1", city: "Chicago", state: "IL", zip: "60614", phone_num: "8473448329", admin?: true)
+
