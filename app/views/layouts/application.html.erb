@@ -18,6 +18,7 @@
     <!-- flatpicker -->
     <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
     <script type="text/javascript" src="https://unpkg.com/flatpickr"></script>
+    <script src="https://use.fontawesome.com/e962ccf885.js"></script>
     
   </head>
 
@@ -43,6 +44,7 @@
           <li><%= link_to 'Profile', edit_user_registration_path %></li>
           <% if current_user.admin? %>
           <li><%= link_to 'Create a Board', new_contest_path %></li>
+          <li><%= link_to 'How To', how_to_path %></li>
           <% end %>
           <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
           <li><%= link_to 'History', dashboard_path(current_user) %></li>
@@ -52,6 +54,12 @@
           <li><%= link_to 'Register', new_user_registration_path %></li>
           <% end %>
       <li><%= link_to 'Account', edit_user_registration_path%></li>
+      <li class="divider"></li>
+      <li><%= link_to 'Balance', edit_user_registration_path%></li>
+      <li class="divider"></li>
+      <% if user_signed_in? %>
+        <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+      <% end %>
       <li class="divider"></li>
       <li><%= link_to 'History', edit_user_registration_path%></li>
       <li class="divider"></li>
@@ -73,6 +81,9 @@
 
       </div>
       <%= yield %>
+    </div>
+    <div class='footer'>
+      <li><%= link_to 'Contact Us', contact_path, class: 'contact'%></li>
     </div>
   </body>
   </html>
