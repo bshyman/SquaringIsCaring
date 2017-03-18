@@ -5,3 +5,17 @@ nav {
 #dropdown1 {
   margin-top: 64px;
 }
+
+.footer {
+  background: black;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  list-style-type: none;
+  color: white;
+}
+
+.contact {
+  color: white !important;
+}
