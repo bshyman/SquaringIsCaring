@@ -2,37 +2,44 @@
   <html lang="en">
   <head>
     <title>SquaringIsCaring</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= csrf_meta_tags %>
     
     <!-- Compiled and minified JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
     <!-- flatpicker -->
-    <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
     <script type="text/javascript" src="https://unpkg.com/flatpickr"></script>
     <script src="https://use.fontawesome.com/e962ccf885.js"></script>
+    <script src="https://use.fontawesome.com/e962ccf885.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
     
   </head>
 
   <body>
-
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <nav>
       <meta name="viewport" content="width=device-width" />
 
       <div class="nav-wrapper">
-        <a href="/contests" class="brand-logo">Square Bets</a>
+        <a href="/home" class="brand-logo title-bar">Squares</a>
         <ul class="right ">
-
-          
-
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+            <li><%= link_to 'Dashboard', dashboard_path(current_user) %></li>
+          <% else %>
+            <li><%= link_to 'Login', new_user_session_path %></li>
+            <!-- <li><%#= link_to 'Login with Google', user_google_oauth2_omniauth_authorize_path%></li> -->
+            <li><%= link_to 'Register', new_user_registration_path %></li>
+          <% end %>
+          <li><%= link_to 'How To', how_to_path %></li>
           <!-- Dropdown Trigger -->
           <li><a class="dropdown-button"  data-activates="dropdown1" class=" nav-button" ><i class="large material-icons ">view_list</i></a></li>
         </ul>
@@ -40,29 +47,11 @@
     </nav>
     <ul id="dropdown1" class="dropdown-content">
           <% if user_signed_in? %>
-          <!-- <li><a href="/">Logged In as <%= current_user.full_name %></a></li> -->
-          <li><%= link_to 'Profile', edit_user_registration_path %></li>
-          <% if current_user.admin? %>
-          <li><%= link_to 'Create a Board', new_contest_path %></li>
-          <li><%= link_to 'How To', how_to_path %></li>
+            <% if current_user.admin? %>
+              <li><%= link_to 'Create a Board', new_contest_path %></li>
+            <% end %>
+            <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
           <% end %>
-          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
-          <li><%= link_to 'History', dashboard_path(current_user) %></li>
-          <% else %>
-          <li><%= link_to 'Login', new_user_session_path %></li>
-          <!-- <li><%#= link_to 'Login with Google', user_google_oauth2_omniauth_authorize_path%></li> -->
-          <li><%= link_to 'Register', new_user_registration_path %></li>
-          <% end %>
-      <li><%= link_to 'Account', edit_user_registration_path%></li>
-      <li class="divider"></li>
-      <li><%= link_to 'Balance', edit_user_registration_path%></li>
-      <li class="divider"></li>
-      <% if user_signed_in? %>
-        <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
-      <% end %>
-      <li class="divider"></li>
-      <li><%= link_to 'History', edit_user_registration_path%></li>
-      <li class="divider"></li>
       <!-- <li><%#= link_to 'Balance', edit_user_registration_path%></li> -->
       
     </ul>
@@ -84,6 +73,6 @@
     </div>
     <div class='footer'>
       <li><%= link_to 'Contact Us', contact_path, class: 'contact'%></li>
-    </div>
+    <!-- </div> -->
   </body>
   </html>

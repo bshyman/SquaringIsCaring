@@ -1,3 +1,7 @@
+.homebody{
+  background-color: black;
+}
+
 nav {
   background: black !important;
 }
@@ -18,4 +22,17 @@ nav {
 
 .contact {
   color: white !important;
+}
+
+#search-form {
+  padding: 50px;
+}
+
+.contestgrid {
+  margin: 10px;
+  height: 240px;
+}
+
+.title-bar {
+  margin-left: 10px;
 }

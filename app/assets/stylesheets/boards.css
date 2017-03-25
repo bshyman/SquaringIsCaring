@@ -37,7 +37,7 @@ body {
 
 .col {
   border: 1px solid black;
-  padding: 20px !important;
+  /*padding: 20px !important;*/
   text-align: center;
 }
 
@@ -57,7 +57,12 @@ body {
   text-align: center;
 }
 
+.away_num { 
+  height: 75px;
+}
+
 .away_num, .home_num {
+  /*margin-top: 10px;*/
   background: red;
   color: black;
   font-size: 2em;
@@ -137,7 +142,7 @@ visibility: hidden;
   background-color: red;
   color: black;
   width: 71% ;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   font-size: 3em;
   font-weight: bold;
   text-align: center;
@@ -163,9 +168,9 @@ div.square {
 }
 
 div.closed_cells {
-  margin: 02px;
+  /*margin: 02px;*/
   width: 70px;
-  border-radius: 14px;
+  /*border-radius: 14px;*/
   top: 10px;
   position: relative;
   height: 80px;
@@ -187,6 +192,7 @@ div.closed_cells {
   transform: rotate(270deg);
   transform-origin: left top 30;
   float: left;
+  margin-top: 200px;
   position: absolute;
   left: -90px;
   top: 100%;
@@ -238,7 +244,7 @@ body {
   text-align: right;
   font-size: 3em;
   font-weight: bold;
-  padding: 5px 0px;
+  margin-right: -50px;
 }
 
 .color-box {

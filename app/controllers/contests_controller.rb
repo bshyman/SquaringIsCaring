@@ -12,6 +12,10 @@ class ContestsController < ApplicationController
     end
   end
 
+  def search 
+    
+  end
+
   def new
   	@contest = Contest.new
   end
@@ -23,12 +27,12 @@ class ContestsController < ApplicationController
     if closed?(@contest)
       @nums = []
         if request.xhr?
-          p "AJAX"
+          # p "AJAX"
           @contest.available_nums.each{|num| @nums << num.to_i}
           render :json => @nums
         else
-          flash[:notice] = "NO AJAX"
-          p "NO AJAX"
+          # flash[:notice] = "NO AJAX"
+          # p "NO AJAX"
           # redirect_to login_path
         end
     end
