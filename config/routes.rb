@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   get '/users/:id/dashboard', to: 'users#dashboard', as: 'dashboard'
+  get '/search', to: 'contests#_search', as: 'search'
   get '/contests/:id/box_score', to: 'contests#box_score', as: 'box_score'
   get '/contests/:id/display_owners', to: 'contests#display_owners'
   get '/pages/landing', to: 'pages#landing', as: 'landing'

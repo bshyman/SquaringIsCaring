@@ -1,9 +1,9 @@
-.homebody, html {
-  height: 80%;
+.home, html {
+  height: 100%;
   width: 100%;
 }
 
-.homebody {
+.home {
   font: Arial;
   perspective: 500px;
   padding-top: 500px;
