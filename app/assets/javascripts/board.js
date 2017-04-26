@@ -1,7 +1,6 @@
 $(document).ready(function(){
-
   var numPool = document.getElementById("num_pool");
-
+  
   flatpickr(".flatpickr", {
     enableTime: true,
     altInput: true,
