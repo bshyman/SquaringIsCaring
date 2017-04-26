@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var numPool = document.getElementById("num_pool");
-  
+
   flatpickr(".flatpickr", {
     enableTime: true,
     altInput: true,
@@ -119,55 +119,6 @@ $(document).ready(function(){
 
 
 
-  //   $.get("/contests/" + conId +"/cells/" + i, function(response){
-  //       for (var i = 0; i < 100; i++) {
-  //         var post_elem = document.getElementById(addZeros(i).toString())
-  //         $(post_elem).parent().prepend(response[i].user_id)
-  //       };
-  //   });
-  // };
-  // var getUsers = function(){
-  //   $.get("/users/ ", function(user_data){
-  //     console.log(user_data)
-  //     return user_data;
-  //   });
-  // };
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // $("div.container").on("click", "a#view_board", function(){
-    //   populateNums();
-    // });
-
-
-  // $("div.container").on('click', "div.square", function(event){
-  //  var contestId = $("form#form").attr("action").charAt(10);
-  //        // console.log(JSON.stringify(numPool))
-
-  //        alert($(this).html());
-  //        // event.preventDefault();
-  //         var test = $(this).find("input[disabled='disabled']").attr("id")
-  //         console.log("Test - " + this)
-  //         // if (this.children().children().attr("disabled").val("disabled")) {};
-  //         $(this).css('background', 'blue');
-
-  //         var cellId = $(this).children().attr("id");
-  //         var cellRoute = "/contests/" + contestId + "/cells";
-  //       });
 
 
 
