@@ -1,12 +1,12 @@
     <h3 class='board_info event_name' id="contest_id" c-id=<%= @contest.id %>><%= @contest.home_team %> Vs <%= @contest.away_team %> </h3>
 
     <!-- Tabs -->
-      <div class="row">
+    <div class="row" id="grid">
     <div class="col s12">
-      <ul class="tabs">
+      <ul class="tabs ">
         <li class="tab col s3 red"><a href="#test1">Box Score</a></li>
         <li class="tab col s3 red"><a class="active" href="#test2">Event Details</a></li>
-        <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+        <li class="tab col s3 red active"><a href="#test3" >See Grid</a></li>
         <li class="tab col s3 red"><a href="#test4">Winning</a></li>
       </ul>
     </div>
@@ -39,17 +39,7 @@
     </ul>
     <% end %>
     </div>
-    <div id="test3" class="col s12">Test 3</div>
-    <div id="test4" class="col s12">    <h4 class='board_info'><a href="#">Winning</a></h4>
-</div>
-  </div>
-  <!--  -->
-
-
-   
-    
-      
-    <div id='num_pool'>
+    <div id="test3" class="col s12"> <div id='num_pool'>
       <%= @contest.available_nums %>
     </div> 
     <!-- <button class="btn-large z-depth-4" id="display_board"> Show Taken </button> -->
@@ -82,7 +72,17 @@
       <input type="submit" value="Claim Selected Squares" id='claim-selected' class='  swaves-effect waves-red'>
     </div>
 
-  </form>
+  </form></div>
+    <div id="test4" class="col s12">    <h4 class='board_info'><a href="#">Winning</a></h4>
+</div>
+  </div>
+  <!--  -->
+
+
+   
+    
+      
+   
   <br>
   <br>
   <br> 
