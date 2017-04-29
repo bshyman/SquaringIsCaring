@@ -1,4 +1,5 @@
 class Contest < ActiveRecord::Base
+  include Archivable::Model
   has_many :cells
   has_many :users
 

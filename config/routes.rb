@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   
   resources :contests do
   	resources :cells, except: [:index]
+    get archive,  on: :member
+    get archived, on: :collection
   end
+
 
   get '/users/:id/dashboard', to: 'users#dashboard', as: 'dashboard'
   get '/search', to: 'contests#_search', as: 'search'

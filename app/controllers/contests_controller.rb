@@ -3,12 +3,15 @@ class ContestsController < ApplicationController
 
   respond_to :html, :xml, :json
 
+   include Archivable::Controller
+
+
   def index
 
     if params[:search]
       @contests = Contest.search(params[:search]).order("created_at DESC")
     else
-  	 @contests = Contest.all
+  	 @contests = Contest.where(archived:false)
     end
   end
 
@@ -100,6 +103,10 @@ class ContestsController < ApplicationController
 
     end
 
+  end
+
+  def archives
+    @contests = Contest.where(archived:true)
   end
 
 
