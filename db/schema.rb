@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20170429044726) do
     t.string   "away_team"
     t.datetime "event_date"
     t.string   "box_score"
-    t.boolean  "archived"
+    t.boolean  "archived",       default: false
   end
 
   create_table "users", force: :cascade do |t|

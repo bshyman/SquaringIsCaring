@@ -8,6 +8,7 @@
 <%= render 'search', layout: false %>
 
 <% if @contests.empty? %>
+  <h3>No squares right now</h3>
 <% else %>
   <h2 class='contest-list'>Contest List</h2>
 <% end %>
@@ -20,8 +21,12 @@
   			<li><h5><%= contest.available_nums.length %> squares available</h5></li>
         <% if logged_in? && current_user.admin? %>
           <li><h6><%= link_to 'Delete Event', contest_path(contest), method: "delete" %></h6></li>
+          <li><h6><%= link_to 'Archive', contest_path(contest), method:"archive!" %>
         <% end %>
       </ul>
     </div>
 <% end %>
   </div>
+
+
+<%#= link_to 'See Archived Users', archived_users_path %></h6></li>

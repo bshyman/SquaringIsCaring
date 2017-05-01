@@ -114,7 +114,7 @@ class ContestsController < ApplicationController
 
   private
   def contest_params
-    params.require(:contest).permit(:event_name, :event_date, :cell_value, :sport, :reserve, :prizes, :home_team, :away_team, :box_score => [:home => [:first, :half, :third, :final], :away => [:first, :half, :third, :final]])
+    params.require(:contest).permit(:event_name, :event_date, :cell_value, :sport, :reserve, :prizes, :home_team, :away_team, :archived, :box_score => [:home => [:first, :half, :third, :final], :away => [:first, :half, :third, :final]])
   end
 
 end
