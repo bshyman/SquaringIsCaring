@@ -3,12 +3,15 @@ class ContestsController < ApplicationController
 
   respond_to :html, :xml, :json
 
+   include Archivable::Controller
+
+
   def index
 
     if params[:search]
       @contests = Contest.search(params[:search]).order("created_at DESC")
     else
-  	 @contests = Contest.all
+  	 @contests = Contest.where(archived:false)
     end
   end
 
@@ -79,7 +82,7 @@ class ContestsController < ApplicationController
   	@contest = Contest.find(params[:id])
   	@contest.destroy
   	flash[:notice] = "Your Board has been deleted"
-  	redirect_to contests_path
+  	redirect_to archived_contests_path
   end
 
   def box_score
@@ -102,12 +105,26 @@ class ContestsController < ApplicationController
 
   end
 
+  def archive
+    @contest = Contest.find(params[:id])
+    @contest.archive!
+    flash[:notice] = "Archived!!!"
+    redirect_to contests_path
+
+  end
+
+  def archived
+    @contests = Contest.where(archived:true)
+    @archive_msg = "Archived Contests"
+    render 'index'
+  end
+
 
 
 
   private
   def contest_params
-    params.require(:contest).permit(:event_name, :event_date, :cell_value, :sport, :reserve, :prizes, :home_team, :away_team, :box_score => [:home => [:first, :half, :third, :final], :away => [:first, :half, :third, :final]])
+    params.require(:contest).permit(:event_name, :event_date, :cell_value, :sport, :reserve, :prizes, :home_team, :away_team, :archived, :box_score => [:home => [:first, :half, :third, :final], :away => [:first, :half, :third, :final]])
   end
 
 end
