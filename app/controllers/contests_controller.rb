@@ -82,7 +82,7 @@ class ContestsController < ApplicationController
   	@contest = Contest.find(params[:id])
   	@contest.destroy
   	flash[:notice] = "Your Board has been deleted"
-  	redirect_to contests_path
+  	redirect_to archived_contests_path
   end
 
   def box_score
@@ -105,8 +105,18 @@ class ContestsController < ApplicationController
 
   end
 
-  def archives
+  def archive
+    @contest = Contest.find(params[:id])
+    @contest.archive!
+    flash[:notice] = "Archived!!!"
+    redirect_to contests_path
+
+  end
+
+  def archived
     @contests = Contest.where(archived:true)
+    @archive_msg = "Archived Contests"
+    render 'index'
   end
 
 

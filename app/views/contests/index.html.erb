@@ -1,16 +1,19 @@
 <!-- <div><p><iframe src="http://odds.zetamicro.com/xTicker.asp?bgColor=FFFFFF" width="800" height="180" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="" ></iframe></p></div> -->
 
-   <%#= form_tag(contests_path, :method => "get", id: "search-form") do %>
-    <%#= text_field_tag :search, params[:search], placeholder: "Team Name", class:'capitalize' %>
-    <%#= submit_tag "Search", :name => nil , class:"btn-large" %>
-    <%#= button_to "Reset", type="reset" %>
-  <%# end %>
 <%= render 'search', layout: false %>
 
 <% if @contests.empty? %>
   <h3>No squares right now</h3>
 <% else %>
-  <h2 class='contest-list'>Contest List</h2>
+
+  <h2 class='contest-list'>
+    <% if @archive_msg %>
+       Archived Boards
+    <% else %>
+      Contest List
+    <% end %>
+
+  </h2>
 <% end %>
 <div class='row'>
   <% @contests.sort {|a,b| b.event_date <=> a.event_date}.each do |contest| %>
@@ -20,8 +23,15 @@
       	<li><h5>Starts: <%= contest.event_date.utc.strftime("%b %e, %l:%M %p")%></h5></li>
   			<li><h5><%= contest.available_nums.length %> squares available</h5></li>
         <% if logged_in? && current_user.admin? %>
-          <li><h6><%= link_to 'Delete Event', contest_path(contest), method: "delete" %></h6></li>
-          <li><h6><%= link_to 'Archive', contest_path(contest), method:"archive!" %>
+          
+          <% if contest.archived? %>
+          <li><h6><%= link_to 'Permanently Delete', contest_path(contest), method: "delete" %></h6></li><% end %>
+          
+
+          <li><h6><%= link_to contest.archived? ? :Unarchive : :Archive, archive_contest_path(contest) %>
+            <li><%= link_to 'See Archived Users', archived_contests_path %>
+</li>
+
         <% end %>
       </ul>
     </div>
