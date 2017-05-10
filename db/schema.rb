@@ -76,13 +76,13 @@ ActiveRecord::Schema.define(version: 20170429044726) do
     t.string   "first_name",                             null: false
     t.string   "last_name",                              null: false
     t.string   "avatar"
-    t.date     "birthday",                               null: false
-    t.string   "street_address",                         null: false
+    t.date     "birthday"
+    t.string   "street_address"
     t.string   "apt_num"
-    t.string   "city",                                   null: false
-    t.string   "state",                                  null: false
-    t.integer  "zip",                                    null: false
-    t.string   "phone_num",                              null: false
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "phone_num"
     t.boolean  "admin?",                 default: false
     t.string   "provider"
     t.string   "uid"
