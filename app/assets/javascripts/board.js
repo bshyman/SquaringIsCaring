@@ -15,10 +15,8 @@ $(document).ready(function(){
     var numString = $("div#num_pool").text();
     numString = numString.replace(/\n/g, "");
     numString = numString.match(/\d{1,2}/g)
-  // console.log(numString)
   for (i = 0; i < 100; i++) {
     if (numString == null) {numString = []}
-
       if (!numString.includes(i.toString() )) {
         var taken = document.getElementById(addZeros(i).toString())
         $(taken).parent().parent().addClass( "black");
@@ -45,33 +43,27 @@ $(document).ready(function(){
 
 
     $("div.container").on("click", "div.square", function(){
-      // var contestId = $("form#form").attr("action").match(/\d+/);
       if ($(this).hasClass('brown')) {
         $(this).removeClass('brown');
         $(this).addClass("green");
         $("input[type=checkbox]", this).attr("checked", "");
-
       }
       else {
-
-      $(this).removeClass('green');
-      $(this).addClass("brown");
-      $("input[type=checkbox]", this).attr("checked", "checked");
-        
+        $(this).removeClass('green');
+        $(this).addClass("brown");
+        $("input[type=checkbox]", this).attr("checked", "checked");
       }
-
-
     });
 
     $('button#random2').on('click', function(event){
       event.preventDefault();
       selectRandom(numString, 2)
+
     })
     $('button#random5').on('click', function(event){
       event.preventDefault();
       $(this).addClass("waves-effect waves-red") 
       var takenCount = $("input[checked='checked']").length + 5
-      console.log( "Taken - " + takenCount + " - " + numString.length)
       if (takenCount <= numString.length) {
         selectRandom(numString, 5)
       }
@@ -82,10 +74,7 @@ $(document).ready(function(){
   // function countCheckedAndClaimed()
 
   function selectRandom(array, count){
-
     for (var i = 0; i < count; i++) {
-      console.log(i)
-
       var randomNumInPool = addZeros(array[Math.floor ( Math.random() * array.length )])
       var randomElement = document.getElementById(randomNumInPool)
       if (randomElement.hasAttribute("checked")) {i = i-1};
