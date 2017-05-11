@@ -22,5 +22,7 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
 
     <%= link_to image_tag("google-sign-in.png"), omniauth_authorize_path(resource_name, provider) %><br />
+  <%#= link_to 'FB Login', omniauth_authorize_path(resource_name, provider) %>
   <% end -%>
+
 <% end -%>

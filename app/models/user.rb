@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2, :facebook]
 
   # def self.from_omniauth(auth)
   #   where(auth.slice(provider: auth.provider, uid: auth.uid)).first_or_create do |user| 
@@ -23,7 +23,7 @@ class User < ApplicationRecord
   unless user
     byebug
     password = Devise.friendly_token[0,20]
-    user = User.create(first_name: data["first_name"], last_name: data["last_name"], email: data["email"],
+    user = User.create(first_name: data[:name], last_name: data["last_name"], email: data["email"],
       password: password, password_confirmation: password, avatar: data['image'])
   end
   user
@@ -46,6 +46,8 @@ end
     full_name = ""
     full_name = self.first_name + " " + self.last_name
   end
+
+  
 
   
 
