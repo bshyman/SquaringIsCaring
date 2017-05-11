@@ -21,9 +21,9 @@ class User < ApplicationRecord
   data = access_token.info
   user = User.where(:email => data["email"]).first
   unless user
-    byebug
+    # byebug
     password = Devise.friendly_token[0,20]
-    user = User.create(first_name: data[:name], last_name: data["last_name"], email: data["email"],
+    user = User.create(name: data["name"], email: data["email"],
       password: password, password_confirmation: password, avatar: data['image'])
   end
   user
@@ -42,11 +42,13 @@ end
     end
   end
 
-  def full_name
-    full_name = ""
-    full_name = self.first_name + " " + self.last_name
+  def self.first_name
+    name.split(" ")[0..-2]
   end
 
+  def self.last_name
+    name.split(" ")[-1]
+  end
   
 
   

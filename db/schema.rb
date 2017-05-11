@@ -73,8 +73,7 @@ ActiveRecord::Schema.define(version: 20170429044726) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.string   "first_name",                             null: false
-    t.string   "last_name",                              null: false
+    t.string   "name",                                   null: false
     t.string   "avatar"
     t.date     "birthday"
     t.string   "street_address"
