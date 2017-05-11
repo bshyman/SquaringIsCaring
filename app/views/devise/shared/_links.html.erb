@@ -22,7 +22,7 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
 	<ul>
 		<li>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) ,class:'btn'%><br />
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class:"fa fa-#{provider}" %><br />
 			
 		</li>
 	</ul>
