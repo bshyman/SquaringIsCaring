@@ -45,7 +45,7 @@
     <!-- <button class="btn-large z-depth-4" id="display_board"> Show Taken </button> -->
     <h3 class="home-team-row team-header"><%= @contest.home_team.split(" ").pop %></h3>
   <div class="row home_row board">
-    <div class="col s1 corner"></div>
+    <!-- <div class="col s1 corner"></div> -->
       <%= raw home_axis_populater(@contest) %>
   </div>
   <h1 class="vertical-text team-header hide-on-med-and-down"><%= @contest.away_team.split(" ").pop %></h1>
