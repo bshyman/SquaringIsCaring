@@ -111,7 +111,11 @@ $(document).ready(function(){
       $(cell).parent().text(response[1])
     }
   });
+//Fade - Animate
 
+  $('a[href$="test3"]').on('click', function(){
+    $('div#test3').fadeIn(1000)
+  })
 
 });
 
