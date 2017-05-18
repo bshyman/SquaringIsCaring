@@ -21,7 +21,7 @@ module ContestsHelper
   def away_axis_populater(board, x)
     axis_val = board.away_axis[x]
     html_string = "<div class='row #{x}'>
-  <div class='col s1 away_num'>"
+  <div class='s1 away_num'>"
     if closed?(board)
       html_string += axis_val
     else

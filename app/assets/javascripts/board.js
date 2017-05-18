@@ -15,10 +15,8 @@ $(document).ready(function(){
     var numString = $("div#num_pool").text();
     numString = numString.replace(/\n/g, "");
     numString = numString.match(/\d{1,2}/g)
-  // console.log(numString)
   for (i = 0; i < 100; i++) {
     if (numString == null) {numString = []}
-
       if (!numString.includes(i.toString() )) {
         var taken = document.getElementById(addZeros(i).toString())
         $(taken).parent().parent().addClass( "black");
@@ -45,33 +43,27 @@ $(document).ready(function(){
 
 
     $("div.container").on("click", "div.square", function(){
-      // var contestId = $("form#form").attr("action").match(/\d+/);
       if ($(this).hasClass('brown')) {
         $(this).removeClass('brown');
         $(this).addClass("green");
         $("input[type=checkbox]", this).attr("checked", "");
-
       }
       else {
-
-      $(this).removeClass('green');
-      $(this).addClass("brown");
-      $("input[type=checkbox]", this).attr("checked", "checked");
-        
+        $(this).removeClass('green');
+        $(this).addClass("brown");
+        $("input[type=checkbox]", this).attr("checked", "checked");
       }
-
-
     });
 
     $('button#random2').on('click', function(event){
       event.preventDefault();
       selectRandom(numString, 2)
+
     })
     $('button#random5').on('click', function(event){
       event.preventDefault();
       $(this).addClass("waves-effect waves-red") 
       var takenCount = $("input[checked='checked']").length + 5
-      console.log( "Taken - " + takenCount + " - " + numString.length)
       if (takenCount <= numString.length) {
         selectRandom(numString, 5)
       }
@@ -79,13 +71,9 @@ $(document).ready(function(){
       $(this).addClass("red");
     });
 
-  // function countCheckedAndClaimed()
 
   function selectRandom(array, count){
-
     for (var i = 0; i < count; i++) {
-      console.log(i)
-
       var randomNumInPool = addZeros(array[Math.floor ( Math.random() * array.length )])
       var randomElement = document.getElementById(randomNumInPool)
       if (randomElement.hasAttribute("checked")) {i = i-1};
@@ -93,7 +81,6 @@ $(document).ready(function(){
       $(randomElement).parent().parent().addClass("brown");
       $(randomElement).attr("checked", "checked");
     }
-
   }
 
   if (numString.length == 0) {
@@ -104,34 +91,32 @@ $(document).ready(function(){
         for (var i = 0; i < 100; i++) {
       // console.log(iddd)
       var post_elem = document.getElementById(addZeros(i).toString())
-      // debugger
-      // var users = getUsers
-      
       $(post_elem).parent().prepend(response[i].user_id)
       setTimeout(function(){
-        // console.log(users)
-
       }, 3000) 
-      console.log(response[i])
     };
   })
 };
 
 
+//Display User's selected squares
+  var current_user = document.getElementById('dashboard')
+  current_user = current_user.toString().match(/users\/\d+/)
+  current_user = current_user[0].slice(6)
+  var conId = $("h3.event_name").attr("c-id")
 
-  //   $.get("/contests/" + conId +"/cells/" + i, function(response){
-  //       for (var i = 0; i < 100; i++) {
-  //         var post_elem = document.getElementById(addZeros(i).toString())
-  //         $(post_elem).parent().prepend(response[i].user_id)
-  //       };
-  //   });
-  // };
-  // var getUsers = function(){
-  //   $.get("/users/ ", function(user_data){
-  //     console.log(user_data)
-  //     return user_data;
-  //   });
-  // };
+  $.getJSON('/contests/' + conId + '/my_squares.json', function(response) {
+    for (var i = 0; i < response[0].length; i++) {
+      var cell = document.getElementById(response[0][i].position[0])
+      $(cell).parent().text(response[1])
+    }
+  });
+//Fade - Animate
+
+  $('a[href$="test3"]').on('click', function(){
+    $('div#test3').fadeIn(1000)
+  })
+
 });
 
 
@@ -141,33 +126,6 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-
-
-
-
-    // $("div.container").on("click", "a#view_board", function(){
-    //   populateNums();
-    // });
-
-
-  // $("div.container").on('click', "div.square", function(event){
-  //  var contestId = $("form#form").attr("action").charAt(10);
-  //        // console.log(JSON.stringify(numPool))
-
-  //        alert($(this).html());
-  //        // event.preventDefault();
-  //         var test = $(this).find("input[disabled='disabled']").attr("id")
-  //         console.log("Test - " + this)
-  //         // if (this.children().children().attr("disabled").val("disabled")) {};
-  //         $(this).css('background', 'blue');
-
-  //         var cellId = $(this).children().attr("id");
-  //         var cellRoute = "/contests/" + contestId + "/cells";
-  //       });
 
 
 
