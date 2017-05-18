@@ -33,8 +33,8 @@
         <a href="/home" class="brand-logo title-bar">Squares</a>
         <ul class="right ">
           <% if user_signed_in? %>
-            <li><%= link_to current_user.name, edit_user_registration_path %></li>
-            <li><%= link_to 'Dashboard', dashboard_path(current_user) %></li>
+            <li ><%= link_to current_user.name, edit_user_registration_path %></li>
+            <li ><%= link_to 'Dashboard', dashboard_path(current_user), id: "dashboard" %></li>
           <% else %>
             <li>        <%= link_to 'Login', new_user_session_path, onclick:"Materialize.toast('I am a toast', 80000)" %>
 </li>

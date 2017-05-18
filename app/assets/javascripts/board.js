@@ -71,7 +71,6 @@ $(document).ready(function(){
       $(this).addClass("red");
     });
 
-  // function countCheckedAndClaimed()
 
   function selectRandom(array, count){
     for (var i = 0; i < count; i++) {
@@ -82,7 +81,6 @@ $(document).ready(function(){
       $(randomElement).parent().parent().addClass("brown");
       $(randomElement).attr("checked", "checked");
     }
-
   }
 
   if (numString.length == 0) {
@@ -93,34 +91,28 @@ $(document).ready(function(){
         for (var i = 0; i < 100; i++) {
       // console.log(iddd)
       var post_elem = document.getElementById(addZeros(i).toString())
-      // debugger
-      // var users = getUsers
-      
       $(post_elem).parent().prepend(response[i].user_id)
       setTimeout(function(){
-        // console.log(users)
-
       }, 3000) 
-      console.log(response[i])
     };
   })
 };
 
 
+//Display User's selected squares
+  var current_user = document.getElementById('dashboard')
+  current_user = current_user.toString().match(/users\/\d+/)
+  current_user = current_user[0].slice(6)
+  var conId = $("h3.event_name").attr("c-id")
 
-  //   $.get("/contests/" + conId +"/cells/" + i, function(response){
-  //       for (var i = 0; i < 100; i++) {
-  //         var post_elem = document.getElementById(addZeros(i).toString())
-  //         $(post_elem).parent().prepend(response[i].user_id)
-  //       };
-  //   });
-  // };
-  // var getUsers = function(){
-  //   $.get("/users/ ", function(user_data){
-  //     console.log(user_data)
-  //     return user_data;
-  //   });
-  // };
+  $.getJSON('/contests/' + conId + '/my_squares.json', function(response) {
+    for (var i = 0; i < response[0].length; i++) {
+      var cell = document.getElementById(response[0][i].position[0])
+      $(cell).parent().text(response[1])
+    }
+  });
+
+
 });
 
 
@@ -130,33 +122,6 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-
-
-
-
-    // $("div.container").on("click", "a#view_board", function(){
-    //   populateNums();
-    // });
-
-
-  // $("div.container").on('click', "div.square", function(event){
-  //  var contestId = $("form#form").attr("action").charAt(10);
-  //        // console.log(JSON.stringify(numPool))
-
-  //        alert($(this).html());
-  //        // event.preventDefault();
-  //         var test = $(this).find("input[disabled='disabled']").attr("id")
-  //         console.log("Test - " + this)
-  //         // if (this.children().children().attr("disabled").val("disabled")) {};
-  //         $(this).css('background', 'blue');
-
-  //         var cellId = $(this).children().attr("id");
-  //         var cellRoute = "/contests/" + contestId + "/cells";
-  //       });
 
 
 
