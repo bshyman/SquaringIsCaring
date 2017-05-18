@@ -1,4 +1,5 @@
 class Contest < ActiveRecord::Base
+  include Archivable::Model
   has_many :cells
   has_many :users
 
@@ -36,5 +37,7 @@ def event_name
     self.home_team = self.home_team.split.collect(&:capitalize).join(' ') if self.home_team && !self.home_team.blank?
     self.away_team = self.away_team.split.collect(&:capitalize).join(' ') if self.away_team && !self.away_team.blank?
   end
+
+  
   
 end
