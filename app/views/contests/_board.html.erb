@@ -48,8 +48,8 @@
     <!-- <div class="col s1 corner"></div> -->
       <%= raw home_axis_populater(@contest) %>
   </div>
-  <h1 class="vertical-text team-header hide-on-med-and-down"><%= @contest.away_team.split(" ").pop %></h1>
-<ul class="legend">
+  <h1 class="vertical-text team-header"><%= @contest.away_team.split(" ").pop %></h1>
+<ul class="legend hide-on-med-and-down">
   <li><div class="color-box green"></div><span>Available</span></li>
   <li><div class="color-box black"></div><span>Taken</span></li>
 </ul>
