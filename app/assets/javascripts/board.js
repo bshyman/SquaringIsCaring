@@ -1,6 +1,5 @@
 $(document).ready(function(){
   var numPool = document.getElementById("num_pool");
-  
   flatpickr(".flatpickr", {
     enableTime: true,
     altInput: true,
@@ -11,29 +10,29 @@ $(document).ready(function(){
     // defaultDate: 
   });
 
-  // $("div.container").on('click', "button#display_board", function(e){
-    var numString = $("div#num_pool").text();
-    numString = numString.replace(/\n/g, "");
-    numString = numString.match(/\d{1,2}/g)
+  var numString = $("div#num_pool").text();
+  numString = numString.replace(/\n/g, "");
+  numString = numString.match(/\d{1,2}/g)
   for (i = 0; i < 100; i++) {
     if (numString == null) {numString = []}
-      if (!numString.includes(i.toString() )) {
-        var taken = document.getElementById(addZeros(i).toString())
-        $(taken).parent().parent().addClass( "black");
-        $(taken).attr("disabled", "disabled")
-      }
-    };
+    if (!numString.includes(i.toString() )) {
+      var taken = document.getElementById(addZeros(i).toString())
+      $(taken).parent().parent().addClass( "black");
+      $(taken).attr("disabled", "disabled")
+    }
+  };
 
 
-    for (i=0; i < 100; i++) {
-      var element = document.getElementById(addZeros(numString[i]));
-      $(element).attr("enabled", "enabled")
-      $(element).parent().parent().addClass( "green");
-    };
+  for (i=0; i < 100; i++) {
+    var element = document.getElementById(addZeros(numString[i]));
+    $(element).attr("enabled", "enabled")
+    $(element).parent().parent().addClass( "green");
+  };
 
-    function addZeros(n) {
-      return (n < 10 ? '0' : '') + n;
-    };
+  //convert 1 digit numbers to 2
+  function addZeros(n) {
+    return (n < 10 ? '0' : '') + n;
+  };
 
 
     $("div.container").on('click', "div.contest-card", function(e){
@@ -41,6 +40,12 @@ $(document).ready(function(){
     });
 
 
+
+    // $("div.container").on("mouseover", "div.square", function(){
+    //   $(this).removeClass('green');
+    //   $(this).addClass('red');
+
+    // })
 
     $("div.container").on("click", "div.square", function(){
       if ($(this).hasClass('brown')) {
@@ -50,8 +55,10 @@ $(document).ready(function(){
       }
       else {
         $(this).removeClass('green');
-        $(this).addClass("brown");
+        $(this).fadeToggle(200);
+        $(this).fadeToggle(500);
         $("input[type=checkbox]", this).attr("checked", "checked");
+        $(this).addClass("brown");
       }
     });
 
@@ -84,19 +91,16 @@ $(document).ready(function(){
   }
 
   if (numString.length == 0) {
-  // var users = getUserIds();
-  var conId = $("h3.event_name").attr("c-id")
-  $.get("/contests/" + conId +"/cells/" + i, function(response){
-        // console.log(response)
-        for (var i = 0; i < 100; i++) {
-      // console.log(iddd)
-      var post_elem = document.getElementById(addZeros(i).toString())
-      $(post_elem).parent().prepend(response[i].user_id)
-      setTimeout(function(){
-      }, 3000) 
-    };
-  })
-};
+    var conId = $("h3.event_name").attr("c-id")
+    $.get("/contests/" + conId +"/cells/" + i, function(response){
+          for (var i = 0; i < 100; i++) {
+            var post_elem = document.getElementById(addZeros(i).toString())
+            $(post_elem).parent().prepend(response[i].user_id)
+            setTimeout(function(){
+            }, 3000) 
+          };
+    })
+  };
 
 
 //Display User's selected squares
@@ -116,6 +120,11 @@ $(document).ready(function(){
   $('a[href$="test3"]').on('click', function(){
     $('div#test3').fadeIn(1000)
   })
+
+  $('.square').on('click', function(){
+    console.log(this)
+    $(this).animate({border: 'dotted 3px'}, "slow")
+  });
 
 });
 
