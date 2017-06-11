@@ -276,12 +276,30 @@ margin-top: 10px;
 }
 
 #search {
-  width: 65%;
-  float: left;
+  width: 50%;
+  left: 15%;
+  /*float: left;*/
+  /*display: inline-block;*/
+  position: absolute;
 }
-.search-select {
-  width: 25%;
+
+#search-input {
+  /*margin: auto;*/
+  width: 80%;
+}
+
+* {
+  /*border: solid 3px;*/
+}
+.search-submit {
+  width: 20%;
   float: right;
+  background-color: black;
+  height: 50px;
+  font-size: 2em;
+  border: none;
+  margin-top: 5px;
+  color: grey;
 }
 
 .contest-list {
