@@ -59,7 +59,7 @@ form .col {
 }
 
 .square:hover {
-  background: red !important;
+  opacity: 0.3;
 }
 
 .board_info {
