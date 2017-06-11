@@ -339,3 +339,19 @@ margin-top: 10px;
   text-align: center;
 }
 
+.card {
+  display: inline-block;
+  margin: 10px !important;
+  height: 20%;
+  padding: 10px;
+  
+
+}
+
+.contest-card {
+  display: inline-block;
+}
+
+.card-text {
+  text-align: center;
+}
