@@ -34,7 +34,7 @@
 
       <div class="nav-wrapper">
         <a href="/home" class="brand-logo title-bar">Squares</a>
-        <span><%= render 'search', layout: false %></span>
+        <span><%= render 'contests/search', layout: false %></span>
         <ul class="right ">
           <% if user_signed_in? %>
             <li ><%= link_to current_user.name, edit_user_registration_path %></li>
