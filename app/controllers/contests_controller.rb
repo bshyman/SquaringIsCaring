@@ -93,16 +93,9 @@ class ContestsController < ApplicationController
 
   def display_owners
     @contest = Contest.find(params[:id])
-    # @cells = [] 
-    # @contest.cells.each do |cell|
-    #   @cells << cell
-    # end
-
     if closed?(@contest)
       render json: @contest.cells
-
     end
-
   end
 
   def archive
@@ -117,6 +110,13 @@ class ContestsController < ApplicationController
     @contests = Contest.where(archived:true)
     @archive_msg = "Archived Contests"
     render 'index'
+  end
+
+   def my_squares
+    p params
+    @my_squares = Cell.where(contest_id: params[:id], user_id: current_user.id)
+    # byebug
+    render json: [@my_squares, current_user.name]
   end
 
 

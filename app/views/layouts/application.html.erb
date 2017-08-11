@@ -3,6 +3,8 @@
   <head>
     <title>SquaringIsCaring</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= csrf_meta_tags %>
     
@@ -14,27 +16,32 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/13ab5ba0ee.js"></script>
     <!-- flatpicker -->
     <script type="text/javascript" src="https://unpkg.com/flatpickr"></script>
     <script src="https://use.fontawesome.com/e962ccf885.js"></script>
     <script src="https://use.fontawesome.com/e962ccf885.js"></script>
+
     <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
     
   </head>
 
   <body>
     <nav>
+
       <meta name="viewport" content="width=device-width" />
 
       <div class="nav-wrapper">
         <a href="/home" class="brand-logo title-bar">Squares</a>
+        <span><%= render 'search', layout: false %></span>
         <ul class="right ">
           <% if user_signed_in? %>
-            <li><%= link_to current_user.name, edit_user_registration_path %></li>
-            <li><%= link_to 'Dashboard', dashboard_path(current_user) %></li>
+            <li ><%= link_to current_user.name, edit_user_registration_path %></li>
+            <li ><%= link_to 'Dashboard', dashboard_path(current_user), id: "dashboard" %></li>
           <% else %>
-            <li><%= link_to 'Login', new_user_session_path %></li>
+            <li>        <%= link_to 'Login', new_user_session_path, onclick:"Materialize.toast('I am a toast', 80000)" %>
+</li>
             <!-- <li><%#= link_to 'Login with Google', user_google_oauth2_omniauth_authorize_path%></li> -->
             <li><%= link_to 'Register', new_user_registration_path %></li>
           <% end %>

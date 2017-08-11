@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get '/prizes', to: 'layouts#prizes'
   get '/how-to', to: 'layouts#howto'
   get '/contact', to: 'layouts#contact'
+  get '/contests/:id/my_squares', to: 'contests#my_squares'
 
   root to: 'layouts#home'
 end

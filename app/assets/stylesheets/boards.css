@@ -7,7 +7,13 @@
    background: image-url('stylesheets/checkerbacks.png');
 
 }*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
+  padding-bottom: 20px;
   background-image: url('light_tones.png');
   /*background-position: cover;*/
     font-family: GillSans, Calibri, Trebuchet, sans-serif;
@@ -47,10 +53,13 @@ form .col {
 
 .home_row {
   margin-top: 20px !important;
+  margin-left: 100px !important;
+  font-size: 2em;
+  
 }
 
 .square:hover {
-  background: red !important;
+  opacity: 0.3;
 }
 
 .board_info {
@@ -63,7 +72,6 @@ form .col {
 
 .away_num, .home_num {
   /*margin-top: 10px;*/
-  background: red;
   color: black;
   font-size: 2em;
   /*height: 20px;*/
@@ -164,7 +172,7 @@ div.square {
   /*border-radius: 8px;*/
   top: 10px;
   position: relative;
-  height: 90px;
+  height: 120px;
 }
 
 div.closed_cells {
@@ -189,22 +197,24 @@ div.closed_cells {
 }
 
 .vertical-text {
-  transform: rotate(270deg);
-  transform-origin: left top 30;
+  transform: rotate(270deg) !important;
+  /*transform-origin: left top 30;*/
   float: left;
-  margin-top: 200px;
   position: absolute;
-  left: -90px;
-  top: 100%;
+  left: -400px;
+  top: 85%;
   font-size: 8em ;
   height: 250px;
-  width: 800px;
-  text-align: left;
+  width: 1200px;
+  text-align: center;
+  letter-spacing: 0.5em;
 }
 
 .home-team-row {
   text-align: center;
   font-size: 8em;
+  letter-spacing: 0.5em;
+  border: none;
 
 }
 
@@ -237,6 +247,7 @@ body {
   height: 200px;
   width: 400px;
   right: 3%;
+  top: 800px;
   position: absolute;
   /*border: solid 6px;*/
   border-radius: 4px;
@@ -265,12 +276,30 @@ margin-top: 10px;
 }
 
 #search {
-  width: 65%;
-  float: left;
+  width: 50%;
+  left: 15%;
+  /*float: left;*/
+  /*display: inline-block;*/
+  position: absolute;
 }
-.search-select {
-  width: 25%;
+
+#search-input {
+  /*margin: auto;*/
+  width: 80%;
+}
+
+* {
+  /*border: solid 3px;*/
+}
+.search-submit {
+  width: 20%;
   float: right;
+  background-color: black;
+  height: 50px;
+  font-size: 2em;
+  border: none;
+  margin-top: 5px;
+  color: grey;
 }
 
 .contest-list {
@@ -301,4 +330,46 @@ margin-top: 10px;
 .tabs .indicator {
   height: 8px !important;
   background-color: black !important;
+}
+
+.footer {
+  margin-top: 20px !important;
+}
+
+.away_num {
+  float: left;
+  height: 90px;
+  width: 60px;
+  vertical-align: text-bottom;
+  margin-top: 30px;
+  font-size: 4em;
+  margin-right: 20px;
+
+}
+
+
+.home_num {
+  width: 8.7% !important;
+  height: 100px !important;
+  display: inline-block;
+  position: relative;
+  font-size: 2em !important;
+  text-align: center;
+}
+
+.card {
+  display: inline-block;
+  margin: 10px !important;
+  height: 20%;
+  padding: 10px;
+  
+
+}
+
+.contest-card {
+  display: inline-block;
+}
+
+.card-text {
+  text-align: center;
 }

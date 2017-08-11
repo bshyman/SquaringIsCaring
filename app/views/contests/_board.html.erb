@@ -3,10 +3,10 @@
     <!-- Tabs -->
     <div class="row" id="grid">
     <div class="col s12">
-      <ul class="tabs ">
+      <ul class="tabs red valign-wrapper">
         <li class="tab col s3 red"><a href="#test1">Box Score</a></li>
-        <li class="tab col s3 red"><a class="active" href="#test2">Event Details</a></li>
-        <li class="tab col s3 red active"><a href="#test3" >See Grid</a></li>
+        <li class="tab col s3 red"><a  href="#test2">Event Details</a></li>
+        <li class="tab col s3 red"><a class="active" href="#test3" >See Grid</a></li>
         <li class="tab col s3 red"><a href="#test4">Winning</a></li>
       </ul>
     </div>
@@ -45,11 +45,11 @@
     <!-- <button class="btn-large z-depth-4" id="display_board"> Show Taken </button> -->
     <h3 class="home-team-row team-header"><%= @contest.home_team.split(" ").pop %></h3>
   <div class="row home_row board">
-    <div class="col s1 corner"></div>
+    <!-- <div class="col s1 corner"></div> -->
       <%= raw home_axis_populater(@contest) %>
   </div>
-  <h1 class="vertical-text team-header hide-on-med-and-down"><%= @contest.away_team.split(" ").pop %></h1>
-<ul class="legend">
+  <h1 class="vertical-text team-header"><%= @contest.away_team.split(" ").pop %></h1>
+<ul class="legend hide-on-med-and-down">
   <li><div class="color-box green"></div><span>Available</span></li>
   <li><div class="color-box black"></div><span>Taken</span></li>
 </ul>
