@@ -1,27 +1,27 @@
 $(document).ready(function(){
-  var numPool = document.getElementById("num_pool");
-  flatpickr(".flatpickr", {
-    enableTime: true,
-    altInput: true,
-    altFormat: "F j, Y h:i K",
-    minDate: new Date(), // "today" / "2016-12-20" / 1477673788975
-    utc: true,
-    dateFormat: ("D, d M Y H:i:s")
-    // defaultDate: 
-  });
 
-  var numString = $("div#num_pool").text();
-  numString = numString.replace(/\n/g, "");
-  numString = numString.match(/\d{1,2}/g)
+    flatpickr(".flatpickr", {
+        enableTime: true,
+        altInput: true,
+        altFormat: "F j, Y h:i K",
+        minDate: new Date(), // "today" / "2016-12-20" / 1477673788975
+        utc: true,
+        dateFormat: ("D, d M Y H:i:s"),
+        defaultDate: new Date()
+    });
+
+    var numPool = document.getElementById("num_pool");
+    var numString = $("div#num_pool").text();
+    numString = numString.replace(/\n/g, "");
+    numString = numString.match(/\d{1,2}/g);
   for (i = 0; i < 100; i++) {
-    if (numString == null) {numString = []}
+    if (numString == null) {numString = []};
     if (!numString.includes(i.toString() )) {
       var taken = document.getElementById(addZeros(i).toString())
       $(taken).parent().parent().addClass( "black");
       $(taken).attr("disabled", "disabled")
     }
   };
-
 
   for (i=0; i < 100; i++) {
     var element = document.getElementById(addZeros(numString[i]));
@@ -34,18 +34,10 @@ $(document).ready(function(){
     return (n < 10 ? '0' : '') + n;
   };
 
-
     $("div.container").on('click', "div.contest-card", function(e){
       var id = $("div.contest-card").attr("contest_id");
     });
 
-
-
-    // $("div.container").on("mouseover", "div.square", function(){
-    //   $(this).removeClass('green');
-    //   $(this).addClass('red');
-
-    // })
 
     $("div.container").on("click", "div.square", function(){
       if ($(this).hasClass('brown')) {
@@ -62,6 +54,7 @@ $(document).ready(function(){
       }
     });
 
+    //Random Square Selectors
     $('button#random2').on('click', function(event){
       event.preventDefault();
       selectRandom(numString, 2)
@@ -90,19 +83,28 @@ $(document).ready(function(){
     }
   }
 
-  if (numString.length == 0) {
+    if (numString.length == 0) {
     var conId = $("h3.event_name").attr("c-id")
     $.get("/contests/" + conId +"/cells/" + i, function(response){
           for (var i = 0; i < 100; i++) {
-            var post_elem = document.getElementById(addZeros(i).toString())
-            $(post_elem).parent().prepend(response[i].user_id)
-            setTimeout(function(){
-            }, 3000) 
-          };
+        var post_elem = document.getElementById(addZeros(i).toString())      
+        $(post_elem).parent().prepend(response[i].user_id)
+        setTimeout(function(){
+        }, 3000) 
+        console.log(response[i])
+      };
     })
   };
-
-
+    var conId = $("h3.event_name").attr("c-id")
+    $.get("/contests/" + conId +"/cells/" + i, function(response){
+        for (var i = 0; i < 100; i++) {
+          var post_elem = document.getElementById(addZeros(i).toString())
+          $(post_elem).parent().prepend(response[i].user_id)
+          setTimeout(function(){
+          }, 3000) 
+        };
+    });
+  
 //Display User's selected squares
   var current_user = document.getElementById('dashboard')
   current_user = current_user.toString().match(/users\/\d+/)
@@ -115,12 +117,11 @@ $(document).ready(function(){
       $(cell).parent().text(response[1])
     }
   });
-//Fade - Animate
 
+  //Fade - Animate
   $('a[href$="test3"]').on('click', function(){
     $('div#test3').fadeIn(1000)
-  })
-
+  });
   $('.square').on('click', function(){
     console.log(this)
     $(this).animate({border: 'dotted 3px'}, "slow")

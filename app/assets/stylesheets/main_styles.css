@@ -40,3 +40,14 @@ nav {
 .how-to-header {
   text-align: center;
 }
+
+
+.login_buttons {
+  /*width: 40%;*/
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  
+
+}
