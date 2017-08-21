@@ -40,7 +40,7 @@
             <li ><%= link_to current_user.name, edit_user_registration_path %></li>
             <li ><%= link_to 'Dashboard', dashboard_path(current_user), id: "dashboard" %></li>
           <% else %>
-            <li>        <%= link_to 'Login', new_user_session_path, onclick:"Materialize.toast('I am a toast', 80000)" %>
+            <li>        <%= link_to 'Login', new_user_session_path%>
 </li>
             <!-- <li><%#= link_to 'Login with Google', user_google_oauth2_omniauth_authorize_path%></li> -->
             <li><%= link_to 'Register', new_user_registration_path %></li>
