@@ -388,6 +388,7 @@ margin-top: 10px;
   width: 300px;
 
 
+
 }
  
 
@@ -401,3 +402,7 @@ margin-top: 10px;
   padding-left: 20px;
   bottom: 5px !important;
  }
+
+#google_login {
+  
+}
