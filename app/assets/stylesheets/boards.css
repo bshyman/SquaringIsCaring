@@ -373,3 +373,36 @@ margin-top: 10px;
 .card-text {
   text-align: center;
 }
+
+.login_links {
+  width: 500px;
+  border: 2px solid;
+  margin: auto;
+  padding: 20px;
+}
+.login-link {
+  margin: 5px !important;
+  background-color: steelblue !important;
+  color: black !important;
+  font-weight: bold;
+  width: 300px;
+
+
+
+}
+ 
+
+ .login-btn {
+  width: 300px !important;
+  margin: auto !important;
+  position: relative;
+  left: 4px;
+ }
+ #new_user > div.login_links > div > span {
+  padding-left: 20px;
+  bottom: 5px !important;
+ }
+
+#google_login {
+  
+}
