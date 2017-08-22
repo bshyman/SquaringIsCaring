@@ -3,13 +3,20 @@ class ContestsController < ApplicationController
 
   respond_to :html, :xml, :json
 
+   include Archivable::Controller
+
+
   def index
 
     if params[:search]
       @contests = Contest.search(params[:search]).order("created_at DESC")
     else
-  	 @contests = Contest.all
+  	 @contests = Contest.where(archived:false)
     end
+  end
+
+  def search 
+    
   end
 
   def new
@@ -23,12 +30,12 @@ class ContestsController < ApplicationController
     if closed?(@contest)
       @nums = []
         if request.xhr?
-          p "AJAX"
+          # p "AJAX"
           @contest.available_nums.each{|num| @nums << num.to_i}
           render :json => @nums
         else
-          flash[:notice] = "NO AJAX"
-          p "NO AJAX"
+          # flash[:notice] = "NO AJAX"
+          # p "NO AJAX"
           # redirect_to login_path
         end
     end
@@ -75,7 +82,7 @@ class ContestsController < ApplicationController
   	@contest = Contest.find(params[:id])
   	@contest.destroy
   	flash[:notice] = "Your Board has been deleted"
-  	redirect_to contests_path
+  	redirect_to archived_contests_path
   end
 
   def box_score
@@ -86,16 +93,30 @@ class ContestsController < ApplicationController
 
   def display_owners
     @contest = Contest.find(params[:id])
-    # @cells = [] 
-    # @contest.cells.each do |cell|
-    #   @cells << cell
-    # end
-
     if closed?(@contest)
       render json: @contest.cells
-
     end
+  end
 
+  def archive
+    @contest = Contest.find(params[:id])
+    @contest.archive!
+    flash[:notice] = "Archived!!!"
+    redirect_to contests_path
+
+  end
+
+  def archived
+    @contests = Contest.where(archived:true)
+    @archive_msg = "Archived Contests"
+    render 'index'
+  end
+
+   def my_squares
+    p params
+    @my_squares = Cell.where(contest_id: params[:id], user_id: current_user.id)
+    # byebug
+    render json: [@my_squares, current_user.name]
   end
 
 
@@ -103,7 +124,7 @@ class ContestsController < ApplicationController
 
   private
   def contest_params
-    params.require(:contest).permit(:event_name, :event_date, :cell_value, :sport, :reserve, :prizes, :home_team, :away_team, :box_score => [:home => [:first, :half, :third, :final], :away => [:first, :half, :third, :final]])
+    params.require(:contest).permit(:event_name, :event_date, :cell_value, :sport, :reserve, :prizes, :home_team, :away_team, :archived, :box_score => [:home => [:first, :half, :third, :final], :away => [:first, :half, :third, :final]])
   end
 
 end

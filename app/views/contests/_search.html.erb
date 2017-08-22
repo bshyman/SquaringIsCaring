@@ -1,0 +1,6 @@
+
+   <%= form_tag(contests_path, :method => "get", id: "search") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "City or Team Name", class:'capitalize', id:'search-input' %>
+    <%= submit_tag "Search", :name => nil , class:" search-submit" %>
+    <%#= button_to "Reset", type="reset" %>
+  <% end %>

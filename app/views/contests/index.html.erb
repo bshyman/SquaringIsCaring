@@ -1,23 +1,48 @@
 <!-- <div><p><iframe src="http://odds.zetamicro.com/xTicker.asp?bgColor=FFFFFF" width="800" height="180" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="" ></iframe></p></div> -->
 
-   <%= form_tag(contests_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Team Name", class:'capitalize' %>
-    <%= submit_tag "Search", :name => nil , class:"btn-large" %>
-    <%#= button_to "Reset", type="reset" %>
-  <% end %>
+<%#= render 'search', layout: false %>
 
-<h2 class='contest-list'>Contest List</h2>
-<% @contests.sort {|a,b| b.event_date <=> a.event_date}.each do |contest| %>
-  <div class ="contest-card" contest_id="<%= contest.id %>">
-    <h4 ><%= link_to contest.event_name, contest_path(contest), class:"event_index"%> </h4>
-    	<ul>
-    		<li><h5>Starts: <%= contest.event_date.utc.strftime("%b %e, %l:%M %p")%></h5>
-    		</li>
-			<li><h5><%= contest.available_nums.length %> squares available</h5></li>
-      <% if current_user.admin? %>
-      <li><h6><%= link_to 'Delete Event', contest_path(contest), method: "delete" %></h6></li>
-      <% end %>
-    	</ul>
-  </div>
+<% if @contests.empty? %>
+  <h3>No squares right now</h3>
+<% else %>
 
+  <h2 class='contest-list'>
+    <% if @archive_msg %>
+       Archived Boards
+    <% else %>
+      Contest List
+    <% end %>
+
+  </h2>
 <% end %>
+<div >
+  <% @contests.sort {|a,b| b.event_date <=> a.event_date}.each do |contest| %>
+    <div class ="contest-card " contest_id="<%= contest.id %>">
+      <div class="card col s3 teal lighten-3 ">
+        <h4><%= link_to contest.event_name, contest_path(contest), class:"event_index "%></h4>
+      	<div class="card-text">Starts: <%= contest.event_date.utc.strftime("%b %e, %l:%M %p")%></div>
+  			<div class="card-text"><%= contest.available_nums.length %> squares available</div>
+      
+        <% if logged_in? && current_user.admin? %> 
+          <% if contest.archived? %>
+            <div><h6><%= link_to 'Permanently Delete', contest_path(contest), method: "delete" %></h6></div>
+          <% end %>
+          <div><h6><%= link_to contest.archived? ? :Unarchive : :Archive, archive_contest_path(contest) %> </div>
+        <% end %>
+
+    </div>
+  </div>
+<% end %>
+
+      <!-- <div class="row">
+      <div class="col s12 m5">
+        <div class="card-panel teal">
+          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+          </span>
+        </div>
+      </div>
+    </div> -->
+
+
+<%#= link_to 'See Archived Users', archived_users_path %></h6></li>
