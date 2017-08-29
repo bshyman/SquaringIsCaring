@@ -127,6 +127,12 @@ $(document).ready(function(){
     $(this).animate({border: 'dotted 3px'}, "slow")
   });
 
+  //Animate.css Flip
+  $('.contest-card').on('click', function(e){
+    e.preventDefault();
+    $(this).addClass('flipInX');
+
+  })
 
 });
 
