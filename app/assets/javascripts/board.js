@@ -134,6 +134,10 @@ $(document).ready(function(){
 
   })
 
+  $('div.container').load(function(){
+    $('div.cube').removeClass('animated');
+  });
+
 });
 
 
