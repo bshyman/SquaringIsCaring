@@ -134,7 +134,7 @@ $(document).ready(function(){
 
   })
 
-  $('div.container').load(function(){
+  $('div.home').on('mouseover', function(){
     $('div.cube').removeClass('animated');
   });
 
