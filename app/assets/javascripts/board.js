@@ -19,13 +19,13 @@ $(document).ready(function(){
     if (!numString.includes(i.toString() )) {
       var taken = document.getElementById(addZeros(i).toString())
       $(taken).parent().parent().addClass( "black");
-      $(taken).attr("disabled", "disabled")
+      $(taken).attr("disabled", "disabled");
     }
   };
 
   for (i=0; i < 100; i++) {
     var element = document.getElementById(addZeros(numString[i]));
-    $(element).attr("enabled", "enabled")
+    $(element).attr("enabled", "enabled");
     $(element).parent().parent().addClass( "green");
   };
 
@@ -37,7 +37,6 @@ $(document).ready(function(){
     $("div.container").on('click', "div.contest-card", function(e){
       var id = $("div.contest-card").attr("contest_id");
     });
-
 
     $("div.container").on("click", "div.square", function(){
       if ($(this).hasClass('brown')) {
@@ -58,7 +57,6 @@ $(document).ready(function(){
     $('button#random2').on('click', function(event){
       event.preventDefault();
       selectRandom(numString, 2)
-
     })
     $('button#random5').on('click', function(event){
       event.preventDefault();
@@ -134,7 +132,7 @@ $(document).ready(function(){
 
   })
 
-  $('div.home').on('mouseover', function(){
+  $('div.home').on('mouseenter', function(){
     $('div.cube').removeClass('animated');
   });
 
