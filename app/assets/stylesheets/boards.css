@@ -405,3 +405,7 @@ margin-top: 10px;
 #google_login {
   
 }
+
+#new_user > div.login_links > ul > a {
+  display: none;
+}

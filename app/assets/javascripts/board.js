@@ -127,7 +127,6 @@ $(document).ready(function(){
 
   //Animate.css Flip
   $('.contest-card').on('click', function(e){
-    e.preventDefault();
     $(this).addClass('flipInX');
 
   })
